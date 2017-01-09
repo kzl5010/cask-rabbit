@@ -1,4 +1,4 @@
-[Heroku link][heroku]
+[Heroku link]: https://dashboard.heroku.com/apps/caskrabbit
 
 [Trello link][trello]
 
@@ -28,30 +28,30 @@ Zeus' skull. By the end of Week 9, this site will meet the following requirement
 
 ## Implementation Timeline
 
-### Part 1: Rails setup and Full-Stack User Authentication (2 Days)
+### Phase 1: Backend setup and Front End User Authentication (2 days)
 
-**Objective:** Rails MVC done with jbuilder/json and Authentication
+**Objective:** Functioning rails project with front-end Authentication
 
-### Phase 2: Tasks, API, and components (2 Days)
+### Phase 2: Notes Model, API, and components (2 days)
 
-**Objective:** Tasks can be created, edited, or destroyed in the API.
+**Objective:** Notes can be created, read, edited and destroyed through
+the API.
 
-### Phase 3: Taskers API (2 Days)
+### Phase 3: Notebooks (2 day)
 
-**Objective:** Taskers can be created, rated, requested, and destroyed through the API.
+**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
 
-### Phase 4: Reviews (1 Day)
+### Phase 4: Tags (1 days)
 
-**Objective:** Reviews can be made with one by each user for a specific task and linked to
-the tasker and the task.
+**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
 
-### Phase 5: CSS Styling
+### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
 
-**objective:** Allow beautiful creations in the website
+**objective:** Allow rich text editing of notes.
 
-### Phase 6: - More Formatting styling and site building
+### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
 
-**objective:** More of the Same. 
+**objective:** Add infinite scroll to Notes Index
 
 ### Bonus Features (TBD)
 - [ ] Google Maps API
