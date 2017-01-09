@@ -2,6 +2,14 @@
 
 [Trello link][trello]
 
+## Minimum Viable Product
+CaskRabbit is a website sprung from TaskRabbit much as Athena emerged fully grown and armored from
+Zeus' skull. By the end of Week 9, this site will meet the following requirements with minimal bugs, abundant seed data and unmatched CSS styling:
+
+- [] Host on Heroku
+- [] New account creation, login, demo login
+- [] Create or Request Tasks
+- [] Become a tasker or compare taskers
 
 ##Design Docs
 
@@ -46,7 +54,7 @@ the API.
 **objective:** Add infinite scroll to Notes Index
 
 ### Bonus Features (TBD)
-- [ ] Search notes by content
-- [ ] Set reminders on notes
+- [ ] Google Maps API
+- [ ]
 - [ ] Changelogs for Notes
 - [ ] Multiple sessions
