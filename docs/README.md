@@ -20,10 +20,10 @@ Zeus' skull. By the end of Week 9, this site will meet the following requirement
 [Sample State][sample-state]
 
 [Wireframes]: docs/wireframes
-[Components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+[Components]: component-hierarchy.md
+[sample-state]: sample-state.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
 
 
 ## Implementation Timeline
@@ -51,7 +51,7 @@ the tasker and the task.
 
 ### Phase 6: - More Formatting styling and site building
 
-**objective:** More of the Same. 
+**objective:** More of the Same.
 
 ### Bonus Features (TBD)
 - [ ] Google Maps API
