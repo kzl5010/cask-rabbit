@@ -18,8 +18,7 @@ id          | integer   | not null, primary key
 title       | string    | not null, indexed
 description | text      | not null
 location    | text      | not null
-taskee_id   | integer   | not null, foreign key (references users), indexed
-tasker_id   | integer   | not null, foreign key (references taskers), indexed
+
 
 ## reviews
 column name | data type | details
@@ -38,3 +37,11 @@ name        | string    | not null
 email       | string    | not null, indexed, unique
 zip_code    | string    | not null
 rating      | integer   |
+
+## task_requests 
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+taskee_id   | integer   | not null, foreign key (references users), indexed
+tasker_id   | integer   | not null, foreign key (references taskers), indexed
+task_id     | integer   | not null, foreign key (references tasks), indexed 
