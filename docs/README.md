@@ -36,9 +36,9 @@ Zeus' skull. By the end of Week 9, this site will meet the following requirement
 
 **Objective:** Rails MVC done with jbuilder/json and Authentication
 
-### Phase 2: Tasks, API, and components (2 Days)
+### Phase 2: Tasks Requests, API, and components (2 Days)
 
-**Objective:** Tasks can be created, edited, or destroyed in the API.
+**Objective:** Tasks can be requested by a logged in user in the API.
 
 ### Phase 3: Taskers API (2 Days)
 
