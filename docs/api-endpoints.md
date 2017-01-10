@@ -10,8 +10,6 @@
 
 - `POST /api/users`
 - `PATCH /api/users`
-- `GET /api/users/:id/reviews`
-  - Find all the reviews posted by a user
 
 ### Session
 
@@ -35,5 +33,11 @@
 - `POST /api/taskers`
 - `GET /api/taskers/:id`
 - `DELETE /api/taskers/:id`
+
+
+### Bonus
+
 - `GET /api/taskers/:id/reviews`
   - look up all reviews for a given tasker
+- `GET /api/users/:id/reviews`
+  - Find all the reviews posted by a user
