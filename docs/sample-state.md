@@ -13,10 +13,16 @@
   tasks: {
     1: {
       title: "Move Furniture",
+      photo: "samplephoto.jpeg",
       author_id: 1,
+      tasker_id: 1
+    }
+  }
+  taskDetail: {
+    1: {
+      taskId: 1
       location: ["1600 Pennsylvania Avenue NW", "Washington", "DC", "20006"]
       description: "is cool"
-      tasker_id: 1
     }
   }
   taskers: {
