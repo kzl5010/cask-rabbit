@@ -26,9 +26,10 @@ gem 'bcrypt'
 # Use ActiveModel has_secure_password
 gem 'pry-rails'
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'rails_12factor'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'annotate'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
