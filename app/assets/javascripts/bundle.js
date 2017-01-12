@@ -28968,6 +28968,10 @@
 	
 	var _greeting_container2 = _interopRequireDefault(_greeting_container);
 	
+	var _header_container = __webpack_require__(366);
+	
+	var _header_container2 = _interopRequireDefault(_header_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var App = function App(_ref) {
@@ -28987,6 +28991,7 @@
 	          'Cask Rabbit'
 	        )
 	      ),
+	      _react2.default.createElement(_header_container2.default, null),
 	      _react2.default.createElement(_greeting_container2.default, null)
 	    ),
 	    children
@@ -29024,6 +29029,19 @@
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
+	    login: function (_login) {
+	      function login(_x) {
+	        return _login.apply(this, arguments);
+	      }
+	
+	      login.toString = function () {
+	        return _login.toString();
+	      };
+	
+	      return login;
+	    }(function (user) {
+	      return dispatch(login(user));
+	    }),
 	    logout: function logout() {
 	      return dispatch((0, _session_actions.logout)());
 	    }
@@ -29076,7 +29094,7 @@
 	      'h2',
 	      { className: 'header-name' },
 	      'Hi, ',
-	      currentUser.username,
+	      currentUser.first_name,
 	      '!'
 	    ),
 	    _react2.default.createElement(
@@ -31891,6 +31909,216 @@
 	thunk.withExtraArgument = createThunkMiddleware;
 	
 	exports['default'] = thunk;
+
+/***/ },
+/* 366 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(179);
+	
+	var _session_actions = __webpack_require__(271);
+	
+	var _header = __webpack_require__(367);
+	
+	var _header2 = _interopRequireDefault(_header);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(_ref) {
+	  var session = _ref.session;
+	  return {
+	    currentUser: session.currentUser
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    login: function login(user) {
+	      return dispatch((0, _session_actions.login)(user));
+	    },
+	    logout: function logout() {
+	      return dispatch((0, _session_actions.logout)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_header2.default);
+
+/***/ },
+/* 367 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(217);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Header = function (_React$Component) {
+	  _inherits(Header, _React$Component);
+	
+	  function Header(props) {
+	    _classCallCheck(this, Header);
+	
+	    var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+	
+	    _this.handleClick = _this.handleClick.bind(_this);
+	    _this.loginGuest = _this.loginGuest.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Header, [{
+	    key: 'handleClick',
+	    value: function handleClick(e) {
+	      e.preventDefault();
+	      this.props.logout();
+	    }
+	  }, {
+	    key: 'loginGuest',
+	    value: function loginGuest(e) {
+	      e.preventDefault();
+	      var guest = { user: { email: "username", password: "password" } };
+	      this.props.login(guest);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var headerNav = void 0;
+	      if (this.props.currentUser) {
+	        headerNav = _react2.default.createElement(
+	          'ul',
+	          { className: 'header-list' },
+	          '// ',
+	          _react2.default.createElement(
+	            'li',
+	            { className: 'header-list-item' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/' },
+	              'Find Chef'
+	            )
+	          ),
+	          '// ',
+	          _react2.default.createElement(
+	            'li',
+	            { className: 'header-list-item' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/reservations' },
+	              'Reservations'
+	            )
+	          ),
+	          '// ',
+	          _react2.default.createElement(
+	            'li',
+	            { className: 'header-list-item' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/account' },
+	              'Account'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'header-button', onClick: this.handleClick },
+	              'Log Out'
+	            ),
+	            ' '
+	          )
+	        );
+	      } else {
+	        headerNav = _react2.default.createElement(
+	          'ul',
+	          { className: 'header-list' },
+	          _react2.default.createElement(
+	            'li',
+	            { className: 'header-list-item' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/login' },
+	              'Log In'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            { className: 'header-list-item' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/signup' },
+	              'Sign Up'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'header-button', onClick: this.loginGuest },
+	              'Demo Login'
+	            )
+	          )
+	        );
+	      }
+	
+	      return _react2.default.createElement(
+	        'header',
+	        { className: 'header' },
+	        _react2.default.createElement(
+	          'nav',
+	          { className: 'header-nav' },
+	          _react2.default.createElement(
+	            'section',
+	            { className: 'header-logo' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/' },
+	              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/l2-b2/image/upload/v1478447878/logo_white_xzwc91.png', alt: 'logo', className: 'logo-img' })
+	            ),
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { to: '/' },
+	              _react2.default.createElement(
+	                'h3',
+	                { className: 'logo-h3' },
+	                'Home Cooking'
+	              )
+	            )
+	          ),
+	          headerNav
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return Header;
+	}(_react2.default.Component);
+	
+	exports.default = Header;
 
 /***/ }
 /******/ ]);
