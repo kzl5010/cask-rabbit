@@ -72,7 +72,7 @@
 	  } else {
 	    store = (0, _store2.default)();
 	  }
-	
+	  window.store = store;
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), document.getElementById("root"));
 	});
 
@@ -28780,7 +28780,7 @@
 				var _this2 = this;
 	
 				return function (e) {
-					return _this2.setState(_defineProperty({}, field, e.currentTarget.value));
+					return _this2.setState(_defineProperty({}, field, e.target.value));
 				};
 			}
 		}, {
@@ -28982,17 +28982,7 @@
 	    _react2.default.createElement(
 	      'header',
 	      null,
-	      _react2.default.createElement(
-	        _reactRouter.Link,
-	        { to: '/', className: 'header-link' },
-	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'Cask Rabbit'
-	        )
-	      ),
-	      _react2.default.createElement(_header_container2.default, null),
-	      _react2.default.createElement(_greeting_container2.default, null)
+	      _react2.default.createElement(_header_container2.default, null)
 	    ),
 	    children
 	  );
@@ -29096,11 +29086,6 @@
 	      'Hi, ',
 	      currentUser.first_name,
 	      '!'
-	    ),
-	    _react2.default.createElement(
-	      'button',
-	      { className: 'header-button', onClick: logout },
-	      'Log Out'
 	    )
 	  );
 	};
@@ -29108,7 +29093,8 @@
 	var Greeting = function Greeting(_ref) {
 	  var currentUser = _ref.currentUser,
 	      logout = _ref.logout;
-	  return currentUser ? personalGreeting(currentUser, logout) : sessionLinks();
+	  return currentUser ? personalGreeting(currentUser, logout) : null //sessionLinks()
+	  ;
 	};
 	
 	exports.default = Greeting;
@@ -32010,45 +31996,49 @@
 	        headerNav = _react2.default.createElement(
 	          'ul',
 	          { className: 'header-list' },
-	          '// ',
 	          _react2.default.createElement(
 	            'li',
 	            { className: 'header-list-item' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/' },
-	              'Find Chef'
+	              'Tasks'
 	            )
 	          ),
-	          '// ',
 	          _react2.default.createElement(
 	            'li',
 	            { className: 'header-list-item' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/reservations' },
-	              'Reservations'
+	              { to: '/' },
+	              'Profile'
 	            )
 	          ),
-	          '// ',
 	          _react2.default.createElement(
 	            'li',
 	            { className: 'header-list-item' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/account' },
+	              { to: '/' },
 	              'Account'
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'li',
-	            null,
+	            'button',
+	            { className: 'header-button', onClick: this.handleClick },
+	            'Log Out'
+	          ),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'hgroup',
+	            { className: 'header-group' },
 	            _react2.default.createElement(
-	              'button',
-	              { className: 'header-button', onClick: this.handleClick },
-	              'Log Out'
-	            ),
-	            ' '
+	              'h2',
+	              { className: 'header-name' },
+	              'Hi, ',
+	              this.props.currentUser.first_name,
+	              '!'
+	            )
 	          )
 	        );
 	      } else {
@@ -32074,13 +32064,9 @@
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'header-button', onClick: this.loginGuest },
-	              'Demo Login'
-	            )
+	            'button',
+	            { className: 'header-button', onClick: this.loginGuest },
+	            'Demo Login'
 	          )
 	        );
 	      }
@@ -32097,7 +32083,7 @@
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/' },
-	              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/l2-b2/image/upload/v1478447878/logo_white_xzwc91.png', alt: 'logo', className: 'logo-img' })
+	              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dmysu7ojb/image/upload/v1484208483/Logomakr_84jHlS_iy1izl.png', alt: 'logo', className: 'logo-img' })
 	            ),
 	            _react2.default.createElement(
 	              _reactRouter.Link,
@@ -32105,7 +32091,7 @@
 	              _react2.default.createElement(
 	                'h3',
 	                { className: 'logo-h3' },
-	                'Home Cooking'
+	                'Home'
 	              )
 	            )
 	          ),

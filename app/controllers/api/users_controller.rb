@@ -9,6 +9,16 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find_by_id(params[:id])
+  end
+
+  def update
+    @user = User.find_by_id(params[:id])
+    @user.update(user_params)
+    render :show
+  end
+
   private
 
   def user_params

@@ -25,11 +25,17 @@ class Header extends React.Component {
     if (this.props.currentUser) {
       headerNav = (
         <ul className="header-list">
-          // <li className="header-list-item"><Link to="/">Find Chef</Link></li>
-          // <li className="header-list-item"><Link to="/reservations">Reservations</Link></li>
-          // <li className="header-list-item"><Link to="/account">Account</Link></li>
+          <li className="header-list-item"><Link to="/">Tasks</Link></li>
+          <li className="header-list-item"><Link to="/">Profile</Link></li>
+          <li className="header-list-item"><Link to="/">Account</Link></li>
 
-          <li><button className="header-button" onClick={this.handleClick}>Log Out</button> </li>
+          <button className="header-button" onClick={this.handleClick}>Log Out</button>
+          <br/>
+          <hgroup className="header-group">
+            <h2 className="header-name">Hi, {this.props.currentUser.first_name}!</h2>
+        {//    <button className="header-button" onClick={logout}>Log Out</button>
+        }
+        	</hgroup>
         </ul>
       );
     }else {
@@ -37,7 +43,8 @@ class Header extends React.Component {
         <ul className="header-list">
           <li className="header-list-item"><Link to="/login">Log In</Link></li>
           <li className="header-list-item"><Link to="/signup">Sign Up</Link></li>
-          <li><button className="header-button" onClick={this.loginGuest}>Demo Login</button></li>
+          <button className="header-button" onClick={this.loginGuest}>Demo Login</button>
+
         </ul>
       );
     }
@@ -47,10 +54,10 @@ class Header extends React.Component {
         <nav className="header-nav">
           <section className="header-logo">
             <Link to="/">
-              <img src="http://res.cloudinary.com/l2-b2/image/upload/v1478447878/logo_white_xzwc91.png" alt="logo" className="logo-img"/>
+              <img src="http://res.cloudinary.com/dmysu7ojb/image/upload/v1484208483/Logomakr_84jHlS_iy1izl.png" alt="logo" className="logo-img"/>
             </Link>
             <Link to="/">
-              <h3 className="logo-h3">Home Cooking</h3>
+              <h3 className="logo-h3">Home</h3>
             </Link>
           </section>
           {headerNav}

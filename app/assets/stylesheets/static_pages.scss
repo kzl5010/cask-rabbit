@@ -18,8 +18,8 @@ header {
 
 .header-logo {
   display: flex;
-  justify-content: space-between;
-  width: 200px;
+  justify-content: flex-start;
+  width: auto;
 }
 
 .header-logo:hover {
@@ -27,12 +27,14 @@ header {
 }
 
 .logo-img {
+
   padding: 10px;
   height: 40px;
   width: auto;
 }
 
 .logo-h3 {
+  color: white;
   display: block;
   font-weight: 700;
   font-family: 'Kushan Script', cursive;
@@ -41,7 +43,7 @@ header {
 
 .header-list {
   a {
-    color: inherit; 
+    color: inherit;
   }
   color: white;
   display: flex;
