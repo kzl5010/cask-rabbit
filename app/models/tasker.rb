@@ -12,4 +12,7 @@
 #
 
 class Tasker < ActiveRecord::Base
+  validates :name, :email, :zip_code, presence: true
+
+  has_many :task_requests
 end

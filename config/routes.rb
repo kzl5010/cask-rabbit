@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   namespace :api, defaults: {format: :json} do
     resources :tasks, only: [:index, :show, :create]
-    resources :taskers, only: [:create]
-    resource :user, only: [:create]
+    resources :taskers, only: [:create, :index]
+    resource :user, only: [:create, :show]
     resource :session, only: [:create, :destroy, :show]
   end
   root "static_pages#root"

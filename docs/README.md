@@ -1,18 +1,17 @@
-[Heroku link][heroku]
+[Heroku link]: https://caskrabbit.herokuapp.com/#/
 
 [Trello link][trello]
 
 ## Minimum Viable Product
-CaskRabbit is a website sprung from TaskRabbit much as Athena emerged fully grown and armored from
-Zeus' skull. By the end of Week 9, this site will meet the following requirements with minimal bugs, abundant seed data and unmatched CSS styling:
+CaskRabbit is a website inspired by TaskRabbit. By the end of Week 9, this site will meet the following requirements with minimal bugs, abundant seed data and unmatched CSS styling:
 
 - [] Host on Heroku
-- [] Choose a task 
+- [] Choose a task
 - [] Provide task details
-- [] Select price and confirm 
-- [] Get assigned a tasker 
-- [] Bonus: Become a tasker 
-- [] Bonus: Payment and Billing 
+- [] Select price and confirm
+- [] Get assigned a tasker
+- [] Bonus: Become a tasker
+- [] Bonus: Payment and Billing
 
 
 ##Design Docs

@@ -75,6 +75,9 @@
 	  window.store = store;
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), document.getElementById("root"));
 	});
+	
+	//use react-carousel?
+	//session_api_util for user profile or whole new thing?
 
 /***/ },
 /* 1 */
@@ -21525,13 +21528,17 @@
 	
 	var _session_form_container2 = _interopRequireDefault(_session_form_container);
 	
+	var _account_container = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./account/account_container\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	
+	var _account_container2 = _interopRequireDefault(_account_container);
+	
 	var _app = __webpack_require__(274);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// react components
+	// react router
 	var Root = function Root(_ref) {
 	  var store = _ref.store;
 	
@@ -21559,14 +21566,14 @@
 	      _react2.default.createElement(
 	        _reactRouter.Route,
 	        { path: '/', component: _app2.default },
-	        _react2.default.createElement(_reactRouter.Route, { path: '/login', component: _session_form_container2.default, onEnter: _redirectIfLoggedIn }),
-	        _react2.default.createElement(_reactRouter.Route, { path: '/signup', component: _session_form_container2.default, onEnter: _redirectIfLoggedIn })
+	        _react2.default.createElement(_reactRouter.Route, { path: 'login', component: _session_form_container2.default, onEnter: _redirectIfLoggedIn }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _session_form_container2.default, onEnter: _redirectIfLoggedIn })
 	      )
 	    )
 	  );
 	};
 	
-	// react router
+	// react components
 	exports.default = Root;
 
 /***/ },
@@ -28720,6 +28727,14 @@
 	    url: '/api/session'
 	  });
 	};
+	
+	var update = exports.update = function update(user) {
+	  return $.ajax({
+	    method: 'PATCH',
+	    url: '/api/user/' + user.id,
+	    data: user
+	  });
+	};
 
 /***/ },
 /* 273 */
@@ -28813,7 +28828,7 @@
 			value: function renderErrors() {
 				return _react2.default.createElement(
 					'ul',
-					null,
+					{ className: 'errors' },
 					this.props.errors.map(function (error, i) {
 						return _react2.default.createElement(
 							'li',
@@ -32019,7 +32034,7 @@
 	            { className: 'header-list-item' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/' },
+	              { to: '/account' },
 	              'Account'
 	            )
 	          ),

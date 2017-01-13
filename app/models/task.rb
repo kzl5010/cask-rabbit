@@ -11,4 +11,6 @@
 #
 
 class Task < ActiveRecord::Base
+  validates :title, :description, :location, presence: true
+  has_many :task_requests
 end
