@@ -16,7 +16,7 @@ class Header extends React.Component {
 
   loginGuest(e) {
     e.preventDefault();
-    const guest = { user: {email: "username", password :"password"}}
+    const guest = { user: {email: "fakeaccount@gmail.com", password :"password"}}
     this.props.login(guest);
   }
 

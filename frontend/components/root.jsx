@@ -6,7 +6,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 // react components
 import SessionFormContainer from './session_form/session_form_container';
-import AccountContainer from './account/account_container';
+// import AccountContainer from './account/account_container';
 import App from './app';
 
 const Root = ({ store }) => {
@@ -22,6 +22,15 @@ const Root = ({ store }) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
       replace('/');
+    }
+  }
+
+  const fetchTaskRequestOnEnter = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (!currentUser) {
+      replace('/login');
+    } else {
+      store.dispatch(fetchTaskRequests()); 
     }
   }
 

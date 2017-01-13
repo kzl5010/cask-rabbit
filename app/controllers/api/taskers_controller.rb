@@ -1,9 +1,14 @@
 class Api::TaskersController < ApplicationController
   def index
-
+    taskers = Tasker.all
+    @taskers = taskers.order(params[:name])
     render: index
 
-  end 
+  end
+
+  def show
+    @tasker = Tasker.find_by_id(params[:id])
+  end
 
 
 
