@@ -28777,6 +28777,8 @@
 		function SessionForm(props) {
 			_classCallCheck(this, SessionForm);
 	
+			console.log(props);
+	
 			var _this = _possibleConstructorReturn(this, (SessionForm.__proto__ || Object.getPrototypeOf(SessionForm)).call(this, props));
 	
 			_this.state = { email: "", password: "", zip_code: "", first_name: "", last_name: "" };
@@ -29347,7 +29349,7 @@
 	
 	var _root_reducer2 = _interopRequireDefault(_root_reducer);
 	
-	var _reduxThunk = __webpack_require__(367);
+	var _reduxThunk = __webpack_require__(371);
 	
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 	
@@ -29376,7 +29378,7 @@
 	
 	var _session_reducer2 = _interopRequireDefault(_session_reducer);
 	
-	var _task_requests_reducer = __webpack_require__(368);
+	var _task_requests_reducer = __webpack_require__(367);
 	
 	var _task_requests_reducer2 = _interopRequireDefault(_task_requests_reducer);
 	
@@ -32107,34 +32109,6 @@
 
 /***/ },
 /* 367 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	exports.__esModule = true;
-	function createThunkMiddleware(extraArgument) {
-	  return function (_ref) {
-	    var dispatch = _ref.dispatch;
-	    var getState = _ref.getState;
-	    return function (next) {
-	      return function (action) {
-	        if (typeof action === 'function') {
-	          return action(dispatch, getState, extraArgument);
-	        }
-	
-	        return next(action);
-	      };
-	    };
-	  };
-	}
-	
-	var thunk = createThunkMiddleware();
-	thunk.withExtraArgument = createThunkMiddleware;
-	
-	exports['default'] = thunk;
-
-/***/ },
-/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32143,9 +32117,9 @@
 	  value: true
 	});
 	
-	var _lodash = __webpack_require__(369);
+	var _lodash = __webpack_require__(368);
 	
-	var _task_request_actions = __webpack_require__(370);
+	var _task_request_actions = __webpack_require__(369);
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
@@ -32172,7 +32146,7 @@
 	exports.default = TaskRequestsReducer;
 
 /***/ },
-/* 369 */
+/* 368 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -49263,7 +49237,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(204)(module)))
 
 /***/ },
-/* 370 */
+/* 369 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -49273,7 +49247,7 @@
 	});
 	exports.receiveTaskRequestErrors = exports.removeTaskRequest = exports.receiveTaskRequests = exports.receiveTaskRequest = exports.deleteTaskRequest = exports.updateTaskRequest = exports.createTaskRequest = exports.fetchTaskRequests = exports.fetchTaskRequest = exports.RECEIVE_TASK_REQUEST_ERRORS = exports.REMOVE_TASK_REQUEST = exports.RECEIVE_TASK_REQUESTS = exports.RECEIVE_TASK_REQUEST = exports.UPDATE_TASK_REQUEST = exports.DELETE_TASK_REQUEST = exports.CREATE_TASK_REQUEST = exports.FETCH_TASK_REQUESTS = exports.FETCH_TASK_REQUEST = undefined;
 	
-	var _task_request_api_util = __webpack_require__(371);
+	var _task_request_api_util = __webpack_require__(370);
 	
 	var APIUtil = _interopRequireWildcard(_task_request_api_util);
 	
@@ -49358,7 +49332,7 @@
 	};
 
 /***/ },
-/* 371 */
+/* 370 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -49402,6 +49376,34 @@
 	    url: "/api/task_requests/" + id
 	  });
 	};
+
+/***/ },
+/* 371 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	exports.__esModule = true;
+	function createThunkMiddleware(extraArgument) {
+	  return function (_ref) {
+	    var dispatch = _ref.dispatch;
+	    var getState = _ref.getState;
+	    return function (next) {
+	      return function (action) {
+	        if (typeof action === 'function') {
+	          return action(dispatch, getState, extraArgument);
+	        }
+	
+	        return next(action);
+	      };
+	    };
+	  };
+	}
+	
+	var thunk = createThunkMiddleware();
+	thunk.withExtraArgument = createThunkMiddleware;
+	
+	exports['default'] = thunk;
 
 /***/ }
 /******/ ]);

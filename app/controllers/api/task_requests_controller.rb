@@ -1,4 +1,6 @@
 class Api::TaskRequestsController < ApplicationController
+  before_action :require_logged_in
+  
   def index
     @task_requests = TaskRequest.all
     if current_user
@@ -30,7 +32,7 @@ class Api::TaskRequestsController < ApplicationController
       render "api/users/#{current_user.id}/task_requests/show"
     else
       render json: @task_request.errors.full_messages, status: 422
-    end 
+    end
   end
 
   def destroy

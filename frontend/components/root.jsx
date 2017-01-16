@@ -30,7 +30,7 @@ const Root = ({ store }) => {
     if (!currentUser) {
       replace('/login');
     } else {
-      store.dispatch(fetchTaskRequests()); 
+      store.dispatch(fetchTaskRequests());
     }
   }
 
@@ -40,6 +40,8 @@ const Root = ({ store }) => {
         <Route path="/" component={App}>
           <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
+          {//<Route path="task_requests" component={TaskRequestContainer} onEnter={_ensureLoggedIn}/>
+          }
           {//<Route path="account" component={AccountContainer} onEnter={_ensureLoggedIn} />
           }
         </Route>

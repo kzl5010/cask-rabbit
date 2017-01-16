@@ -1,4 +1,6 @@
 class Api::TaskersController < ApplicationController
+  before_action :require_logged_in
+
   def index
     taskers = Tasker.all
     @taskers = taskers.order(params[:name])

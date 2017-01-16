@@ -1,5 +1,6 @@
 json.id task_request.id
-json.user task_request.user.first_name task.user.last_name
+json.user_first_name task_request.user.first_name
+json.user_last_name task_request.user.last_name
 json.task task_request.task.title
 json.task_location task_request.task.location
 json.task_description task_request.task.description
