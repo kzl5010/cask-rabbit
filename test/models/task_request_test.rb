@@ -8,6 +8,8 @@
 #  user_id    :integer
 #  task_id    :integer
 #  tasker_id  :integer
+#  date       :date
+#  address    :string
 #
 
 require 'test_helper'

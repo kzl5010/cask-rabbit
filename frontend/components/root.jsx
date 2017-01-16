@@ -3,9 +3,10 @@ import { Provider } from 'react-redux';
 
 // react router
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-
+//TODO FIX THE JBUILDER FOR TASKREQUEST FORM AND HOW TO PASS IT IN
 // react components
 import SessionFormContainer from './session_form/session_form_container';
+import TaskRequestFormContainer from './task_request/task_request_form_container';
 // import AccountContainer from './account/account_container';
 import App from './app';
 
@@ -33,6 +34,8 @@ const Root = ({ store }) => {
       store.dispatch(fetchTaskRequests());
     }
   }
+  
+  //    <Route path="tasks" component={} onEnter={_ensureLoggedIn} />
 
   return (
     <Provider store={store}>
@@ -40,8 +43,8 @@ const Root = ({ store }) => {
         <Route path="/" component={App}>
           <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-          {//<Route path="task_requests" component={TaskRequestContainer} onEnter={_ensureLoggedIn}/>
-          }
+
+          <Route path="task_requests" component={TaskRequestFormContainer} onEnter={_ensureLoggedIn}/>
           {//<Route path="account" component={AccountContainer} onEnter={_ensureLoggedIn} />
           }
         </Route>

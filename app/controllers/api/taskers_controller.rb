@@ -4,7 +4,7 @@ class Api::TaskersController < ApplicationController
   def index
     taskers = Tasker.all
     @taskers = taskers.order(params[:name])
-    render: index
+    render :index
 
   end
 

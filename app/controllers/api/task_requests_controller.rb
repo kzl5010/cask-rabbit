@@ -1,6 +1,6 @@
 class Api::TaskRequestsController < ApplicationController
   before_action :require_logged_in
-  
+
   def index
     @task_requests = TaskRequest.all
     if current_user
@@ -45,7 +45,6 @@ class Api::TaskRequestsController < ApplicationController
   end
 
   def task_request_params
-    params.require(:task_request).permit(:task_id, :tasker_id)
+    params.require(:task_request).permit(:task_id, :tasker_id, :date, :address, :user_id, :details)
   end
-
 end

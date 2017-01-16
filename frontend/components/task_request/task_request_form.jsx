@@ -4,19 +4,20 @@ import moment from 'moment';
 import DatePicker from 'react-datepicker';
 //TODO DECIDE WHETHER THE TASKER IS DECIDED BEFORE OR AFTER THIS
 
-class TaskRequestForm extends React.component {
+class TaskRequestForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      address: ""
-      tasker: ""
-      date: moment()
-    }
-  }
+      address: "",
+      tasker: "",
+      date: moment(),
+      details: ""
+    };
   this.onChange = (address) => this.setState({ address });
   this.changeDate = this.changeDate.bind(this);
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleChange(field) {
     return e => this.setState({[field]: e.target.value});
@@ -30,14 +31,17 @@ class TaskRequestForm extends React.component {
     e.preventDefault();
     let taskRequest = this.state;
     taskRequest.date = taskRequest.date.toDate();
-    taskRequest.tasker_id = this.props.taskerId
+    taskRequest.tasker_id = 1;
     taskRequest.user_id = this.props.userId;
-    taskRequest.task_id = this.props.task.id;
+    taskRequest.task_id = 1;
 
     this.props.createTaskRequest(taskRequest);
+    debugger;
     this.setState({
-      tasker: ""
-      date: moment()
+      address: "",
+      tasker: "",
+      date: moment(),
+      details: ""
     });
   }
 
@@ -48,7 +52,18 @@ class TaskRequestForm extends React.component {
           <form className="taskRequest-form" onSubmit={this.handleSubmit}>
             <h4>Task Request</h4>
             <DatePicker selected={this.state.date} onChange={this.changeDate} />
-            <PlacesAutocomplete value={this.state.}
+            <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
+            <label>Details for Tasker</label>
+            <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
+            onChange={this.handleChange("details")} className="taskRequest-form-text" />
+            <button className="taskRequest-button" type="submit"> <div>Submit Request</div>
+            </button>
+          </form>
+        </section>
+      </section>
+
     )
   }
 }
+
+export default TaskRequestForm

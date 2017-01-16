@@ -41,7 +41,7 @@ CaskRabbit is a website inspired by TaskRabbit. By the end of Week 9, this site 
 
 ### Phase 3: Taskers API (2 Days)
 
-**Objective:** Taskers can be created, rated, requested, and destroyed through the API.
+**Objective:** Taskers can be rated and requested through the API.
 
 ### Phase 4: Reviews (1 Day)
 

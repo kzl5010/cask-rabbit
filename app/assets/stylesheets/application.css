@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .container {
+   width: 100%;
+ }
 
  ::-webkit-scrollbar {
      width: 12px;
@@ -41,28 +44,6 @@
    height: 500px;
    float: left;
    position: relative;
- }
-
- .reviews {
-   float: left;
- }
-
- .review-form {
-   float: left;
- }
-
- .bench-index-item {
-   border: 1px solid black;
-   width: 100%;
-   margin-bottom: 5px;
-   box-sizing: border-box;
-   display: flex;
-   justify-content: space-between;
- }
-
- .bench-index-item img {
-   height: 200px;
-   max-width: 130px;
  }
 
  .user-pane {
@@ -108,35 +89,10 @@
    margin-bottom: 0px;
  }
 
- .single-bench-show {
-   display: flex;
-   justify-content: center;
-   margin-top: 20px;
- }
-
- .single-bench-map {
-   display: flex;
-   flex-direction: column;
- }
-
- .bench-list {
-   padding-left: 0;
-   list-style-position: inside;
-   margin-top: 0;
- }
 
  .index-image {
    max-height: 200px;
    max-width: 100px;
- }
-
- .review-button, .review-form {
-   width: 100px;
-   margin-top: 20px;
- }
-
- .review-button {
-   /* padding-top: 1px; */
  }
 
  .header-name {
@@ -198,6 +154,9 @@
  }
 
  .login-form-container {
+
+   width: 100%;
+   height: 100%;
    display: flex;
    justify-content: center;
    margin-top: 100px;
@@ -208,6 +167,62 @@
    justify-content: center;
    flex-direction: column;
  }
+
+ .login-page {
+   -webkit-background-size: contain;
+   -moz-background-size: contain;
+   -o-background-size: contain;
+   background-size: contain;
+   background: url(https://res.cloudinary.com/l2-b2/image/upload/c_scale,q_30,w_2560/v1478481513/cook_uj4ws5.jpg) no-repeat center center fixed;
+
+ }
+
+ footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: gray;
+  color: #fff;
+	overflow: hidden;
+}
+
+ .footer-nav {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-link {
+	display: flex;
+	justify-content: space-between;
+  font-size: $medium;
+}
+
+.footer-img {
+	display: inline-block;
+	max-height: 30px;
+	max-width: 30px;
+	margin: 0 5px;
+}
+
+.footer-links-list {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.footer-link-list-item {
+  display: flex;
+  position: relative;
+  padding: 10px 20px;
+  font-weight: 700;
+  align-content: center;
+  align-items: center;
+}
 
  .login-input {
    margin-left: 20px;

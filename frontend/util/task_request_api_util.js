@@ -1,16 +1,16 @@
-export const createTaskRequest = (taskRequest) => (
+export const createTaskRequest = (task_request) => (
   $.ajax({
     method: "POST",
     url: "/api/task_requests",
-    data: taskRequest
+    data: {task_request}
   })
 )
 
-export const updateTaskRequest = (taskRequest) => (
+export const updateTaskRequest = (task_request) => (
   $.ajax({
     method: "PATCH",
-    url: `/api/task_requests/${taskRequest.id}`,
-    data: taskRequest
+    url: `/api/task_requests/${task_request.id}`,
+    data: task_request
   })
 )
 
