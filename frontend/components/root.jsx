@@ -1,15 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-// react router
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-//TODO FIX THE JBUILDER FOR TASKREQUEST FORM AND HOW TO PASS IT IN
-// react components
+import { fetchTasker, fetchTaskers } from '../actions/tasker_actions';
 import { fetchTaskRequest, fetchTaskRequests } from '../actions/task_request_actions';
-// import { fetchUser } from '../actions/session_actions';
 import SessionFormContainer from './session_form/session_form_container';
 import TaskRequestFormContainer from './task_request/task_request_form_container';
 import AccountContainer from './account/account_container';
+import TaskerIndexContainer from './tasker/tasker_index_container';
+
 import App from './app';
 
 const Root = ({ store }) => {
@@ -28,7 +27,16 @@ const Root = ({ store }) => {
     }
   }
 
-  const fetchTaskRequestOnEnter = (nextState, replace) => {
+  const fetchTaskersOnEnter = (nextState, replace) => {
+    const currentUser = store.getState().session.currentUser;
+    if (!currentUser){
+      replace('/');
+    } else {
+      store.dispatch(fetchTaskers());
+    }
+  }
+
+  const fetchTaskRequestsOnEnter = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
       replace('/login');
@@ -66,7 +74,8 @@ const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/" component={App}>
+        <Route path="/" component={App} onEnter={ fetchTaskersOnEnter }>
+          <IndexRoute component={TaskerIndexContainer} onEnter={ fetchTaskersOnEnter } />
           <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
 

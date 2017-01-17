@@ -5,7 +5,6 @@
 header {
   color: white;
   background: #1C2331;
-  z-index: 1;
 }
 
 .header-nav {
@@ -63,4 +62,4 @@ header {
   transform: scale(1.05);
 }
 
-@import "api/react-datepicker"; 
+@import "api/react-datepicker";

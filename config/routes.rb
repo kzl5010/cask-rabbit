@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   namespace :api, defaults: {format: :json} do
     resources :tasks, only: [:index, :show, :create]
-    resources :taskers, only: [:create, :index]
+    resources :taskers, only: [:create, :index, :show]
     resources :task_requests, only: [:create, :index, :show, :update, :destroy]
-    resource :user, only: [:create, :show, :update]
+    resource :user, only: [:create, :show, :update] do
+      resources :task_requests, only: [:create, :index, :show, :update, :destroy]
+    end 
     resource :session, only: [:create, :destroy, :show]
   end
   root "static_pages#root"

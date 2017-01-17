@@ -4,7 +4,7 @@
   background-color: #fff;
   color: white;
   border: 1px solid black;
-  border-radius: .3rem;
+  border-radius: .4rem;
   display: inline-block;
   position: relative;
 }
@@ -22,8 +22,8 @@
   text-align: center;
   background-color: white;
   border-bottom: 1px solid black;
-  border-top-left-radius: .3rem;
-  border-top-right-radius: .3rem;
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
   padding-top: 8px;
   position: relative;
 }
@@ -50,7 +50,7 @@
 }
 
 .react-datepicker__navigation {
-  line-height: 1.7rem;
+  line-height: 1.5rem;
   text-align: center;
   cursor: pointer;
   position: absolute;
@@ -130,14 +130,14 @@
   width: 1.7rem;
   line-height: 1.7rem;
   text-align: center;
-  margin: .166rem;
+  margin: .16rem;
 }
 
 .react-datepicker__day {
   cursor: pointer;
 
   &:hover {
-    border-radius: .3rem;
+    border-radius: .31rem;
     background-color: white;
   }
 
@@ -146,7 +146,7 @@
   }
 
   &--highlighted {
-    border-radius: .3rem;
+    border-radius: .31rem;
     background-color: blue;
     color: #fff;
 
