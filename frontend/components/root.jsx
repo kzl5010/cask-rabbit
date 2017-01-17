@@ -9,7 +9,7 @@ import { fetchTaskRequest, fetchTaskRequests } from '../actions/task_request_act
 // import { fetchUser } from '../actions/session_actions';
 import SessionFormContainer from './session_form/session_form_container';
 import TaskRequestFormContainer from './task_request/task_request_form_container';
-// import AccountContainer from './account/account_container';
+import AccountContainer from './account/account_container';
 import App from './app';
 
 const Root = ({ store }) => {
@@ -71,8 +71,8 @@ const Root = ({ store }) => {
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
 
           <Route path="task_requests" component={TaskRequestFormContainer} onEnter={_ensureLoggedIn}/>
-          {//<Route path="account" component={AccountContainer} onEnter={_ensureLoggedIn} />
-          }
+          <Route path="account" component={AccountContainer} onEnter={_ensureLoggedIn} />
+
         </Route>
       </Router>
     </Provider>
