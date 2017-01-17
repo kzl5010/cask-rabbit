@@ -13,7 +13,7 @@
 #
 
 class TaskRequest < ActiveRecord::Base
-  validates :user_id, :task_id, :tasker_id, :date, presence: true
+  validates :user_id, :task_id, :tasker_id, :date, :address, :details,  presence: true
 
   belongs_to :user
   belongs_to :tasker

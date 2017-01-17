@@ -29053,7 +29053,10 @@
 	
 	var mapStateToProps = function mapStateToProps(state, ownProps) {
 	  return {
-	    userId: state.session.currentUser.id
+	    userId: state.session.currentUser.id,
+	    errors: state.taskRequests.errors
+	    // task: state.tasks[ownProps.params.taskId]
+	    // TODO: IMPLEMENT THIS IN THE FORM  tasker: state.taskers[ownProps.params.taskerId]
 	  };
 	};
 	
@@ -29155,13 +29158,30 @@
 	      taskRequest.task_id = 1;
 	
 	      this.props.createTaskRequest(taskRequest);
-	      debugger;
 	      this.setState({
 	        address: "",
 	        tasker: "",
 	        date: (0, _moment2.default)(),
 	        details: ""
 	      });
+	    }
+	  }, {
+	    key: 'renderErrors',
+	    value: function renderErrors() {
+	      if (this.props.errors === undefined) {
+	        return null;
+	      }
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'errors' },
+	        this.props.errors.map(function (error, i) {
+	          return _react2.default.createElement(
+	            'li',
+	            { key: 'error-' + i },
+	            error
+	          );
+	        })
+	      );
 	    }
 	  }, {
 	    key: 'render',
@@ -29180,7 +29200,8 @@
 	              null,
 	              'Task Request'
 	            ),
-	            _react2.default.createElement(_reactDatepicker2.default, { selected: this.state.date, onChange: this.changeDate }),
+	            this.renderErrors(),
+	            _react2.default.createElement(_reactDatepicker2.default, { selected: this.state.date, onChange: this.changeDate, className: 'none' }),
 	            _react2.default.createElement(_reactPlacesAutocomplete2.default, { value: this.state.address, onChange: this.onChange }),
 	            _react2.default.createElement(
 	              'label',
@@ -29219,7 +29240,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.receiveTaskRequestErrors = exports.removeTaskRequest = exports.receiveTaskRequests = exports.receiveTaskRequest = exports.deleteTaskRequest = exports.updateTaskRequest = exports.createTaskRequest = exports.fetchTaskRequests = exports.fetchTaskRequest = exports.RECEIVE_TASK_REQUEST_ERRORS = exports.REMOVE_TASK_REQUEST = exports.RECEIVE_TASK_REQUESTS = exports.RECEIVE_TASK_REQUEST = exports.UPDATE_TASK_REQUEST = exports.DELETE_TASK_REQUEST = exports.CREATE_TASK_REQUEST = exports.FETCH_TASK_REQUESTS = exports.FETCH_TASK_REQUEST = undefined;
+	exports.deleteTaskRequest = exports.updateTaskRequest = exports.createTaskRequest = exports.fetchTaskRequests = exports.fetchTaskRequest = exports.RECEIVE_TASK_REQUEST_ERRORS = exports.REMOVE_TASK_REQUEST = exports.RECEIVE_TASK_REQUESTS = exports.RECEIVE_TASK_REQUEST = exports.UPDATE_TASK_REQUEST = exports.DELETE_TASK_REQUEST = exports.CREATE_TASK_REQUEST = exports.FETCH_TASK_REQUESTS = exports.FETCH_TASK_REQUEST = undefined;
 	
 	var _task_request_api_util = __webpack_require__(277);
 	
@@ -29257,6 +29278,8 @@
 	  return function (dispatch) {
 	    return APIUtil.createTaskRequest(taskRequest).then(function (taskRequest1) {
 	      return dispatch(receiveTaskRequest(taskRequest1));
+	    }, function (err) {
+	      return dispatch(receiveTaskRequestErrors(err.responseJSON));
 	    });
 	  };
 	};
@@ -29265,6 +29288,8 @@
 	  return function (dispatch) {
 	    return APIUtil.updateTaskRequest(taskRequest).then(function (taskRequest1) {
 	      return dispatch(receiveTaskRequest(taskRequest1));
+	    }, function (err) {
+	      return dispatch(receiveTaskRequestErrors(err.responseJSON));
 	    });
 	  };
 	};
@@ -29277,28 +29302,28 @@
 	  };
 	};
 	
-	var receiveTaskRequest = exports.receiveTaskRequest = function receiveTaskRequest(taskRequest) {
+	var receiveTaskRequest = function receiveTaskRequest(taskRequest) {
 	  return {
 	    type: RECEIVE_TASK_REQUEST,
 	    taskRequest: taskRequest
 	  };
 	};
 	
-	var receiveTaskRequests = exports.receiveTaskRequests = function receiveTaskRequests(taskRequests) {
+	var receiveTaskRequests = function receiveTaskRequests(taskRequests) {
 	  return {
 	    type: RECEIVE_TASK_REQUESTS,
 	    taskRequests: taskRequests
 	  };
 	};
 	
-	var removeTaskRequest = exports.removeTaskRequest = function removeTaskRequest(taskRequest) {
+	var removeTaskRequest = function removeTaskRequest(taskRequest) {
 	  return {
 	    type: REMOVE_TASK_REQUEST,
 	    taskRequest: taskRequest
 	  };
 	};
 	
-	var receiveTaskRequestErrors = exports.receiveTaskRequestErrors = function receiveTaskRequestErrors(errors) {
+	var receiveTaskRequestErrors = function receiveTaskRequestErrors(errors) {
 	  return {
 	    type: RECEIVE_TASK_REQUEST_ERRORS,
 	    errors: errors
@@ -29392,11 +29417,7 @@
 	      _react2.default.createElement(_header_container2.default, null)
 	    ),
 	    children,
-	    _react2.default.createElement(
-	      'footer',
-	      null,
-	      _react2.default.createElement(_footer2.default, null)
-	    )
+	    _react2.default.createElement(_footer2.default, null)
 	  );
 	};
 	
@@ -32526,6 +32547,11 @@
 	      var newState = (0, _lodash.merge)({}, state);
 	      delete newState[action.taskRequest.id];
 	      return newState;
+	    case _task_request_actions.RECEIVE_TASK_REQUEST_ERRORS:
+	      var errors = action.errors;
+	      return (0, _lodash.merge)({}, state, {
+	        errors: errors
+	      });
 	    default:
 	      return state;
 	  }
@@ -68826,40 +68852,44 @@
 	
 	var Footer = function Footer() {
 	  return _react2.default.createElement(
-	    'nav',
-	    { className: 'footer-nav' },
+	    'footer',
+	    null,
 	    _react2.default.createElement(
-	      'section',
-	      { className: 'footer-link' },
+	      'nav',
+	      { className: 'footer-nav' },
 	      _react2.default.createElement(
-	        'div',
-	        null,
-	        '  Obsession by Calvin Klein '
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        { className: 'footer-links-list' },
+	        'section',
+	        { className: 'footer-link' },
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'footer-link-list-item' },
-	          _react2.default.createElement(
-	            'a',
-	            { href: 'https://github.com/kzl5010/cask-rabbit' },
-	            'Github',
-	            _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
-	          )
+	          'div',
+	          null,
+	          '  Obsession by Calvin Klein '
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          { className: 'footer-link-list-item' },
+	          'ul',
+	          { className: 'footer-links-list' },
 	          _react2.default.createElement(
-	            'a',
-	            { href: 'https://github.com/kzl5010/cask-rabbit' },
-	            ' LinkedIn',
-	            _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
-	          )
-	        ),
-	        _react2.default.createElement('li', { className: 'footer-link-list-item' })
+	            'li',
+	            { className: 'footer-link-list-item' },
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://github.com/kzl5010/cask-rabbit' },
+	              'Github',
+	              _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            { className: 'footer-link-list-item' },
+	            _react2.default.createElement(
+	              'a',
+	              { href: 'https://github.com/kzl5010/cask-rabbit' },
+	              ' LinkedIn',
+	              _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
+	            )
+	          ),
+	          _react2.default.createElement('li', { className: 'footer-link-list-item' })
+	        )
 	      )
 	    )
 	  );

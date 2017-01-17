@@ -12,9 +12,7 @@ const App = ({ children }) => (
 }
     </header>
     {children}
-    <footer>
-      <Footer />
-    </footer>
+    <Footer />
   </div>
 );
 

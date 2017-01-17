@@ -36,7 +36,6 @@ class TaskRequestForm extends React.Component {
     taskRequest.task_id = 1;
 
     this.props.createTaskRequest(taskRequest);
-    debugger;
     this.setState({
       address: "",
       tasker: "",
@@ -45,13 +44,30 @@ class TaskRequestForm extends React.Component {
     });
   }
 
+  renderErrors() {
+    if (this.props.errors === undefined) {
+      return null;
+    }
+    return(
+      <ul className="errors">
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     return (
       <section>
         <section className="taskRequest">
           <form className="taskRequest-form" onSubmit={this.handleSubmit}>
             <h4>Task Request</h4>
-            <DatePicker selected={this.state.date} onChange={this.changeDate} />
+            {  this.renderErrors()
+            }
+            <DatePicker selected={this.state.date} onChange={this.changeDate} className="none"/>
             <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
             <label>Details for Tasker</label>
             <textarea value={this.state.details} placeholder="Describe the task for the Tasker"

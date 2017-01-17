@@ -33,24 +33,15 @@ span, article, footer, time, small {
 }
 */
 
+
  .container {
    width: 100%;
-   height: 100vh; 
+   min-height: 100vh;
+   position: relative;
+   display: block;
+   overflow: hidden;
  }
 
- ::-webkit-scrollbar {
-     width: 12px;
- }
-
- ::-webkit-scrollbar-track {
-     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-     border-radius: 10px;
- }
-
- ::-webkit-scrollbar-thumb {
-     border-radius: 10px;
-     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
- }
 
   body {
     font-family: 'Abel', sans-serif;
@@ -60,10 +51,6 @@ span, article, footer, time, small {
    height: 100%;
  }
 
- .user-pane {
-   display: flex;
-   justify-content: center;
- }
 
 
  header {
@@ -104,7 +91,7 @@ span, article, footer, time, small {
 }
 
  .footer-nav {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -201,4 +188,22 @@ span, article, footer, time, small {
   background-size: auto;
   background: url(http://i1.wp.com/static.web-backgrounds.net/uploads/2012/08/City_Landscape_Background.jpg);
 
+}
+
+.taskRequest {
+  all: initial;
+  * {
+    all: unset;
+  }
+}
+
+.taskRequest-form {
+  margin: 0 auto;
+  text-align: center;
+  min-height: 0;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
 }

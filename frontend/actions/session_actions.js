@@ -20,7 +20,7 @@ export const logout = () => dispatch => (
  export const update = user => dispatch => (
    APIUtil.update(user).then(user1 => dispatch(receiveCurrentUser(user1)),
    err => dispatch(receiveErrors(err.responseJSON)))
- )
+ );
 
 const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,

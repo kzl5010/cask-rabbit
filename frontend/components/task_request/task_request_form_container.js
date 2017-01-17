@@ -4,6 +4,7 @@ import { createTaskRequest } from '../../actions/task_request_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   userId: state.session.currentUser.id,
+  errors: state.taskRequests.errors
   // task: state.tasks[ownProps.params.taskId]
 // TODO: IMPLEMENT THIS IN THE FORM  tasker: state.taskers[ownProps.params.taskerId]
 })

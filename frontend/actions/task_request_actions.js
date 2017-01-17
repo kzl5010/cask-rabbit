@@ -24,13 +24,13 @@ export const fetchTaskRequests = () => (dispatch) => (
 
 export const createTaskRequest = taskRequest => dispatch => (
   APIUtil.createTaskRequest(taskRequest).then(
-    taskRequest1 => dispatch(receiveTaskRequest(taskRequest1))
+    taskRequest1 => dispatch(receiveTaskRequest(taskRequest1)), err => dispatch(receiveTaskRequestErrors(err.responseJSON))
   )
 );
 
 export const updateTaskRequest = taskRequest => dispatch => (
   APIUtil.updateTaskRequest(taskRequest).then(
-    taskRequest1 => dispatch(receiveTaskRequest(taskRequest1))
+    taskRequest1 => dispatch(receiveTaskRequest(taskRequest1)), err => dispatch(receiveTaskRequestErrors(err.responseJSON))
   )
 );
 
@@ -40,22 +40,22 @@ export const deleteTaskRequest = id => dispatch => (
   )
 );
 
-export const receiveTaskRequest = taskRequest => ({
+const receiveTaskRequest = taskRequest => ({
   type: RECEIVE_TASK_REQUEST,
   taskRequest
 });
 
-export const receiveTaskRequests = taskRequests => ({
+const receiveTaskRequests = taskRequests => ({
   type: RECEIVE_TASK_REQUESTS,
   taskRequests
 });
 
-export const removeTaskRequest = taskRequest => ({
+const removeTaskRequest = taskRequest => ({
   type: REMOVE_TASK_REQUEST,
   taskRequest
 });
 
-export const receiveTaskRequestErrors = errors => ({
+const receiveTaskRequestErrors = errors => ({
   type: RECEIVE_TASK_REQUEST_ERRORS,
   errors
 });

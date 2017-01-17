@@ -3,7 +3,7 @@ import { merge } from 'lodash';
 import {
   RECEIVE_TASK_REQUEST,
   RECEIVE_TASK_REQUESTS,
-  REMOVE_TASK_REQUEST
+  REMOVE_TASK_REQUEST, RECEIVE_TASK_REQUEST_ERRORS
 } from '../actions/task_request_actions';
 
 const TaskRequestsReducer = (state = { errors: [] }, action) => {
@@ -18,6 +18,11 @@ const TaskRequestsReducer = (state = { errors: [] }, action) => {
       let newState = merge({}, state);
       delete newState[action.taskRequest.id];
       return newState;
+    case RECEIVE_TASK_REQUEST_ERRORS:
+      const errors = action.errors;
+      return merge({}, state, {
+        errors
+      });
     default:
       return state;
     }
