@@ -45,9 +45,9 @@ class TaskRequestForm extends React.Component {
   }
 
   renderErrors() {
-    if (this.props.errors === undefined) {
-      return null;
-    }
+    // if (this.props.errors === undefined) {
+    //   return null;
+    // }
     return(
       <ul className="errors">
         {this.props.errors.map((error, i) => (

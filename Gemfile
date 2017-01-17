@@ -27,6 +27,9 @@ gem 'bcrypt'
 gem 'rails_12factor'
 
 gem 'faker'
+
+gem 'newrelic_rpm'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

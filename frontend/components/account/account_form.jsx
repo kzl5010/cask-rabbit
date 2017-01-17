@@ -14,7 +14,12 @@ class AccountForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let user = this.state; 
+    let user = this.state;
     this.props.update(user)
+  }
+
+  render() {
+
+    
   }
 }

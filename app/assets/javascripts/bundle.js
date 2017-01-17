@@ -28870,7 +28870,6 @@
 			key: 'handleSubmit',
 			value: function handleSubmit(e) {
 				e.preventDefault();
-				debugger;
 				var user = this.state;
 				this.props.processForm({ user: user });
 			}
@@ -29056,7 +29055,6 @@
 	    userId: state.session.currentUser.id,
 	    errors: state.taskRequests.errors
 	    // task: state.tasks[ownProps.params.taskId]
-	    // TODO: IMPLEMENT THIS IN THE FORM  tasker: state.taskers[ownProps.params.taskerId]
 	  };
 	};
 	
@@ -29168,9 +29166,9 @@
 	  }, {
 	    key: 'renderErrors',
 	    value: function renderErrors() {
-	      if (this.props.errors === undefined) {
-	        return null;
-	      }
+	      // if (this.props.errors === undefined) {
+	      //   return null;
+	      // }
 	      return _react2.default.createElement(
 	        'ul',
 	        { className: 'errors' },
