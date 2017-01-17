@@ -28,3 +28,10 @@ export const update = (user) => (
     data: user
   })
 )
+
+export const fetchUser = (user) => (
+  $.ajax({
+    method: 'GET',
+    
+  })
+)

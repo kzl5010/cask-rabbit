@@ -21524,6 +21524,8 @@
 	
 	var _reactRouter = __webpack_require__(217);
 	
+	var _task_request_actions = __webpack_require__(276);
+	
 	var _session_form_container = __webpack_require__(270);
 	
 	var _session_form_container2 = _interopRequireDefault(_session_form_container);
@@ -21538,7 +21540,8 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// react router
+	//TODO FIX THE JBUILDER FOR TASKREQUEST FORM AND HOW TO PASS IT IN
+	// react components
 	var Root = function Root(_ref) {
 	  var store = _ref.store;
 	
@@ -21562,9 +21565,33 @@
 	    if (!currentUser) {
 	      replace('/login');
 	    } else {
-	      store.dispatch(fetchTaskRequests());
+	      store.dispatch((0, _task_request_actions.fetchTaskRequests)());
 	    }
 	  };
+	
+	  var fetchTasksOnEnter = function fetchTasksOnEnter(nextState, replace) {
+	    if (!store.getState().session.currentUser) {
+	      replace('/login');
+	    } else {
+	      store.dispatch(fetchTasks());
+	    }
+	  };
+	
+	  var fetchTaskOnEnter = function fetchTaskOnEnter(nextState) {
+	    if (!store.getState().session.currentUser) {
+	      replace('/login');
+	    } else {
+	      store.dispatch(fetchTask(nextState.params.taskId));
+	    }
+	  };
+	
+	  // const fetchUserOnEnter = (nextState, replace) {
+	  //   if (! store.getState().session.currentUser) {
+	  //     replace('/login');
+	  //   } else {
+	  //     store.dispatch(fetchUser)
+	  //   }
+	  // }
 	
 	  //    <Route path="tasks" component={} onEnter={_ensureLoggedIn} />
 	
@@ -21586,8 +21613,10 @@
 	};
 	// import AccountContainer from './account/account_container';
 	
-	//TODO FIX THE JBUILDER FOR TASKREQUEST FORM AND HOW TO PASS IT IN
-	// react components
+	// import { fetchUser } from '../actions/session_actions';
+	
+	
+	// react router
 	exports.default = Root;
 
 /***/ },
@@ -28657,7 +28686,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.logout = exports.login = exports.signup = exports.RECEIVE_ERRORS = exports.RECEIVE_CURRENT_USER = undefined;
+	exports.update = exports.logout = exports.login = exports.signup = exports.RECEIVE_ERRORS = exports.RECEIVE_CURRENT_USER = undefined;
 	
 	var _session_api_util = __webpack_require__(272);
 	
@@ -28692,6 +28721,16 @@
 	  return function (dispatch) {
 	    return APIUtil.logout().then(function (user) {
 	      return dispatch(receiveCurrentUser(null));
+	    });
+	  };
+	};
+	
+	var update = exports.update = function update(user) {
+	  return function (dispatch) {
+	    return APIUtil.update(user).then(function (user1) {
+	      return dispatch(receiveCurrentUser(user1));
+	    }, function (err) {
+	      return dispatch(receiveErrors(err.responseJSON));
 	    });
 	  };
 	};
@@ -28747,6 +28786,13 @@
 	    method: 'PATCH',
 	    url: '/api/user/' + user.id,
 	    data: user
+	  });
+	};
+	
+	var fetchUser = exports.fetchUser = function fetchUser(user) {
+	  return $.ajax({
+	    method: 'GET'
+	
 	  });
 	};
 
@@ -29570,8 +29616,8 @@
 	            { className: 'header-list-item' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/' },
-	              'Tasks'
+	              { to: '/task_requests' },
+	              'Task Request'
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -68785,7 +68831,11 @@
 	    _react2.default.createElement(
 	      'section',
 	      { className: 'footer-link' },
-	      'Obsession by Calvin Klein',
+	      _react2.default.createElement(
+	        'div',
+	        null,
+	        '  Obsession by Calvin Klein '
+	      ),
 	      _react2.default.createElement(
 	        'ul',
 	        { className: 'footer-links-list' },
@@ -68795,10 +68845,20 @@
 	          _react2.default.createElement(
 	            'a',
 	            { href: 'https://github.com/kzl5010/cask-rabbit' },
+	            'Github',
 	            _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
 	          )
 	        ),
-	        _react2.default.createElement('li', { className: 'footer-link-list-item' }),
+	        _react2.default.createElement(
+	          'li',
+	          { className: 'footer-link-list-item' },
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'https://github.com/kzl5010/cask-rabbit' },
+	            ' LinkedIn',
+	            _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
+	          )
+	        ),
 	        _react2.default.createElement('li', { className: 'footer-link-list-item' })
 	      )
 	    )

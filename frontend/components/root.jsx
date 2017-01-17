@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 //TODO FIX THE JBUILDER FOR TASKREQUEST FORM AND HOW TO PASS IT IN
 // react components
+import { fetchTaskRequest, fetchTaskRequests } from '../actions/task_request_actions';
+// import { fetchUser } from '../actions/session_actions';
 import SessionFormContainer from './session_form/session_form_container';
 import TaskRequestFormContainer from './task_request/task_request_form_container';
 // import AccountContainer from './account/account_container';
@@ -34,7 +36,31 @@ const Root = ({ store }) => {
       store.dispatch(fetchTaskRequests());
     }
   }
-  
+
+  const fetchTasksOnEnter = (nextState, replace) => {
+    if (! store.getState().session.currentUser) {
+      replace('/login');
+    } else {
+      store.dispatch(fetchTasks());
+    }
+  }
+
+  const fetchTaskOnEnter = (nextState) => {
+    if (! store.getState().session.currentUser) {
+      replace('/login');
+    } else {
+      store.dispatch(fetchTask(nextState.params.taskId));
+    }
+  }
+
+  // const fetchUserOnEnter = (nextState, replace) {
+  //   if (! store.getState().session.currentUser) {
+  //     replace('/login');
+  //   } else {
+  //     store.dispatch(fetchUser)
+  //   }
+  // }
+
   //    <Route path="tasks" component={} onEnter={_ensureLoggedIn} />
 
   return (

@@ -6,3 +6,5 @@ json.task_location task_request.address
 json.task_description task_request.task.description
 json.tasker task_request.tasker.name
 json.tasker_email task_request.tasker.email
+json.address task_request.address
+json.day task_request.date 

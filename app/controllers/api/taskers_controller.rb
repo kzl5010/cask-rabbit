@@ -14,10 +14,10 @@ class Api::TaskersController < ApplicationController
 
 
 
-  private
-
-  def tasker_params
-    params.require(:tasker).permit(:name, :email, :zip_code, :rating)
-  end
+  # private
+  #
+  # def tasker_params
+  #   params.require(:tasker).permit(:name, :email, :zip_code, :rating)
+  # end
 
 end

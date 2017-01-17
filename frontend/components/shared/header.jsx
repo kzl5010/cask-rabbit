@@ -25,7 +25,7 @@ class Header extends React.Component {
     if (this.props.currentUser) {
       headerNav = (
         <ul className="header-list">
-          <li className="header-list-item"><Link to="/">Tasks</Link></li>
+          <li className="header-list-item"><Link to="/task_requests">Task Request</Link></li>
           <li className="header-list-item"><Link to="/">Profile</Link></li>
           <li className="header-list-item"><Link to="/account">Account</Link></li>
 
