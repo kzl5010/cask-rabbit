@@ -25,14 +25,14 @@ const Root = ({ store }) => {
   const _redirectIfLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/');
+      replace('/account');
     }
   }
 
   const fetchTaskersOnEnter = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser){
-      replace('/');
+      replace('/login');
     } else {
       store.dispatch(fetchTaskers());
     }
@@ -76,18 +76,16 @@ const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path="/" component={App} onEnter={ fetchTaskersOnEnter }>
+        <Route path="/" component={App}>
 
         {//  <IndexRoute component={TaskerIndexContainer} onEnter={ fetchTaskersOnEnter } />
       }
-      {/*
           <IndexRoute component={TaskIndexContainer} onEnter={ fetchTasksOnEnter }/>
           <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="taskers" component={TaskerIndexContainer} onEnter= { fetchTaskersOnEnter } />
           <Route path="task_requests" component={TaskRequestFormContainer} onEnter={_ensureLoggedIn}/>
           <Route path="account" component={AccountContainer} onEnter={_ensureLoggedIn} />
-*/}
         </Route>
       </Router>
     </Provider>
