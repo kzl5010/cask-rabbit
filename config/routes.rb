@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     resources :tasks, only: [:index, :show, :create]
     resources :taskers, only: [:create, :index, :show]
     resources :task_requests, only: [:create, :index, :show, :update, :destroy]
-    resource :user, only: [:create, :show, :update] do
+    resources :users, only: [:create, :show, :update] do
       resources :task_requests, only: [:create, :index, :show, :update, :destroy]
-    end 
+    end
     resource :session, only: [:create, :destroy, :show]
   end
   root "static_pages#root"

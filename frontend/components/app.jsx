@@ -8,9 +8,9 @@ const App = ({ children }) => (
   <div id="container" className="login-page">
     <header>
       <HeaderContainer />
-{//      <GreetingContainer />
-}
+
     </header>
+    <GreetingContainer />
     {children}
     <Footer />
   </div>

@@ -81,7 +81,8 @@ span, article, footer, time, small {
 
 
  footer {
-  position: absolute;
+  position: relative;
+  text-align: center; 
   bottom: 0;
   left: 0;
   width: 100%;
@@ -198,7 +199,11 @@ span, article, footer, time, small {
 }
 
 .taskRequest-form {
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10;
+  margin: 10;
   text-align: center;
   min-height: 0;
   position: absolute;
@@ -206,4 +211,9 @@ span, article, footer, time, small {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 65%;
+}
+
+.taskers-index-list {
+  display: flex;
+  flex-direction: row;
 }

@@ -7,7 +7,7 @@ class AccountForm extends React.Component {
     let user = this.props.currentUser;
     this.state  = { email: user.email, password: "",
     zip_code: user.zip_code, first_name: user.first_name,
-    last_name: user.last_name};
+    last_name: user.last_name, id: user.id};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
@@ -20,7 +20,9 @@ class AccountForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = this.state;
-    this.props.update({user})
+    this.props.update(user);
+    this.state.edited = "DONE EDITING";
+     location.href = '/'
   }
 
   render() {
@@ -29,6 +31,7 @@ class AccountForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="user-profile">
           <br/>
           Edit Account Information
+          {this.state.edited}
           {// this.renderErrors()
         }
           <div className="user-info">

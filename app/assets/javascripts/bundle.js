@@ -29086,7 +29086,7 @@
 	var signup = exports.signup = function signup(user) {
 	  return $.ajax({
 	    method: 'POST',
-	    url: '/api/user',
+	    url: '/api/users',
 	    data: user
 	  });
 	};
@@ -29101,15 +29101,15 @@
 	var update = exports.update = function update(user) {
 	  return $.ajax({
 	    method: 'PATCH',
-	    url: '/api/user/' + user.id,
-	    data: user
+	    url: '/api/users/' + user.id,
+	    data: { user: user }
 	  });
 	};
 	
-	var fetchUser = exports.fetchUser = function fetchUser(user) {
+	var fetchUser = exports.fetchUser = function fetchUser(id) {
 	  return $.ajax({
-	    method: 'GET'
-	
+	    method: 'GET',
+	    url: 'api/users/' + id
 	  });
 	};
 
@@ -29471,7 +29471,6 @@
 	      taskRequest.tasker_id = 1;
 	      taskRequest.user_id = this.props.userId;
 	      taskRequest.task_id = this.props.params.taskId;
-	      debugger;
 	
 	      this.props.createTaskRequest(taskRequest);
 	      this.setState({
@@ -48776,7 +48775,7 @@
 	    var user = _this.props.currentUser;
 	    _this.state = { email: user.email, password: "",
 	      zip_code: user.zip_code, first_name: user.first_name,
-	      last_name: user.last_name };
+	      last_name: user.last_name, id: user.id };
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    _this.handleChange = _this.handleChange.bind(_this);
 	
@@ -48797,7 +48796,9 @@
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
 	      var user = this.state;
-	      this.props.update({ user: user });
+	      this.props.update(user);
+	      this.state.edited = "DONE EDITING";
+	      location.href = '/';
 	    }
 	  }, {
 	    key: 'render',
@@ -48810,6 +48811,7 @@
 	          { onSubmit: this.handleSubmit, className: 'user-profile' },
 	          _react2.default.createElement('br', null),
 	          'Edit Account Information',
+	          this.state.edited,
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'user-info' },
@@ -66406,6 +66408,7 @@
 	      null,
 	      _react2.default.createElement(_header_container2.default, null)
 	    ),
+	    _react2.default.createElement(_greeting_container2.default, null),
 	    children,
 	    _react2.default.createElement(_footer2.default, null)
 	  );
@@ -66440,28 +66443,7 @@
 	  };
 	};
 	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    login: function (_login) {
-	      function login(_x) {
-	        return _login.apply(this, arguments);
-	      }
-	
-	      login.toString = function () {
-	        return _login.toString();
-	      };
-	
-	      return login;
-	    }(function (user) {
-	      return dispatch(login(user));
-	    }),
-	    logout: function logout() {
-	      return dispatch((0, _session_actions.logout)());
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_greeting2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_greeting2.default);
 
 /***/ },
 /* 434 */
@@ -66501,14 +66483,111 @@
 	
 	var personalGreeting = function personalGreeting(currentUser, logout) {
 	  return _react2.default.createElement(
-	    'hgroup',
-	    { className: 'header-group' },
+	    'section',
+	    { className: 'greeting' },
 	    _react2.default.createElement(
-	      'h2',
-	      { className: 'header-name' },
-	      'Hi, ',
-	      currentUser.first_name,
-	      '!'
+	      'hgroup',
+	      { className: 'header-group' },
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'header-name' },
+	        'Welcome to AskRabbit, ',
+	        currentUser.first_name,
+	        '!'
+	      ),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        ' What do you need help with? '
+	      )
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'h4',
+	        null,
+	        'How to get Started'
+	      ),
+	      _react2.default.createElement(
+	        'p',
+	        null,
+	        'Taskers love helping'
+	      ),
+	      _react2.default.createElement(
+	        'ul',
+	        null,
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'badge' },
+	            '1'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'content' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Pick a Task'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Choose a task from a list of available jobs'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'badge' },
+	            '2'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'content' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Pick a Tasker'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Select a Tasker that suits your unique needs'
+	            )
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'li',
+	          null,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'badge' },
+	            '3'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'content' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Get it Done'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              'Your Tasker puts in the work and ideally gets paid\u2122'
+	            )
+	          )
+	        )
+	      )
 	    )
 	  );
 	};
@@ -66617,9 +66696,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var headerNav = void 0;
+	      var Nav = void 0;
 	      if (this.props.currentUser) {
-	        headerNav = _react2.default.createElement(
+	        Nav = _react2.default.createElement(
 	          'ul',
 	          { className: 'header-list' },
 	          _react2.default.createElement(
@@ -66627,8 +66706,8 @@
 	            { className: 'header-list-item' },
 	            _react2.default.createElement(
 	              _reactRouter.Link,
-	              { to: '/task_requests' },
-	              'Task Request'
+	              { to: '/' },
+	              'Dashboard'
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -66668,7 +66747,7 @@
 	          )
 	        );
 	      } else {
-	        headerNav = _react2.default.createElement(
+	        Nav = _react2.default.createElement(
 	          'ul',
 	          { className: 'header-list' },
 	          _react2.default.createElement(
@@ -66721,7 +66800,7 @@
 	              )
 	            )
 	          ),
-	          headerNav
+	          Nav
 	        )
 	      );
 	    }

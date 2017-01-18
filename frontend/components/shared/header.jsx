@@ -21,11 +21,11 @@ class Header extends React.Component {
   }
 
   render() {
-    let headerNav;
+    let Nav;
     if (this.props.currentUser) {
-      headerNav = (
+      Nav = (
         <ul className="header-list">
-          <li className="header-list-item"><Link to="/task_requests">Task Request</Link></li>
+          <li className="header-list-item"><Link to="/">Dashboard</Link></li>
           <li className="header-list-item"><Link to="/taskers">Taskers</Link></li>
           <li className="header-list-item"><Link to="/account">Account</Link></li>
 
@@ -39,7 +39,7 @@ class Header extends React.Component {
         </ul>
       );
     }else {
-      headerNav = (
+      Nav = (
         <ul className="header-list">
           <li className="header-list-item"><Link to="/login">Log In</Link></li>
           <li className="header-list-item"><Link to="/signup">Sign Up</Link></li>
@@ -60,7 +60,7 @@ class Header extends React.Component {
               <h3 className="logo-h3">Home</h3>
             </Link>
           </section>
-          {headerNav}
+          {Nav}
         </nav>
       </header>
     );
