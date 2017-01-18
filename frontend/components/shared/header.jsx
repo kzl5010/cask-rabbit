@@ -26,7 +26,7 @@ class Header extends React.Component {
       headerNav = (
         <ul className="header-list">
           <li className="header-list-item"><Link to="/task_requests">Task Request</Link></li>
-          <li className="header-list-item"><Link to="/">Tasks</Link></li>
+          <li className="header-list-item"><Link to="/taskers">Taskers</Link></li>
           <li className="header-list-item"><Link to="/account">Account</Link></li>
 
           <button className="header-button" onClick={this.handleClick}>Log Out</button>

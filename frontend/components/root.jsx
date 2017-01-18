@@ -8,6 +8,7 @@ import { fetchTaskRequest, fetchTaskRequests } from '../actions/task_request_act
 import SessionFormContainer from './session_form/session_form_container';
 import TaskRequestFormContainer from './task_request/task_request_form_container';
 import AccountContainer from './account/account_container';
+import TaskIndexContainer from './tasks/task_index_container';
 import TaskerIndexContainer from './tasker/tasker_index_container';
 
 import App from './app';
@@ -76,13 +77,17 @@ const Root = ({ store }) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App} onEnter={ fetchTaskersOnEnter }>
-          <IndexRoute component={TaskerIndexContainer} onEnter={ fetchTaskersOnEnter } />
+
+        {//  <IndexRoute component={TaskerIndexContainer} onEnter={ fetchTaskersOnEnter } />
+      }
+      {/*
+          <IndexRoute component={TaskIndexContainer} onEnter={ fetchTasksOnEnter }/>
           <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
-
+          <Route path="taskers" component={TaskerIndexContainer} onEnter= { fetchTaskersOnEnter } />
           <Route path="task_requests" component={TaskRequestFormContainer} onEnter={_ensureLoggedIn}/>
           <Route path="account" component={AccountContainer} onEnter={_ensureLoggedIn} />
-
+*/}
         </Route>
       </Router>
     </Provider>

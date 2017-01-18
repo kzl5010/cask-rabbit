@@ -5,11 +5,11 @@ export const FETCH_TASKS = "FETCH_TASKS";
 export const RECEIVE_TASK = "RECEIVE_TASK";
 export const RECEIVE_TASKS = "RECEIVE_TASKS";
 
-export const fetchTasker = id => dispatch => (
+export const fetchTask = id => dispatch => (
   APIUtil.fetchTask(id).then(task => dispatch(receiveTask(task)))
 );
 
-export const fetchTaskers = () => dispatch => (
+export const fetchTasks = () => dispatch => (
   APIUtil.fetchTasks().then(tasks => dispatch(receiveTasks(tasks)))
 );
 
