@@ -22,7 +22,7 @@ class AccountForm extends React.Component {
     let user = this.state;
     this.props.update(user);
     this.state.edited = "DONE EDITING";
-     location.href = '/'
+    // location.href = '/' 
   }
 
   render() {

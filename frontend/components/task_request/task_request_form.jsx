@@ -10,7 +10,7 @@ class TaskRequestForm extends React.Component {
     super(props)
     this.state = {
       address: "",
-      tasker: "",
+      tasker_id: "",
       date: moment(),
       details: ""
     };
@@ -18,6 +18,7 @@ class TaskRequestForm extends React.Component {
   this.changeDate = this.changeDate.bind(this);
   this.handleChange = this.handleChange.bind(this);
   this.handleSubmit = this.handleSubmit.bind(this);
+  this.updateTasker = this.updateTasker.bind(this);
   }
 
   handleChange(field) {
@@ -28,18 +29,27 @@ class TaskRequestForm extends React.Component {
     this.setState({ date: date});
   }
 
+  updateTasker(tasker_id) {
+    this.setState({tasker_id: tasker_id});
+  }
+
+  nextForm(e) {
+    e.preventDefault();
+
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     let taskRequest = this.state;
     taskRequest.date = taskRequest.date.toDate();
-    taskRequest.tasker_id = 1;
+    // taskRequest.tasker_id = this.props.tasker_id;
     taskRequest.user_id = this.props.userId;
     taskRequest.task_id = this.props.params.taskId;
-
+    debugger;
     this.props.createTaskRequest(taskRequest);
     this.setState({
       address: "",
-      tasker: "",
+      tasker_id: "",
       date: moment(),
       details: ""
     });
@@ -73,7 +83,7 @@ class TaskRequestForm extends React.Component {
             <label>Details for Tasker</label>
             <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
             onChange={this.handleChange("details")} className="taskRequest-form-text" />
-            <TaskerIndexContainer />
+            <TaskerIndexContainer updateTasker={this.updateTasker} taskers={this.props.taskers}/>
             <button className="taskRequest-button" type="submit"> <div>Submit Request</div>
             </button>
           </form>

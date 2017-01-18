@@ -21538,19 +21538,19 @@
 	
 	var _task_request_form_container2 = _interopRequireDefault(_task_request_form_container);
 	
-	var _account_container = __webpack_require__(423);
+	var _account_container = __webpack_require__(427);
 	
 	var _account_container2 = _interopRequireDefault(_account_container);
 	
-	var _task_index_container = __webpack_require__(425);
+	var _task_index_container = __webpack_require__(429);
 	
 	var _task_index_container2 = _interopRequireDefault(_task_index_container);
 	
-	var _tasker_index_container = __webpack_require__(429);
+	var _tasker_index_container = __webpack_require__(423);
 	
 	var _tasker_index_container2 = _interopRequireDefault(_tasker_index_container);
 	
-	var _app = __webpack_require__(432);
+	var _app = __webpack_require__(434);
 	
 	var _app2 = _interopRequireDefault(_app);
 	
@@ -29370,7 +29370,8 @@
 	var mapStateToProps = function mapStateToProps(state, ownProps) {
 	  return {
 	    userId: state.session.currentUser.id,
-	    errors: state.taskRequests.errors
+	    errors: state.taskRequests.errors,
+	    taskers: state.taskers
 	    // task: state.tasks[ownProps.params.taskId]
 	  };
 	};
@@ -29413,7 +29414,7 @@
 	
 	var _reactDatepicker2 = _interopRequireDefault(_reactDatepicker);
 	
-	var _tasker_index_container = __webpack_require__(429);
+	var _tasker_index_container = __webpack_require__(423);
 	
 	var _tasker_index_container2 = _interopRequireDefault(_tasker_index_container);
 	
@@ -29439,7 +29440,7 @@
 	
 	    _this.state = {
 	      address: "",
-	      tasker: "",
+	      tasker_id: "",
 	      date: (0, _moment2.default)(),
 	      details: ""
 	    };
@@ -29449,6 +29450,7 @@
 	    _this.changeDate = _this.changeDate.bind(_this);
 	    _this.handleChange = _this.handleChange.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    _this.updateTasker = _this.updateTasker.bind(_this);
 	    return _this;
 	  }
 	
@@ -29467,19 +29469,29 @@
 	      this.setState({ date: date });
 	    }
 	  }, {
+	    key: 'updateTasker',
+	    value: function updateTasker(tasker_id) {
+	      this.setState({ tasker_id: tasker_id });
+	    }
+	  }, {
+	    key: 'nextForm',
+	    value: function nextForm(e) {
+	      e.preventDefault();
+	    }
+	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
 	      var taskRequest = this.state;
 	      taskRequest.date = taskRequest.date.toDate();
-	      taskRequest.tasker_id = 1;
+	      // taskRequest.tasker_id = this.props.tasker_id;
 	      taskRequest.user_id = this.props.userId;
 	      taskRequest.task_id = this.props.params.taskId;
-	
+	      debugger;
 	      this.props.createTaskRequest(taskRequest);
 	      this.setState({
 	        address: "",
-	        tasker: "",
+	        tasker_id: "",
 	        date: (0, _moment2.default)(),
 	        details: ""
 	      });
@@ -29529,7 +29541,7 @@
 	            ),
 	            _react2.default.createElement('textarea', { value: this.state.details, placeholder: 'Describe the task for the Tasker',
 	              onChange: this.handleChange("details"), className: 'taskRequest-form-text' }),
-	            _react2.default.createElement(_tasker_index_container2.default, null),
+	            _react2.default.createElement(_tasker_index_container2.default, { updateTasker: this.updateTasker, taskers: this.props.taskers }),
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'taskRequest-button', type: 'submit' },
@@ -48717,29 +48729,29 @@
 	
 	var _reactRedux = __webpack_require__(179);
 	
-	var _account_form = __webpack_require__(424);
+	var _tasker_index = __webpack_require__(424);
 	
-	var _account_form2 = _interopRequireDefault(_account_form);
+	var _tasker_index2 = _interopRequireDefault(_tasker_index);
 	
-	var _session_actions = __webpack_require__(277);
+	var _tasker_actions = __webpack_require__(272);
+	
+	var _lodash = __webpack_require__(426);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var mapStateToProps = function mapStateToProps(state) {
+	var convertTaskers = function convertTaskers(_ref) {
+	  var taskers = _ref.taskers;
+	  return (0, _lodash.values)(taskers);
+	};
+	
+	var mapStateToProps = function mapStateToProps(state, ownProps) {
 	  return {
-	    currentUser: state.session.currentUser
+	    taskers: state.taskers.taskers,
+	    updateTasker: ownProps.updateTasker
 	  };
 	};
 	
-	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {
-	    update: function update(user) {
-	      return dispatch((0, _session_actions.update)(user));
-	    }
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_account_form2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_tasker_index2.default);
 
 /***/ },
 /* 424 */
@@ -48757,11 +48769,11 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(217);
+	var _tasker_item = __webpack_require__(425);
+	
+	var _tasker_item2 = _interopRequireDefault(_tasker_item);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -48769,119 +48781,57 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var AccountForm = function (_React$Component) {
-	  _inherits(AccountForm, _React$Component);
+	var TaskerIndex = function (_React$Component) {
+	  _inherits(TaskerIndex, _React$Component);
 	
-	  function AccountForm(props) {
-	    _classCallCheck(this, AccountForm);
+	  function TaskerIndex(props) {
+	    _classCallCheck(this, TaskerIndex);
 	
-	    var _this = _possibleConstructorReturn(this, (AccountForm.__proto__ || Object.getPrototypeOf(AccountForm)).call(this, props));
-	
-	    var user = _this.props.currentUser;
-	    _this.state = { email: user.email, password: "",
-	      zip_code: user.zip_code, first_name: user.first_name,
-	      last_name: user.last_name, id: user.id };
-	    _this.handleSubmit = _this.handleSubmit.bind(_this);
-	    _this.handleChange = _this.handleChange.bind(_this);
-	
-	    return _this;
+	    return _possibleConstructorReturn(this, (TaskerIndex.__proto__ || Object.getPrototypeOf(TaskerIndex)).call(this, props));
 	  }
 	
-	  _createClass(AccountForm, [{
-	    key: 'handleChange',
-	    value: function handleChange(field) {
-	      var _this2 = this;
-	
-	      return function (e) {
-	        return _this2.setState(_defineProperty({}, field, e.target.value));
-	      };
-	    }
-	  }, {
-	    key: 'handleSubmit',
-	    value: function handleSubmit(e) {
-	      e.preventDefault();
-	      var user = this.state;
-	      this.props.update(user);
-	      this.state.edited = "DONE EDITING";
-	      location.href = '/';
-	    }
-	  }, {
+	  _createClass(TaskerIndex, [{
 	    key: 'render',
 	    value: function render() {
+	      var _this2 = this;
+	
+	      if (this.props.taskers === undefined) {
+	        return null;
+	      }
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'user-profile-container' },
+	        'section',
+	        { className: 'taskers-index' },
 	        _react2.default.createElement(
-	          'form',
-	          { onSubmit: this.handleSubmit, className: 'user-profile' },
-	          _react2.default.createElement('br', null),
-	          'Edit Account Information',
-	          this.state.edited,
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'user-info' },
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              ' Email:',
-	              _react2.default.createElement('input', { type: 'text',
-	                value: this.state.email,
-	                onChange: this.handleChange("email"),
-	                className: 'user-info-input' })
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              ' Password:',
-	              _react2.default.createElement('input', { type: 'password',
-	                value: this.state.password,
-	                onChange: this.handleChange("password"),
-	                className: 'user-info-input' })
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              ' First Name:',
-	              _react2.default.createElement('input', { type: 'text',
-	                value: this.state.first_name,
-	                onChange: this.handleChange("first_name"),
-	                className: 'user-info-input' })
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              ' Last Name:',
-	              _react2.default.createElement('input', { type: 'text',
-	                value: this.state.last_name,
-	                onChange: this.handleChange("last_name"),
-	                className: 'user-info-input' })
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement(
-	              'label',
-	              null,
-	              ' Zip_code:',
-	              _react2.default.createElement('input', { type: 'text',
-	                value: this.state.zip_code,
-	                onChange: this.handleChange("zip_code"),
-	                className: 'user-info-input' })
-	            ),
-	            _react2.default.createElement('br', null),
-	            _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
-	          )
+	          'ul',
+	          { className: 'tasker-index-list' },
+	          this.props.taskers.map(function (tasker) {
+	            return _react2.default.createElement(_tasker_item2.default, { key: tasker.id, tasker: tasker, updateTasker: _this2.props.updateTasker });
+	          })
 	        )
-	      );s;
+	      );
 	    }
 	  }]);
 	
-	  return AccountForm;
+	  return TaskerIndex;
 	}(_react2.default.Component);
 	
-	exports.default = AccountForm;
+	;
+	//
+	// const TaskerIndex = ({ taskers }) => {
+	//   if (taskers) {
+	//     return (
+	//           <section className="taskers-index">
+	//             <ul className="tasker-index-list">
+	//               {taskers.map(tasker => (
+	//                 <TaskerItem key={tasker.id} tasker={tasker}/>
+	//               ))}
+	//             </ul>
+	//           </section>
+	//         )
+	//   }
+	// }
+	
+	exports.default = TaskerIndex;
 
 /***/ },
 /* 425 */
@@ -48893,123 +48843,6 @@
 	  value: true
 	});
 	
-	var _reactRedux = __webpack_require__(179);
-	
-	var _task_index = __webpack_require__(426);
-	
-	var _task_index2 = _interopRequireDefault(_task_index);
-	
-	var _task_actions = __webpack_require__(270);
-	
-	var _lodash = __webpack_require__(428);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var convertTasks = function convertTasks(_ref) {
-	  var tasks = _ref.tasks;
-	  return (0, _lodash.values)(tasks);
-	};
-	
-	var mapStateToProps = function mapStateToProps(state) {
-	  return {
-	    tasks: state.tasks.tasks
-	  };
-	};
-	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_task_index2.default);
-
-/***/ },
-/* 426 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _task_item = __webpack_require__(427);
-	
-	var _task_item2 = _interopRequireDefault(_task_item);
-	
-	var _greeting_container = __webpack_require__(433);
-	
-	var _greeting_container2 = _interopRequireDefault(_greeting_container);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var TaskIndex = function (_React$Component) {
-	  _inherits(TaskIndex, _React$Component);
-	
-	  function TaskIndex(props) {
-	    _classCallCheck(this, TaskIndex);
-	
-	    return _possibleConstructorReturn(this, (TaskIndex.__proto__ || Object.getPrototypeOf(TaskIndex)).call(this, props));
-	  }
-	
-	  _createClass(TaskIndex, [{
-	    key: 'render',
-	    value: function render() {
-	      if (this.props.tasks === undefined) {
-	        return null;
-	      }
-	      return _react2.default.createElement(
-	        'section',
-	        { className: 'tasks-index' },
-	        _react2.default.createElement(_greeting_container2.default, null),
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'task-index-list' },
-	          this.props.tasks.map(function (task) {
-	            return _react2.default.createElement(_task_item2.default, { key: task.id, task: task });
-	          })
-	        )
-	      );
-	    }
-	  }]);
-	
-	  return TaskIndex;
-	}(_react2.default.Component);
-	
-	;
-	
-	// const TaskIndex = ({ tasks }) => {
-	//   if (tasks) {
-	//     return (
-	//         <section className="tasks-index">
-	//           <ul className="task-index-list">
-	//             {tasks.map(task => (
-	//               <TaskItem key={task.id} task={task}/>
-	//             ))}
-	//           </ul>
-	//         </section>
-	//     )
-	//   }
-	// }
-	exports.default = TaskIndex;
-
-/***/ },
-/* 427 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
@@ -49026,75 +48859,76 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var TaskItem = function (_React$Component) {
-	  _inherits(TaskItem, _React$Component);
+	//
+	var TaskerItem = function (_React$Component) {
+	  _inherits(TaskerItem, _React$Component);
 	
-	  function TaskItem(props) {
-	    _classCallCheck(this, TaskItem);
+	  function TaskerItem(props) {
+	    _classCallCheck(this, TaskerItem);
 	
-	    return _possibleConstructorReturn(this, (TaskItem.__proto__ || Object.getPrototypeOf(TaskItem)).call(this, props));
+	    var _this = _possibleConstructorReturn(this, (TaskerItem.__proto__ || Object.getPrototypeOf(TaskerItem)).call(this, props));
+	
+	    _this.handleClick = _this.handleClick.bind(_this);
+	    return _this;
 	  }
 	
-	  _createClass(TaskItem, [{
+	  _createClass(TaskerItem, [{
+	    key: 'handleClick',
+	    value: function handleClick(e) {
+	      e.preventDefault();
+	      this.props.updateTasker(this.props.tasker.id);
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'li',
-	        { className: 'task-item', key: this.props.task.id },
+	        'button',
+	        { className: 'tasker-button', onClick: this.handleClick },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'task-profile' },
-	          this.props.task.title,
-	          _react2.default.createElement('br', null),
-	          this.props.task.description,
-	          _react2.default.createElement('br', null),
+	          'li',
+	          { className: 'tasker-item', key: this.props.tasker.id },
 	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/tasks/' + this.props.task.id + '/task_requests' },
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'task-request-button' },
-	              _react2.default.createElement(
-	                'span',
-	                null,
-	                'Request Task'
-	              )
-	            )
+	            'div',
+	            { className: 'tasker-profile' },
+	            this.props.tasker.name,
+	            _react2.default.createElement('br', null),
+	            this.props.tasker.email,
+	            _react2.default.createElement('br', null),
+	            this.props.tasker.zip_code,
+	            _react2.default.createElement('br', null)
 	          )
 	        )
 	      );
 	    }
 	  }]);
 	
-	  return TaskItem;
+	  return TaskerItem;
 	}(_react2.default.Component);
-	//
-	// const TaskItem = ({ task }) => {
-	//   if (task) {
+	
+	// const TaskerItem = ({tasker}) => {
+	//   if (tasker) {
 	//     return (
-	//         <li className="task-item" key={task.id}>
-	//         {// photo here
-	//         }
-	//           <div className="task-profile">
-	//             {task.title}
-	//             <br/>
-	//             {task.description}
-	//             <br/>
-	//             <Link to={`/tasks/${task.id}/task_requests`}>
-	//               <button className="task-request-button">
-	//                 <span>Request Task</span>
-	//               </button>
-	//             </Link>
-	//           </div>
-	//         </li>
+	//       <li className="tasker-item" key={tasker.id}>
+	//       {// photo here
+	//       }
+	//         <div className="tasker-profile">
+	//           {tasker.name}
+	//           <br/>
+	//           {tasker.email}
+	//           <br/>
+	//           {tasker.zip_code}
+	//           <br/>
+	//         </div>
+	//       </li>
 	//     )
 	//   }
+	//
 	// }
 	
-	exports.default = TaskItem;
+	exports.default = TaskerItem;
 
 /***/ },
-/* 428 */
+/* 426 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -66185,6 +66019,184 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(204)(module)))
 
 /***/ },
+/* 427 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(179);
+	
+	var _account_form = __webpack_require__(428);
+	
+	var _account_form2 = _interopRequireDefault(_account_form);
+	
+	var _session_actions = __webpack_require__(277);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    currentUser: state.session.currentUser
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    update: function update(user) {
+	      return dispatch((0, _session_actions.update)(user));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_account_form2.default);
+
+/***/ },
+/* 428 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(217);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var AccountForm = function (_React$Component) {
+	  _inherits(AccountForm, _React$Component);
+	
+	  function AccountForm(props) {
+	    _classCallCheck(this, AccountForm);
+	
+	    var _this = _possibleConstructorReturn(this, (AccountForm.__proto__ || Object.getPrototypeOf(AccountForm)).call(this, props));
+	
+	    var user = _this.props.currentUser;
+	    _this.state = { email: user.email, password: "",
+	      zip_code: user.zip_code, first_name: user.first_name,
+	      last_name: user.last_name, id: user.id };
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    _this.handleChange = _this.handleChange.bind(_this);
+	
+	    return _this;
+	  }
+	
+	  _createClass(AccountForm, [{
+	    key: 'handleChange',
+	    value: function handleChange(field) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        return _this2.setState(_defineProperty({}, field, e.target.value));
+	      };
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      var user = this.state;
+	      this.props.update(user);
+	      this.state.edited = "DONE EDITING";
+	      // location.href = '/' 
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'user-profile-container' },
+	        _react2.default.createElement(
+	          'form',
+	          { onSubmit: this.handleSubmit, className: 'user-profile' },
+	          _react2.default.createElement('br', null),
+	          'Edit Account Information',
+	          this.state.edited,
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'user-info' },
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              ' Email:',
+	              _react2.default.createElement('input', { type: 'text',
+	                value: this.state.email,
+	                onChange: this.handleChange("email"),
+	                className: 'user-info-input' })
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              ' Password:',
+	              _react2.default.createElement('input', { type: 'password',
+	                value: this.state.password,
+	                onChange: this.handleChange("password"),
+	                className: 'user-info-input' })
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              ' First Name:',
+	              _react2.default.createElement('input', { type: 'text',
+	                value: this.state.first_name,
+	                onChange: this.handleChange("first_name"),
+	                className: 'user-info-input' })
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              ' Last Name:',
+	              _react2.default.createElement('input', { type: 'text',
+	                value: this.state.last_name,
+	                onChange: this.handleChange("last_name"),
+	                className: 'user-info-input' })
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'label',
+	              null,
+	              ' Zip_code:',
+	              _react2.default.createElement('input', { type: 'text',
+	                value: this.state.zip_code,
+	                onChange: this.handleChange("zip_code"),
+	                className: 'user-info-input' })
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	          )
+	        )
+	      );s;
+	    }
+	  }]);
+	
+	  return AccountForm;
+	}(_react2.default.Component);
+	
+	exports.default = AccountForm;
+
+/***/ },
 /* 429 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -66196,28 +66208,28 @@
 	
 	var _reactRedux = __webpack_require__(179);
 	
-	var _tasker_index = __webpack_require__(430);
+	var _task_index = __webpack_require__(430);
 	
-	var _tasker_index2 = _interopRequireDefault(_tasker_index);
+	var _task_index2 = _interopRequireDefault(_task_index);
 	
-	var _tasker_actions = __webpack_require__(272);
+	var _task_actions = __webpack_require__(270);
 	
-	var _lodash = __webpack_require__(428);
+	var _lodash = __webpack_require__(426);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var convertTaskers = function convertTaskers(_ref) {
-	  var taskers = _ref.taskers;
-	  return (0, _lodash.values)(taskers);
+	var convertTasks = function convertTasks(_ref) {
+	  var tasks = _ref.tasks;
+	  return (0, _lodash.values)(tasks);
 	};
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    taskers: state.taskers.taskers
+	    tasks: state.tasks.tasks
 	  };
 	};
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_tasker_index2.default);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_task_index2.default);
 
 /***/ },
 /* 430 */
@@ -66235,9 +66247,13 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _tasker_item = __webpack_require__(431);
+	var _task_item = __webpack_require__(431);
 	
-	var _tasker_item2 = _interopRequireDefault(_tasker_item);
+	var _task_item2 = _interopRequireDefault(_task_item);
+	
+	var _greeting_container = __webpack_require__(432);
+	
+	var _greeting_container2 = _interopRequireDefault(_greeting_container);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -66247,55 +66263,55 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var TaskerIndex = function (_React$Component) {
-	  _inherits(TaskerIndex, _React$Component);
+	var TaskIndex = function (_React$Component) {
+	  _inherits(TaskIndex, _React$Component);
 	
-	  function TaskerIndex(props) {
-	    _classCallCheck(this, TaskerIndex);
+	  function TaskIndex(props) {
+	    _classCallCheck(this, TaskIndex);
 	
-	    return _possibleConstructorReturn(this, (TaskerIndex.__proto__ || Object.getPrototypeOf(TaskerIndex)).call(this, props));
+	    return _possibleConstructorReturn(this, (TaskIndex.__proto__ || Object.getPrototypeOf(TaskIndex)).call(this, props));
 	  }
 	
-	  _createClass(TaskerIndex, [{
+	  _createClass(TaskIndex, [{
 	    key: 'render',
 	    value: function render() {
-	      if (this.props.taskers === undefined) {
+	      if (this.props.tasks === undefined) {
 	        return null;
 	      }
 	      return _react2.default.createElement(
 	        'section',
-	        { className: 'taskers-index' },
+	        { className: 'tasks-index' },
+	        _react2.default.createElement(_greeting_container2.default, null),
 	        _react2.default.createElement(
 	          'ul',
-	          { className: 'tasker-index-list' },
-	          this.props.taskers.map(function (tasker) {
-	            return _react2.default.createElement(_tasker_item2.default, { key: tasker.id, tasker: tasker });
+	          { className: 'task-index-list' },
+	          this.props.tasks.map(function (task) {
+	            return _react2.default.createElement(_task_item2.default, { key: task.id, task: task });
 	          })
 	        )
 	      );
 	    }
 	  }]);
 	
-	  return TaskerIndex;
+	  return TaskIndex;
 	}(_react2.default.Component);
 	
 	;
-	//
-	// const TaskerIndex = ({ taskers }) => {
-	//   if (taskers) {
+	
+	// const TaskIndex = ({ tasks }) => {
+	//   if (tasks) {
 	//     return (
-	//           <section className="taskers-index">
-	//             <ul className="tasker-index-list">
-	//               {taskers.map(tasker => (
-	//                 <TaskerItem key={tasker.id} tasker={tasker}/>
-	//               ))}
-	//             </ul>
-	//           </section>
-	//         )
+	//         <section className="tasks-index">
+	//           <ul className="task-index-list">
+	//             {tasks.map(task => (
+	//               <TaskItem key={task.id} task={task}/>
+	//             ))}
+	//           </ul>
+	//         </section>
+	//     )
 	//   }
 	// }
-	
-	exports.default = TaskerIndex;
+	exports.default = TaskIndex;
 
 /***/ },
 /* 431 */
@@ -66323,110 +66339,75 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	//
-	var TaskerItem = function (_React$Component) {
-	  _inherits(TaskerItem, _React$Component);
+	var TaskItem = function (_React$Component) {
+	  _inherits(TaskItem, _React$Component);
 	
-	  function TaskerItem(props) {
-	    _classCallCheck(this, TaskerItem);
+	  function TaskItem(props) {
+	    _classCallCheck(this, TaskItem);
 	
-	    return _possibleConstructorReturn(this, (TaskerItem.__proto__ || Object.getPrototypeOf(TaskerItem)).call(this, props));
+	    return _possibleConstructorReturn(this, (TaskItem.__proto__ || Object.getPrototypeOf(TaskItem)).call(this, props));
 	  }
 	
-	  _createClass(TaskerItem, [{
+	  _createClass(TaskItem, [{
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'li',
-	        { className: 'tasker-item', key: this.props.tasker.id },
+	        { className: 'task-item', key: this.props.task.id },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'tasker-profile' },
-	          this.props.tasker.name,
+	          { className: 'task-profile' },
+	          this.props.task.title,
 	          _react2.default.createElement('br', null),
-	          this.props.tasker.email,
+	          this.props.task.description,
 	          _react2.default.createElement('br', null),
-	          this.props.tasker.zip_code,
-	          _react2.default.createElement('br', null)
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/tasks/' + this.props.task.id + '/task_requests' },
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'task-request-button' },
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'Request Task'
+	              )
+	            )
+	          )
 	        )
 	      );
 	    }
 	  }]);
 	
-	  return TaskerItem;
+	  return TaskItem;
 	}(_react2.default.Component);
-	
-	// const TaskerItem = ({tasker}) => {
-	//   if (tasker) {
+	//
+	// const TaskItem = ({ task }) => {
+	//   if (task) {
 	//     return (
-	//       <li className="tasker-item" key={tasker.id}>
-	//       {// photo here
-	//       }
-	//         <div className="tasker-profile">
-	//           {tasker.name}
-	//           <br/>
-	//           {tasker.email}
-	//           <br/>
-	//           {tasker.zip_code}
-	//           <br/>
-	//         </div>
-	//       </li>
+	//         <li className="task-item" key={task.id}>
+	//         {// photo here
+	//         }
+	//           <div className="task-profile">
+	//             {task.title}
+	//             <br/>
+	//             {task.description}
+	//             <br/>
+	//             <Link to={`/tasks/${task.id}/task_requests`}>
+	//               <button className="task-request-button">
+	//                 <span>Request Task</span>
+	//               </button>
+	//             </Link>
+	//           </div>
+	//         </li>
 	//     )
 	//   }
-	//
 	// }
 	
-	exports.default = TaskerItem;
+	exports.default = TaskItem;
 
 /***/ },
 /* 432 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	var _reactRouter = __webpack_require__(217);
-	
-	var _greeting_container = __webpack_require__(433);
-	
-	var _greeting_container2 = _interopRequireDefault(_greeting_container);
-	
-	var _header_container = __webpack_require__(435);
-	
-	var _header_container2 = _interopRequireDefault(_header_container);
-	
-	var _footer = __webpack_require__(437);
-	
-	var _footer2 = _interopRequireDefault(_footer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var App = function App(_ref) {
-	  var children = _ref.children;
-	  return _react2.default.createElement(
-	    'div',
-	    { id: 'container', className: 'login-page' },
-	    _react2.default.createElement(
-	      'header',
-	      null,
-	      _react2.default.createElement(_header_container2.default, null)
-	    ),
-	    children,
-	    _react2.default.createElement(_footer2.default, null)
-	  );
-	};
-	
-	exports.default = App;
-
-/***/ },
-/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66439,7 +66420,7 @@
 	
 	var _session_actions = __webpack_require__(277);
 	
-	var _greeting = __webpack_require__(434);
+	var _greeting = __webpack_require__(433);
 	
 	var _greeting2 = _interopRequireDefault(_greeting);
 	
@@ -66455,7 +66436,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_greeting2.default);
 
 /***/ },
-/* 434 */
+/* 433 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -66609,6 +66590,53 @@
 	};
 	
 	exports.default = Greeting;
+
+/***/ },
+/* 434 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(217);
+	
+	var _greeting_container = __webpack_require__(432);
+	
+	var _greeting_container2 = _interopRequireDefault(_greeting_container);
+	
+	var _header_container = __webpack_require__(435);
+	
+	var _header_container2 = _interopRequireDefault(_header_container);
+	
+	var _footer = __webpack_require__(437);
+	
+	var _footer2 = _interopRequireDefault(_footer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var App = function App(_ref) {
+	  var children = _ref.children;
+	  return _react2.default.createElement(
+	    'div',
+	    { id: 'container', className: 'login-page' },
+	    _react2.default.createElement(
+	      'header',
+	      null,
+	      _react2.default.createElement(_header_container2.default, null)
+	    ),
+	    children,
+	    _react2.default.createElement(_footer2.default, null)
+	  );
+	};
+	
+	exports.default = App;
 
 /***/ },
 /* 435 */
@@ -69679,7 +69707,7 @@
 	  value: true
 	});
 	
-	var _lodash = __webpack_require__(428);
+	var _lodash = __webpack_require__(426);
 	
 	var _task_request_actions = __webpack_require__(274);
 	
@@ -69722,7 +69750,7 @@
 	  value: true
 	});
 	
-	var _lodash = __webpack_require__(428);
+	var _lodash = __webpack_require__(426);
 	
 	var _tasker_actions = __webpack_require__(272);
 	
@@ -69765,7 +69793,7 @@
 	  value: true
 	});
 	
-	var _lodash = __webpack_require__(428);
+	var _lodash = __webpack_require__(426);
 	
 	var _task_actions = __webpack_require__(270);
 	

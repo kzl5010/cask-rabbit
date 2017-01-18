@@ -8,7 +8,6 @@ const App = ({ children }) => (
   <div id="container" className="login-page">
     <header>
       <HeaderContainer />
-
     </header>
     {children}
     <Footer />

@@ -4,7 +4,8 @@ import { createTaskRequest } from '../../actions/task_request_actions';
 
 const mapStateToProps = (state, ownProps) => ({
   userId: state.session.currentUser.id,
-  errors: state.taskRequests.errors
+  errors: state.taskRequests.errors,
+  taskers: state.taskers
   // task: state.tasks[ownProps.params.taskId]
 })
 

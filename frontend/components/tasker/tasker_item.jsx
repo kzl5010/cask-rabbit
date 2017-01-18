@@ -5,10 +5,17 @@ import { Link, hashHistory, withRouter } from 'react-router';
 class TaskerItem extends React.Component {
   constructor(props){
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    this.props.updateTasker(this.props.tasker.id)
   }
 
   render() {
     return (
+      <button className="tasker-button" onClick={this.handleClick}>
       <li className="tasker-item" key={this.props.tasker.id}>
       {// photo here
       }
@@ -21,7 +28,7 @@ class TaskerItem extends React.Component {
           <br/>
         </div>
       </li>
-
+      </button>
     )
   }
 }

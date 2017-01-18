@@ -5,8 +5,11 @@ import { values } from 'lodash';
 
 const convertTaskers = ({taskers}) => values(taskers);
 
-const mapStateToProps = (state) => ({
-  taskers: state.taskers.taskers
+const mapStateToProps = (state, ownProps) => ({
+  taskers: state.taskers.taskers,
+  updateTasker: ownProps.updateTasker
 });
+
+
 
 export default connect(mapStateToProps)(TaskerIndex);
