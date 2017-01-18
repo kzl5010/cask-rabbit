@@ -1,6 +1,7 @@
 import React from 'react';
 
 import TaskItem from './task_item';
+import GreetingContainer from '../home_page/greeting_container';
 
 class TaskIndex extends React.Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class TaskIndex extends React.Component {
     }
     return(
       <section className="tasks-index">
+        <GreetingContainer />
         <ul className="task-index-list">
           {this.props.tasks.map(task => (
             <TaskItem key={task.id} task={task}/>

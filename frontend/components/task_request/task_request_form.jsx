@@ -2,6 +2,7 @@ import React from 'react';
 import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
+import TaskerIndexContainer from '../tasker/tasker_index_container';
 //TODO DECIDE WHETHER THE TASKER IS DECIDED BEFORE OR AFTER THIS
 
 class TaskRequestForm extends React.Component {
@@ -72,6 +73,7 @@ class TaskRequestForm extends React.Component {
             <label>Details for Tasker</label>
             <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
             onChange={this.handleChange("details")} className="taskRequest-form-text" />
+            <TaskerIndexContainer />
             <button className="taskRequest-button" type="submit"> <div>Submit Request</div>
             </button>
           </form>

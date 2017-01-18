@@ -10,7 +10,6 @@ const App = ({ children }) => (
       <HeaderContainer />
 
     </header>
-    <GreetingContainer />
     {children}
     <Footer />
   </div>

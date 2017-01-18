@@ -29413,6 +29413,10 @@
 	
 	var _reactDatepicker2 = _interopRequireDefault(_reactDatepicker);
 	
+	var _tasker_index_container = __webpack_require__(429);
+	
+	var _tasker_index_container2 = _interopRequireDefault(_tasker_index_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -29525,6 +29529,7 @@
 	            ),
 	            _react2.default.createElement('textarea', { value: this.state.details, placeholder: 'Describe the task for the Tasker',
 	              onChange: this.handleChange("details"), className: 'taskRequest-form-text' }),
+	            _react2.default.createElement(_tasker_index_container2.default, null),
 	            _react2.default.createElement(
 	              'button',
 	              { className: 'taskRequest-button', type: 'submit' },
@@ -48933,6 +48938,10 @@
 	
 	var _task_item2 = _interopRequireDefault(_task_item);
 	
+	var _greeting_container = __webpack_require__(433);
+	
+	var _greeting_container2 = _interopRequireDefault(_greeting_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -48959,6 +48968,7 @@
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'tasks-index' },
+	        _react2.default.createElement(_greeting_container2.default, null),
 	        _react2.default.createElement(
 	          'ul',
 	          { className: 'task-index-list' },
@@ -66408,7 +66418,6 @@
 	      null,
 	      _react2.default.createElement(_header_container2.default, null)
 	    ),
-	    _react2.default.createElement(_greeting_container2.default, null),
 	    children,
 	    _react2.default.createElement(_footer2.default, null)
 	  );
@@ -66487,10 +66496,10 @@
 	    { className: 'greeting' },
 	    _react2.default.createElement(
 	      'hgroup',
-	      { className: 'header-group' },
+	      { className: 'greeting-group' },
 	      _react2.default.createElement(
 	        'h2',
-	        { className: 'header-name' },
+	        { className: 'greeting-name' },
 	        'Welcome to AskRabbit, ',
 	        currentUser.first_name,
 	        '!'
@@ -66523,7 +66532,7 @@
 	          null,
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'badge' },
+	            { className: 'number-icon' },
 	            '1'
 	          ),
 	          _react2.default.createElement(
@@ -66546,7 +66555,7 @@
 	          null,
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'badge' },
+	            { className: 'number-icon' },
 	            '2'
 	          ),
 	          _react2.default.createElement(
@@ -66569,7 +66578,7 @@
 	          null,
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'badge' },
+	            { className: 'number-icon' },
 	            '3'
 	          ),
 	          _react2.default.createElement(
