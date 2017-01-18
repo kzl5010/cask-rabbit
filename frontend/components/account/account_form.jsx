@@ -4,7 +4,10 @@ import { Link } from 'react-router';
 class AccountForm extends React.Component {
   constructor(props){
     super(props);
-    this.state  = { email: "", password: "", zip_code: "", first_name: "", last_name: ""};
+    let user = this.props.currentUser;
+    this.state  = { email: user.email, password: "",
+    zip_code: user.zip_code, first_name: user.first_name,
+    last_name: user.last_name};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
@@ -32,35 +35,35 @@ class AccountForm extends React.Component {
             <br/>
             <label> Email:
               <input type="text"
-                value={this.props.currentUser.email}
+                value={this.state.email}
                 onChange={this.handleChange("email")}
                 className="user-info-input" />
             </label>
             <br/>
             <label> Password:
               <input type="password"
-                value={this.props.currentUser.password}
+                value={this.state.password}
                 onChange={this.handleChange("password")}
                 className="user-info-input" />
             </label>
             <br/>
             <label> First Name:
               <input type="text"
-                value={this.props.currentUser.first_name}
+                value={this.state.first_name}
                 onChange={this.handleChange("first_name")}
                 className="user-info-input" />
             </label>
             <br/>
             <label> Last Name:
               <input type="text"
-                value={this.props.currentUser.last_name}
+                value={this.state.last_name}
                 onChange={this.handleChange("last_name")}
                 className="user-info-input" />
             </label>
             <br/>
             <label> Zip_code:
               <input type="text"
-                value={this.props.currentUser.zip_code}
+                value={this.state.zip_code}
                 onChange={this.handleChange("zip_code")}
                 className="user-info-input" />
             </label>

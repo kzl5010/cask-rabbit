@@ -28,8 +28,6 @@ gem 'rails_12factor'
 
 gem 'faker'
 
-gem 'figaro'
-
 gem 'newrelic_rpm'
 
 # Use Unicorn as the app server

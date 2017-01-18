@@ -48691,7 +48691,10 @@
 	
 	    var _this = _possibleConstructorReturn(this, (AccountForm.__proto__ || Object.getPrototypeOf(AccountForm)).call(this, props));
 	
-	    _this.state = { email: "", password: "", zip_code: "", first_name: "", last_name: "" };
+	    var user = _this.props.currentUser;
+	    _this.state = { email: user.email, password: "",
+	      zip_code: user.zip_code, first_name: user.first_name,
+	      last_name: user.last_name };
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    _this.handleChange = _this.handleChange.bind(_this);
 	
@@ -48734,7 +48737,7 @@
 	              null,
 	              ' Email:',
 	              _react2.default.createElement('input', { type: 'text',
-	                value: this.props.currentUser.email,
+	                value: this.state.email,
 	                onChange: this.handleChange("email"),
 	                className: 'user-info-input' })
 	            ),
@@ -48744,7 +48747,7 @@
 	              null,
 	              ' Password:',
 	              _react2.default.createElement('input', { type: 'password',
-	                value: this.props.currentUser.password,
+	                value: this.state.password,
 	                onChange: this.handleChange("password"),
 	                className: 'user-info-input' })
 	            ),
@@ -48754,7 +48757,7 @@
 	              null,
 	              ' First Name:',
 	              _react2.default.createElement('input', { type: 'text',
-	                value: this.props.currentUser.first_name,
+	                value: this.state.first_name,
 	                onChange: this.handleChange("first_name"),
 	                className: 'user-info-input' })
 	            ),
@@ -48764,7 +48767,7 @@
 	              null,
 	              ' Last Name:',
 	              _react2.default.createElement('input', { type: 'text',
-	                value: this.props.currentUser.last_name,
+	                value: this.state.last_name,
 	                onChange: this.handleChange("last_name"),
 	                className: 'user-info-input' })
 	            ),
@@ -48774,7 +48777,7 @@
 	              null,
 	              ' Zip_code:',
 	              _react2.default.createElement('input', { type: 'text',
-	                value: this.props.currentUser.zip_code,
+	                value: this.state.zip_code,
 	                onChange: this.handleChange("zip_code"),
 	                className: 'user-info-input' })
 	            ),
