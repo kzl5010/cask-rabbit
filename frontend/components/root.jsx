@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { fetchTask, fetchTasks } from '../actions/task_actions';
 import { fetchTasker, fetchTaskers } from '../actions/tasker_actions';
 import { fetchTaskRequest, fetchTaskRequests } from '../actions/task_request_actions';
 import SessionFormContainer from './session_form/session_form_container';

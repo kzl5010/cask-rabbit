@@ -21524,6 +21524,8 @@
 	
 	var _reactRouter = __webpack_require__(217);
 	
+	var _task_actions = __webpack_require__(525);
+	
 	var _tasker_actions = __webpack_require__(270);
 	
 	var _task_request_actions = __webpack_require__(272);
@@ -21590,7 +21592,7 @@
 	    if (!store.getState().session.currentUser) {
 	      replace('/login');
 	    } else {
-	      store.dispatch(fetchTasks());
+	      store.dispatch((0, _task_actions.fetchTasks)());
 	    }
 	  };
 	
@@ -21598,7 +21600,7 @@
 	    if (!store.getState().session.currentUser) {
 	      replace('/login');
 	    } else {
-	      store.dispatch(fetchTask(nextState.params.taskId));
+	      store.dispatch((0, _task_actions.fetchTask)(nextState.params.taskId));
 	    }
 	  };
 	
@@ -28667,7 +28669,7 @@
 	var FETCH_TASKER = exports.FETCH_TASKER = "FETCH_TASKER";
 	var FETCH_TASKERS = exports.FETCH_TASKERS = "FETCH_TASKERS";
 	var RECEIVE_TASKER = exports.RECEIVE_TASKER = "RECEIVE_TASKER";
-	var RECEIVE_TASKERS = exports.RECEIVE_TASKERS = "RECEIVE TASKERS";
+	var RECEIVE_TASKERS = exports.RECEIVE_TASKERS = "RECEIVE_TASKERS";
 	
 	var fetchTasker = exports.fetchTasker = function fetchTasker(id) {
 	  return function (dispatch) {
@@ -66524,12 +66526,17 @@
 	
 	var _taskers_reducer2 = _interopRequireDefault(_taskers_reducer);
 	
+	var _tasks_reducer = __webpack_require__(524);
+	
+	var _tasks_reducer2 = _interopRequireDefault(_tasks_reducer);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var RootReducer = (0, _redux.combineReducers)({
 	  session: _session_reducer2.default,
 	  taskRequests: _task_requests_reducer2.default,
-	  taskers: _taskers_reducer2.default
+	  taskers: _taskers_reducer2.default,
+	  tasks: _tasks_reducer2.default
 	});
 	
 	exports.default = RootReducer;
@@ -69363,6 +69370,124 @@
 	thunk.withExtraArgument = createThunkMiddleware;
 	
 	exports['default'] = thunk;
+
+/***/ },
+/* 524 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _lodash = __webpack_require__(426);
+	
+	var _task_actions = __webpack_require__(525);
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	var TasksReducer = function TasksReducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { errors: [] };
+	  var action = arguments[1];
+	
+	  Object.freeze(state);
+	  switch (action.type) {
+	    case _task_actions.RECEIVE_TASK:
+	      var tasker = action.task;
+	      return (0, _lodash.merge)({}, state, _defineProperty({}, task.id, task));
+	    case _task_actions.RECEIVE_TASKS:
+	      return action.tasks;
+	    // case REMOVE_TASKER:
+	    //   let newState = merge({}, state);
+	    //   delete newState[action.taskRequest.id];
+	    //   return newState;
+	    // case RECEIVE_TASKER_ERRORS:
+	    //   const errors = action.errors;
+	    //   return merge({}, state, {
+	    //     errors
+	    //   });
+	    default:
+	      return state;
+	  }
+	};
+	
+	exports.default = TasksReducer;
+
+/***/ },
+/* 525 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.fetchTaskers = exports.fetchTasker = exports.RECEIVE_TASKS = exports.RECEIVE_TASK = exports.FETCH_TASKS = exports.FETCH_TASK = undefined;
+	
+	var _task_api_util = __webpack_require__(526);
+	
+	var APIUtil = _interopRequireWildcard(_task_api_util);
+	
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+	
+	var FETCH_TASK = exports.FETCH_TASK = "FETCH_TASK";
+	var FETCH_TASKS = exports.FETCH_TASKS = "FETCH_TASKS";
+	var RECEIVE_TASK = exports.RECEIVE_TASK = "RECEIVE_TASK";
+	var RECEIVE_TASKS = exports.RECEIVE_TASKS = "RECEIVE_TASKS";
+	
+	var fetchTasker = exports.fetchTasker = function fetchTasker(id) {
+	  return function (dispatch) {
+	    return APIUtil.fetchTask(id).then(function (task) {
+	      return dispatch(receiveTask(task));
+	    });
+	  };
+	};
+	
+	var fetchTaskers = exports.fetchTaskers = function fetchTaskers() {
+	  return function (dispatch) {
+	    return APIUtil.fetchTasks().then(function (tasks) {
+	      return dispatch(receiveTasks(tasks));
+	    });
+	  };
+	};
+	
+	var receiveTask = function receiveTask(task) {
+	  return {
+	    type: RECEIVE_TASK,
+	    task: task
+	  };
+	};
+	
+	var receiveTasks = function receiveTasks(tasks) {
+	  return {
+	    type: RECEIVE_TASKS,
+	    tasks: tasks
+	  };
+	};
+
+/***/ },
+/* 526 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var fetchTasks = exports.fetchTasks = function fetchTasks() {
+	  return $.ajax({
+	    method: "GET",
+	    url: 'api/tasks'
+	  });
+	};
+	
+	var fetchTask = exports.fetchTask = function fetchTask(id) {
+	  return $.ajax({
+	    method: "GET",
+	    url: "/api/tasks/" + id
+	  });
+	};
 
 /***/ }
 /******/ ]);
