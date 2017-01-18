@@ -86,6 +86,7 @@ const Root = ({ store }) => {
           <Route path="taskers" component={TaskerIndexContainer} onEnter= { fetchTaskersOnEnter } />
           <Route path="task_requests" component={TaskRequestFormContainer} onEnter={_ensureLoggedIn}/>
           <Route path="account" component={AccountContainer} onEnter={_ensureLoggedIn} />
+          <Route path="/tasks/:taskId/task_requests" component={TaskRequestFormContainer} onEnter= {fetchTaskersOnEnter } />
         </Route>
       </Router>
     </Provider>
