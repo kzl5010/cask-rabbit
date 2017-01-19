@@ -10,10 +10,27 @@ class TaskerItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    this.props.updateTasker(this.props.tasker.id)
+    this.props.updateTasker(this.props.tasker.id);
   }
 
   render() {
+    if (this.props.updateTasker === undefined) {
+      return (
+        <li className="tasker-item" key={this.props.tasker.id}>
+      {// photo here
+      }
+          <div className="tasker-profile">
+            {this.props.tasker.name}
+            <br/>
+            {this.props.tasker.email}
+            <br/>
+            {this.props.tasker.zip_code}
+            <br/>
+          </div>
+        </li>
+
+      )
+    }
     return (
       <button className="tasker-button" onClick={this.handleClick}>
       <li className="tasker-item" key={this.props.tasker.id}>

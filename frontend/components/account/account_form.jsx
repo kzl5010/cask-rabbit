@@ -22,8 +22,23 @@ class AccountForm extends React.Component {
     let user = this.state;
     this.props.update(user);
     this.state.edited = "DONE EDITING";
-    // location.href = '/' 
+    // location.href = '/'
   }
+
+  // renderErrors() {
+  //   if (this.props.errors === undefined) {
+  //     return null;
+  //   }
+  //   return(
+  //     <ul className="errors">
+  //       {this.props.errors.map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {error}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
     return (
@@ -32,8 +47,9 @@ class AccountForm extends React.Component {
           <br/>
           Edit Account Information
           {this.state.edited}
-          {// this.renderErrors()
+        {  // this.renderErrors()
         }
+
           <div className="user-info">
             <br/>
             <label> Email:

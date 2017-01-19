@@ -5,7 +5,8 @@ import AccountForm from './account_form';
 import { update } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  errors: state.session.errors
 });
 
 const mapDispatchToProps = dispatch => ({

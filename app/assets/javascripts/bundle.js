@@ -29487,7 +29487,6 @@
 	      // taskRequest.tasker_id = this.props.tasker_id;
 	      taskRequest.user_id = this.props.userId;
 	      taskRequest.task_id = this.props.params.taskId;
-	      debugger;
 	      this.props.createTaskRequest(taskRequest);
 	      this.setState({
 	        address: "",
@@ -48881,6 +48880,22 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      if (this.props.updateTasker === undefined) {
+	        return _react2.default.createElement(
+	          'li',
+	          { className: 'tasker-item', key: this.props.tasker.id },
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'tasker-profile' },
+	            this.props.tasker.name,
+	            _react2.default.createElement('br', null),
+	            this.props.tasker.email,
+	            _react2.default.createElement('br', null),
+	            this.props.tasker.zip_code,
+	            _react2.default.createElement('br', null)
+	          )
+	        );
+	      }
 	      return _react2.default.createElement(
 	        'button',
 	        { className: 'tasker-button', onClick: this.handleClick },
@@ -66040,7 +66055,8 @@
 	
 	var mapStateToProps = function mapStateToProps(state) {
 	  return {
-	    currentUser: state.session.currentUser
+	    currentUser: state.session.currentUser,
+	    errors: state.session.errors
 	  };
 	};
 	
@@ -66116,8 +66132,24 @@
 	      var user = this.state;
 	      this.props.update(user);
 	      this.state.edited = "DONE EDITING";
-	      // location.href = '/' 
+	      // location.href = '/'
 	    }
+	
+	    // renderErrors() {
+	    //   if (this.props.errors === undefined) {
+	    //     return null;
+	    //   }
+	    //   return(
+	    //     <ul className="errors">
+	    //       {this.props.errors.map((error, i) => (
+	    //         <li key={`error-${i}`}>
+	    //           {error}
+	    //         </li>
+	    //       ))}
+	    //     </ul>
+	    //   );
+	    // }
+	
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -66825,7 +66857,7 @@
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/' },
-	              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dmysu7ojb/image/upload/v1484208483/Logomakr_84jHlS_iy1izl.png', alt: 'logo', className: 'logo-img' })
+	              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484768700/Logomakr_84jHlS_te5r0b.png', alt: 'logo', className: 'logo-img' })
 	            ),
 	            _react2.default.createElement(
 	              _reactRouter.Link,
