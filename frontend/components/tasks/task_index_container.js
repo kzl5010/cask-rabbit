@@ -9,4 +9,8 @@ const mapStateToProps = (state) => ({
   tasks: state.tasks.tasks
 });
 
-export default connect(mapStateToProps)(TaskIndex);
+const mapDispatchToProps = dispatch => ({
+  fetchTasks: () => dispatch(fetchTasks())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(TaskIndex);

@@ -26,12 +26,12 @@ class Header extends React.Component {
       Nav = (
         <ul className="header-list">
           <li className="header-list-item"><Link to="/">Dashboard</Link></li>
-          <li className="header-list-item"><Link to="/taskers">Taskers</Link></li>
           <li className="header-list-item"><Link to="/account">Account</Link></li>
 
           <button className="header-button" onClick={this.handleClick}>Log Out</button>
           <br/>
         {//    <button className="header-button" onClick={logout}>Log Out</button>
+//        <li className="header-list-item"><Link to="/taskers">Taskers</Link></li>
         }
 
         </ul>

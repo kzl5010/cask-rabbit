@@ -21554,6 +21554,10 @@
 	
 	var _task_request_index_container2 = _interopRequireDefault(_task_request_index_container);
 	
+	var _greeting_container = __webpack_require__(432);
+	
+	var _greeting_container2 = _interopRequireDefault(_greeting_container);
+	
 	var _app = __webpack_require__(437);
 	
 	var _app2 = _interopRequireDefault(_app);
@@ -21612,16 +21616,6 @@
 	    }
 	  };
 	
-	  // const fetchUserOnEnter = (nextState, replace) {
-	  //   if (! store.getState().session.currentUser) {
-	  //     replace('/login');
-	  //   } else {
-	  //     store.dispatch(fetchUser)
-	  //   }
-	  // }
-	
-	  //    <Route path="tasks" component={} onEnter={_ensureLoggedIn} />
-	
 	  return _react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
@@ -21631,7 +21625,7 @@
 	      _react2.default.createElement(
 	        _reactRouter.Route,
 	        { path: '/', component: _app2.default },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _task_index_container2.default, onEnter: fetchTasksOnEnter }),
+	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _greeting_container2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'login', component: _session_form_container2.default, onEnter: _redirectIfLoggedIn }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _session_form_container2.default, onEnter: _redirectIfLoggedIn }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'taskers', component: _tasker_index_container2.default, onEnter: fetchTaskersOnEnter }),
@@ -66273,7 +66267,15 @@
 	  };
 	};
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_task_index2.default);
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    fetchTasks: function fetchTasks() {
+	      return dispatch((0, _task_actions.fetchTasks)());
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_task_index2.default);
 
 /***/ },
 /* 430 */
@@ -66317,6 +66319,11 @@
 	  }
 	
 	  _createClass(TaskIndex, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      this.props.fetchTasks();
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      if (this.props.tasks === undefined) {
@@ -66325,7 +66332,6 @@
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'tasks-index' },
-	        _react2.default.createElement(_greeting_container2.default, null),
 	        _react2.default.createElement(
 	          'ul',
 	          { className: 'task-index-list' },
@@ -66495,6 +66501,10 @@
 	
 	var _reactRouter = __webpack_require__(217);
 	
+	var _task_index_container = __webpack_require__(429);
+	
+	var _task_index_container2 = _interopRequireDefault(_task_index_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var sessionLinks = function sessionLinks() {
@@ -66622,7 +66632,8 @@
 	          )
 	        )
 	      )
-	    )
+	    ),
+	    _react2.default.createElement(_task_index_container2.default, null)
 	  );
 	};
 	
@@ -66997,15 +67008,6 @@
 	              _reactRouter.Link,
 	              { to: '/' },
 	              'Dashboard'
-	            )
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            { className: 'header-list-item' },
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/taskers' },
-	              'Taskers'
 	            )
 	          ),
 	          _react2.default.createElement(

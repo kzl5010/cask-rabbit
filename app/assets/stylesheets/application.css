@@ -35,6 +35,7 @@ span, article, footer, time, small {
 
 
  .container {
+   /*font-family: 'Josefin Sans', sans-serif;*/
    min-width: 100vw;
    min-height: 100vh;
    position: relative;
@@ -44,7 +45,7 @@ span, article, footer, time, small {
 
 
   body {
-    font-family: 'Abel', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
   }
 
  .content {
@@ -173,7 +174,7 @@ span, article, footer, time, small {
   display: flex;
   justify-content: center;
   margin-top: 100px;
-  color: white;
+  color: gray;
 }
 
 .login-form {
@@ -189,7 +190,7 @@ span, article, footer, time, small {
   float:left;
   height: auto;
   background-size: auto;
-  background: url(http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484786853/636088662536835042-1570042978_library_mpwvu3.jpg);
+  /*background: url(http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484786853/636088662536835042-1570042978_library_mpwvu3.jpg);*/
 
 }
 
@@ -216,37 +217,9 @@ span, article, footer, time, small {
 
 .greeting {
   align-items: center;
-  color: white;
+  color: gray;
   padding: 10px 0px;
   width: auto;
   margin: auto;
-  font-family: "Proxima Semibold", Arial, Helvetica, sans-serif;
-}
-
-.number-icon {
-  background: #00964b;
-  border-radius: 50%;
-  float:left;
-  padding: 9px 10px;
-  color: white;
-  font-size: 20px;
-  text-align: center;
-  width: 20px;
-  height: 20px;
-  margin: 0px 20px 20px 0px;
-}
-
-.user-profile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10;
-  margin: 10;
-  text-align: center;
-  height: auto;
-  position: relative;
-  left: 20%;
-  top: 50%;
-  /*transform: translate(-50%, -50%);*/
-  width: 60%;
+  font-family: 'Josefin Sans', sans-serif;
 }

@@ -8,13 +8,19 @@ class TaskIndex extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.fetchTasks();
+  }
+
   render() {
     if (this.props.tasks === undefined) {
       return null;
     }
     return(
       <section className="tasks-index">
-        <GreetingContainer />
+        {//<GreetingContainer />
+        }
+
         <ul className="task-index-list">
           {this.props.tasks.map(task => (
             <TaskItem key={task.id} task={task}/>

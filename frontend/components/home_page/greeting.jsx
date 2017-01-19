@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import TaskIndexContainer from '../tasks/task_index_container';
 
 const sessionLinks = () => (
   <nav className="login-signup">
@@ -46,6 +47,8 @@ const personalGreeting = (currentUser, logout) => (
         </li>
     </ul>
     </div>
+    <TaskIndexContainer/>
+
   </section>
 );
 

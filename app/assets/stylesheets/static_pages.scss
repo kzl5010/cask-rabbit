@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 header {
+  font-family: 'Pacifico', cursive;
   color: white;
   background: #1C2331;
   width: auto;
@@ -64,3 +65,4 @@ header {
 }
 
 @import "api/react-datepicker";
+@import 'api/users';

@@ -11,6 +11,7 @@ import AccountContainer from './account/account_container';
 import TaskIndexContainer from './tasks/task_index_container';
 import TaskerIndexContainer from './tasker/tasker_index_container';
 import TaskRequestIndexContainer from './task_request/task_request_index_container';
+import GreetingContainer from './home_page/greeting_container';
 
 import App from './app';
 
@@ -64,24 +65,13 @@ const Root = ({ store }) => {
     }
   }
 
-  // const fetchUserOnEnter = (nextState, replace) {
-  //   if (! store.getState().session.currentUser) {
-  //     replace('/login');
-  //   } else {
-  //     store.dispatch(fetchUser)
-  //   }
-  // }
-
-  //    <Route path="tasks" component={} onEnter={_ensureLoggedIn} />
 
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
 
-        {//  <IndexRoute component={TaskerIndexContainer} onEnter={ fetchTaskersOnEnter } />
-      }
-          <IndexRoute component={TaskIndexContainer} onEnter={ fetchTasksOnEnter }/>
+          <IndexRoute component={GreetingContainer} />
           <Route path="login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="taskers" component={TaskerIndexContainer} onEnter= { fetchTaskersOnEnter } />
