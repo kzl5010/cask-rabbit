@@ -39,6 +39,7 @@ class Api::TaskRequestsController < ApplicationController
     task = TaskRequest.find(params[:id])
     if task
       task.destroy
+      # render json "api/users/show"
     else
       render json: { message: "Invalid request", status: 404}
     end

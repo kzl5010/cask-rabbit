@@ -31,11 +31,9 @@ class Header extends React.Component {
 
           <button className="header-button" onClick={this.handleClick}>Log Out</button>
           <br/>
-          <hgroup className="header-group">
-            <h2 className="header-name">Hi, {this.props.currentUser.first_name}!</h2>
         {//    <button className="header-button" onClick={logout}>Log Out</button>
         }
-        	</hgroup>
+
         </ul>
       );
     }else {

@@ -55,9 +55,9 @@ class TaskRequestForm extends React.Component {
   }
 
   renderErrors() {
-    // if (this.props.errors === undefined) {
-    //   return null;
-    // }
+    if (this.props.errors === undefined) {
+      return null;
+    }
     return(
       <ul className="errors">
         {this.props.errors.map((error, i) => (
@@ -82,7 +82,7 @@ class TaskRequestForm extends React.Component {
             <label>Details for Tasker</label>
             <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
             onChange={this.handleChange("details")} className="taskRequest-form-text" />
-            <TaskerIndexContainer updateTasker={this.updateTasker} taskers={this.props.taskers}/>
+            <TaskerIndexContainer updateTasker={this.updateTasker}/>
             <button className="taskRequest-button" type="submit"> <div>Submit Request</div>
             </button>
           </form>

@@ -10,6 +10,6 @@ const mapStateToProps = (state, ownProps) => ({
   updateTasker: ownProps.updateTasker
 });
 
-
+//Filter out to only within users zip code?
 
 export default connect(mapStateToProps)(TaskerIndex);

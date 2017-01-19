@@ -5,7 +5,7 @@ const Footer = () => (
   <footer>
     <nav className="footer-nav">
       <section className="footer-link">
-        <div>  Obsession by Calvin Klein </div>
+        <h3> Footer Links </h3>
         <ul className="footer-links-list">
           <li className="footer-link-list-item">
             <a href="https://github.com/kzl5010/cask-rabbit">Github

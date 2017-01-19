@@ -26,6 +26,7 @@ class TaskerItem extends React.Component {
             <br/>
             {this.props.tasker.zip_code}
             <br/>
+            {this.props.tasker.price}
           </div>
         </li>
 
@@ -37,12 +38,13 @@ class TaskerItem extends React.Component {
       {// photo here
       }
         <div className="tasker-profile">
-          {this.props.tasker.name}
+          NAME: {this.props.tasker.name}
           <br/>
-          {this.props.tasker.email}
+          E-MAIL: {this.props.tasker.email}
           <br/>
-          {this.props.tasker.zip_code}
+          PRICE PER HOUR: {this.props.tasker.price}
           <br/>
+          ZIP_CODE: {this.props.tasker.zip_code}
         </div>
       </li>
       </button>

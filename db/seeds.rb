@@ -13,7 +13,7 @@ a = Random.new
 end
 
 5.times do
-  Tasker.create({name: Faker::Name.name, email: Faker::Internet.email, zip_code: Faker::Address.zip_code})
+  Tasker.create({name: Faker::Name.name, email: Faker::Internet.email, zip_code: Faker::Address.zip_code, price: (a.rand(70)+20)})
   Task.create({title: Faker::Lorem.word, description: Faker::Lorem.word })
 end
 
