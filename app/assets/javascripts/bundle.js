@@ -66505,6 +66505,10 @@
 	
 	var _task_index_container2 = _interopRequireDefault(_task_index_container);
 	
+	var _task_request_index_container = __webpack_require__(434);
+	
+	var _task_request_index_container2 = _interopRequireDefault(_task_request_index_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var sessionLinks = function sessionLinks() {
@@ -66540,15 +66544,16 @@
 	        '!'
 	      ),
 	      _react2.default.createElement('br', null),
-	      _react2.default.createElement(
-	        'h3',
-	        null,
-	        ' What do you need help with? '
-	      )
+	      _react2.default.createElement(_task_request_index_container2.default, null)
 	    ),
 	    _react2.default.createElement(
 	      'div',
 	      null,
+	      _react2.default.createElement(
+	        'h3',
+	        null,
+	        ' What do you need help with? '
+	      ),
 	      _react2.default.createElement(
 	        'h4',
 	        null,
@@ -66813,7 +66818,6 @@
 	    key: 'handleClick',
 	    value: function handleClick(e) {
 	      e.preventDefault();
-	      debugger;
 	      this.props.deleteTaskRequest(this.props.taskRequest.id);
 	    }
 	  }, {
@@ -69960,6 +69964,7 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { errors: [] };
 	  var action = arguments[1];
 	
+	  console.log(action.type);
 	  Object.freeze(state);
 	  switch (action.type) {
 	    case _task_request_actions.RECEIVE_TASK_REQUEST:
@@ -69969,7 +69974,13 @@
 	      return action.taskRequests;
 	    case _task_request_actions.REMOVE_TASK_REQUEST:
 	      var newState = (0, _lodash.merge)({}, state);
-	      delete newState[action.taskRequest.id];
+	      var j = 0;
+	      for (var i = 0; i < newState.task_requests.length; i++) {
+	        if (newState.task_requests[i].id === action.taskRequest.id) {
+	          newState.task_requests.splice(i, 1);
+	        }
+	      }
+	      // delete newState.task_requests[j];
 	      return newState;
 	    case _task_request_actions.RECEIVE_TASK_REQUEST_ERRORS:
 	      var errors = action.errors;

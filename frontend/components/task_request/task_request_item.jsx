@@ -10,7 +10,6 @@ class TaskRequestItem extends React.Component {
 
   handleClick(e) {
     e.preventDefault();
-    debugger;
     this.props.deleteTaskRequest(this.props.taskRequest.id);
   }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import TaskIndexContainer from '../tasks/task_index_container';
-
+import TaskRequestIndexContainer from '../task_request/task_request_index_container';
 const sessionLinks = () => (
   <nav className="login-signup">
     <Link to="/login" activeClassName="current">Login</Link>
@@ -15,12 +15,12 @@ const personalGreeting = (currentUser, logout) => (
   	<hgroup className="greeting-group">
       <h2 className="greeting-name">Welcome to AskRabbit, {currentUser.first_name}!</h2>
       <br/>
-      <h3> What do you need help with? </h3>
+      <TaskRequestIndexContainer />
   	</hgroup>
     <div>
+    <h3> What do you need help with? </h3>
     { //Add a task_requests index here
     }
-
       <h4>How to get Started</h4>
       <p>Taskers love helping</p>
       <ul>

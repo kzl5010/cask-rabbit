@@ -37,12 +37,13 @@ class Api::TaskRequestsController < ApplicationController
 
   def destroy
     task = TaskRequest.find(params[:id])
-    if task
-      task.destroy
-      # render json "api/users/show"
-    else
-      render json: { message: "Invalid request", status: 404}
-    end
+    @task_request = task
+    # if task
+    task.destroy
+    render :show
+    # else
+    #   render json: { message: "Invalid request", status: 404}
+    # end
   end
 
   def task_request_params
