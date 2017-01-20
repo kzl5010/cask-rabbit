@@ -32,7 +32,6 @@ FastRabbit is a single-page application built with using React-Redux(js) on the 
 
 - [Rails Backend][backend]
 - [React-Redux Frontend][frontend]
-- [File storage][cloudinary] using Cloudinary
 
 ## Upcoming Features
 
