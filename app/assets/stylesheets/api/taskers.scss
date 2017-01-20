@@ -11,3 +11,19 @@
 .tasker-profile {
   font-family: 'Josefin Sans', sans-serif;
 }
+
+.tasker-index {
+    float: right;
+    width: 1000px;
+    position: relative;
+    border-top: 1px solid lightgray;
+    padding-top: 25px;
+}
+
+.tasker-index-list {
+  padding-left: 0;
+}
+
+.button-tasker {
+  list-style: none;
+}

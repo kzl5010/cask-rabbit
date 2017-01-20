@@ -13,7 +13,7 @@ class TaskItem extends React.Component {
       {// photo here
       }
         <div className="task-profile">
-          <img src={this.props.imageurl} alt="Task Image"/>
+          <img src={this.props.task.imageurl} alt="Task Image" className="task-image"/>
           {this.props.task.title}
           <br/>
           {this.props.task.description}

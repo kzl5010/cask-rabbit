@@ -66456,7 +66456,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'task-profile' },
-	          _react2.default.createElement('img', { src: this.props.imageurl, alt: 'Task Image' }),
+	          _react2.default.createElement('img', { src: this.props.task.imageurl, alt: 'Task Image', className: 'task-image' }),
 	          this.props.task.title,
 	          _react2.default.createElement('br', null),
 	          this.props.task.description,
