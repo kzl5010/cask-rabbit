@@ -14,8 +14,22 @@
   position: relative;
   left: 20%;
   top: 50%;
+  height: 500px;
   /*transform: translate(-50%, -50%);*/
   width: 60%;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  text-align: right;
+}
+
+.user-info-item {
+  list-style: none;
 }
 
 .number-icon {

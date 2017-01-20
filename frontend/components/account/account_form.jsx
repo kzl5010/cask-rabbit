@@ -52,46 +52,58 @@ class AccountForm extends React.Component {
 
           <div className="user-info">
             <br/>
-            <label> Email:
-              <input type="text"
-                value={this.state.email}
-                onChange={this.handleChange("email")}
-                className="user-info-input" />
-            </label>
-            <br/>
-            <label> Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.handleChange("password")}
-                className="user-info-input" />
-            </label>
-            <br/>
-            <label> First Name:
-              <input type="text"
-                value={this.state.first_name}
-                onChange={this.handleChange("first_name")}
-                className="user-info-input" />
-            </label>
-            <br/>
-            <label> Last Name:
-              <input type="text"
-                value={this.state.last_name}
-                onChange={this.handleChange("last_name")}
-                className="user-info-input" />
-            </label>
-            <br/>
-            <label> Zip_code:
-              <input type="text"
-                value={this.state.zip_code}
-                onChange={this.handleChange("zip_code")}
-                className="user-info-input" />
-            </label>
-            <br/>
-            <input type="submit" value="Submit" />
+            <ul>
+              <li className="user-info-item">
+                <label> Email : &nbsp; &nbsp;
+                  <input type="text"
+                    value={this.state.email}
+                    onChange={this.handleChange("email")}
+                    className="user-info-input" />
+                </label>
+              </li>
+              <br/>
+              <li className="user-info-item">
+                <label> Password : &nbsp; &nbsp;
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.handleChange("password")}
+                    className="user-info-input" />
+                </label>
+              </li>
+              <br/>
+              <li className="user-info-item">
+                <label> First Name : &nbsp; &nbsp;
+                  <input type="text"
+                    value={this.state.first_name}
+                    onChange={this.handleChange("first_name")}
+                    className="user-info-input" />
+                </label>
+              </li>
+              <br/>
+              <li className="user-info-item">
+                <label> Last Name : &nbsp; &nbsp;
+                  <input type="text"
+                    value={this.state.last_name}
+                    onChange={this.handleChange("last_name")}
+                    className="user-info-input" />
+                </label>
+              </li>
+              <br/>
+              <li className="user-info-item">
+                <label> Zip Code : &nbsp; &nbsp;
+                  <input type="text"
+                    value={this.state.zip_code}
+                    onChange={this.handleChange("zip_code")}
+                    className="user-info-input" />
+                </label>
+              </li>
+              <br/>
+              <input type="submit" value="Submit" />
+            </ul>
           </div>
         </form>
       </div>
-    );s
+    );
   }
 }
 

@@ -14,11 +14,16 @@ class TaskRequestForm extends React.Component {
       date: moment(),
       details: ""
     };
-  this.onChange = (address) => this.setState({ address });
-  this.changeDate = this.changeDate.bind(this);
-  this.handleChange = this.handleChange.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-  this.updateTasker = this.updateTasker.bind(this);
+    this.onChange = (address) => this.setState({ address });
+    this.changeDate = this.changeDate.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateTasker = this.updateTasker.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchTasks();
+    this.props.fetchTaskers();
   }
 
   handleChange(field) {

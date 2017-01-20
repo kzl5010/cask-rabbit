@@ -33,14 +33,14 @@ span, article, footer, time, small {
 }
 */
 
-html, body {
+html, body, footer {
 
   margin:0;
   padding:0;
 }
 
  .container {
-   /*font-family: 'Josefin Sans', sans-serif;*/
+   font-family: 'Josefin Sans', sans-serif;
    min-width: 100vw;
    min-height: 100vh;
    position: relative;
@@ -214,9 +214,21 @@ html, body {
   width: 60%;
 }
 
-.taskers-index-list {
+/*.taskers-index-list {
   display: flex;
   flex-direction: row;
+}*/
+
+.taskers-index {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  float: right;
+}
+
+.tasker-profile {
+  font-family: 'Josefin Sans', sans-serif;
+
 }
 
 .greeting {

@@ -1,0 +1,1092 @@
+/* line 1, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker {
+  font-family: "Times New Roman";
+  font-size: .8rem;
+  background-color: #fff;
+  color: white;
+  border: 1px solid black;
+  border-radius: .4rem;
+  display: inline-block;
+  position: relative;
+}
+
+/* line 12, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__triangle {
+  position: absolute;
+  left: 50px;
+}
+
+/* line 17, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__tether-element-attached-bottom.react-datepicker__tether-element {
+  margin-top: -20px;
+}
+
+/* line 21, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__header {
+  text-align: center;
+  background-color: white;
+  border-bottom: 1px solid black;
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
+  padding-top: 8px;
+  position: relative;
+}
+
+/* line 31, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__header__dropdown--select {
+  margin-top: -16px;
+}
+
+/* line 35, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-dropdown-container--select,
+.react-datepicker__month-dropdown-container--select {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+/* line 41, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__current-month {
+  margin-top: 0;
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+}
+/* line 47, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__current-month--hasYearDropdown {
+  margin-bottom: 16px;
+}
+
+/* line 52, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation {
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  width: 0;
+  border: .50rem solid transparent;
+  z-index: 1;
+}
+/* line 62, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--previous {
+  left: 10px;
+  border-right-color: red;
+}
+/* line 66, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--previous:hover {
+  border-right-color: #cc0000;
+}
+/* line 71, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--next {
+  right: 10px;
+  border-left-color: red;
+}
+/* line 75, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--next:hover {
+  border-left-color: #cc0000;
+}
+/* line 80, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years {
+  position: relative;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 87, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years-previous {
+  top: 4px;
+  border-top-color: red;
+}
+/* line 91, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years-previous:hover {
+  border-top-color: #cc0000;
+}
+/* line 96, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years-upcoming {
+  top: -4px;
+  border-bottom-color: red;
+}
+/* line 100, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years-upcoming:hover {
+  border-bottom-color: #cc0000;
+}
+
+/* line 107, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__month-container {
+  display: inline;
+  float: left;
+}
+
+/* line 112, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__month {
+  margin: .166rem;
+  text-align: center;
+}
+
+/* line 117, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__week-number {
+  color: red;
+  display: inline-block;
+  width: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  margin: .166rem;
+}
+
+/* line 126, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day-name,
+.react-datepicker__day {
+  color: gray;
+  display: inline-block;
+  width: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  margin: .16rem;
+}
+
+/* line 136, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day {
+  cursor: pointer;
+}
+/* line 139, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day:hover {
+  border-radius: .31rem;
+  background-color: white;
+}
+/* line 144, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--today {
+  font-weight: bold;
+}
+/* line 148, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--highlighted {
+  border-radius: .31rem;
+  background-color: blue;
+  color: #fff;
+}
+/* line 153, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--highlighted:hover {
+  background-color: #0000e6;
+}
+/* line 158, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range {
+  border-radius: .3rem;
+  background-color: #216ba5;
+  color: #fff;
+}
+/* line 165, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover {
+  background-color: #1d5d90;
+}
+/* line 170, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {
+  background-color: rgba(33, 107, 165, 0.5);
+}
+/* line 175, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__month--selecting-range .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range) {
+  background-color: white;
+  color: white;
+}
+/* line 181, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--disabled {
+  cursor: default;
+  color: red;
+}
+/* line 185, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--disabled:hover {
+  background-color: transparent;
+}
+
+/* line 191, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__input-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* line 196, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view {
+  width: 50%;
+  left: 25%;
+  position: absolute;
+  bottom: 25px;
+  border: 1px solid transparent;
+  border-radius: .3rem;
+}
+/* line 204, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view:hover {
+  cursor: pointer;
+}
+/* line 207, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view:hover .react-datepicker__year-read-view--down-arrow {
+  border-top-color: #cc0000;
+}
+/* line 212, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view--down-arrow {
+  border-top-color: red;
+  margin-bottom: 3px;
+  left: 5px;
+  top: 9px;
+  position: relative;
+  border-width: .50rem;
+}
+/* line 221, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view--selected-year {
+  right: .50rem;
+  position: relative;
+}
+
+/* line 227, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-dropdown {
+  background-color: white;
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  top: 30px;
+  text-align: center;
+  border-radius: .3rem;
+  border: 1px solid black;
+}
+/* line 237, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-dropdown:hover {
+  cursor: pointer;
+}
+/* line 241, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-dropdown--scrollable {
+  height: 150px;
+  overflow-y: scroll;
+}
+
+/* line 247, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option {
+  line-height: 20px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 254, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:first-of-type {
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
+}
+/* line 259, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:last-of-type {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-bottom-left-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+}
+/* line 268, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:hover {
+  background-color: red;
+}
+/* line 271, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:hover .react-datepicker__navigation--years-upcoming {
+  border-bottom-color: #cc0000;
+}
+/* line 275, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:hover .react-datepicker__navigation--years-previous {
+  border-top-color: #cc0000;
+}
+/* line 280, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option--selected {
+  position: absolute;
+  left: 30px;
+}
+
+/* line 286, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__close-icon {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  height: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+/* line 296, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__close-icon::after {
+  background-color: #216ba5;
+  border-radius: 50%;
+  bottom: 0;
+  box-sizing: border-box;
+  color: #fff;
+  content: "\00d7";
+  cursor: pointer;
+  font-size: 12px;
+  height: 16px;
+  width: 16px;
+  line-height: 1;
+  margin: -8px auto 0;
+  padding: 2px;
+  position: absolute;
+  right: 7px;
+  text-align: center;
+  top: 50%;
+}
+
+/* line 317, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__today-button {
+  background: white;
+  border-top: 1px solid black;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+/* line 326, /home/ken/Desktop/fsp/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__tether-element {
+  z-index: 2147483647;
+}
+/* line 6, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/users.scss */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10;
+  margin: 10;
+  text-align: center;
+  height: auto;
+  position: relative;
+  left: 20%;
+  top: 50%;
+  height: 500px;
+  /*transform: translate(-50%, -50%);*/
+  width: 60%;
+}
+
+/* line 22, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/users.scss */
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  text-align: right;
+}
+
+/* line 31, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/users.scss */
+.user-info-item {
+  list-style: none;
+}
+
+/* line 35, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/users.scss */
+.number-icon {
+  background: #00964b;
+  border-radius: 50%;
+  float: left;
+  padding: 9px 10px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin: 0px 20px 20px 0px;
+}
+/* line 5, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+header {
+  font-family: 'Pacifico', cursive;
+  color: white;
+  background: #1C2331;
+  width: auto;
+  margin: 0;
+}
+
+/* line 13, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.header-nav {
+  width: 100vw;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* line 21, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.header-logo {
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+}
+
+/* line 27, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+/* line 31, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.logo-img {
+  padding: 10px;
+  height: 40px;
+  width: auto;
+}
+
+/* line 38, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.logo-h3 {
+  color: white;
+  display: block;
+  font-weight: 700;
+  font-size: 14;
+}
+
+/* line 45, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.header-list {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+/* line 46, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.header-list a {
+  color: inherit;
+}
+
+/* line 54, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.header-list-item {
+  display: block;
+  position: relative;
+  padding: 10px 20px;
+  font-weight: 700;
+  color: white;
+}
+
+/* line 62, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/static_pages.scss */
+.header-list-item:hover {
+  color: white;
+  transform: scale(1.05);
+}
+
+/* line 1, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker {
+  font-family: "Times New Roman";
+  font-size: .8rem;
+  background-color: #fff;
+  color: white;
+  border: 1px solid black;
+  border-radius: .4rem;
+  display: inline-block;
+  position: relative;
+}
+
+/* line 12, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__triangle {
+  position: absolute;
+  left: 50px;
+}
+
+/* line 17, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__tether-element-attached-bottom.react-datepicker__tether-element {
+  margin-top: -20px;
+}
+
+/* line 21, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__header {
+  text-align: center;
+  background-color: white;
+  border-bottom: 1px solid black;
+  border-top-left-radius: .4rem;
+  border-top-right-radius: .4rem;
+  padding-top: 8px;
+  position: relative;
+}
+
+/* line 31, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__header__dropdown--select {
+  margin-top: -16px;
+}
+
+/* line 35, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-dropdown-container--select,
+.react-datepicker__month-dropdown-container--select {
+  display: inline-block;
+  margin: 0 2px;
+}
+
+/* line 41, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__current-month {
+  margin-top: 0;
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+}
+/* line 47, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__current-month--hasYearDropdown {
+  margin-bottom: 16px;
+}
+
+/* line 52, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation {
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  width: 0;
+  border: .50rem solid transparent;
+  z-index: 1;
+}
+/* line 62, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--previous {
+  left: 10px;
+  border-right-color: red;
+}
+/* line 66, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--previous:hover {
+  border-right-color: #cc0000;
+}
+/* line 71, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--next {
+  right: 10px;
+  border-left-color: red;
+}
+/* line 75, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--next:hover {
+  border-left-color: #cc0000;
+}
+/* line 80, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years {
+  position: relative;
+  top: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 87, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years-previous {
+  top: 4px;
+  border-top-color: red;
+}
+/* line 91, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years-previous:hover {
+  border-top-color: #cc0000;
+}
+/* line 96, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years-upcoming {
+  top: -4px;
+  border-bottom-color: red;
+}
+/* line 100, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__navigation--years-upcoming:hover {
+  border-bottom-color: #cc0000;
+}
+
+/* line 107, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__month-container {
+  display: inline;
+  float: left;
+}
+
+/* line 112, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__month {
+  margin: .166rem;
+  text-align: center;
+}
+
+/* line 117, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__week-number {
+  color: red;
+  display: inline-block;
+  width: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  margin: .166rem;
+}
+
+/* line 126, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day-name,
+.react-datepicker__day {
+  color: gray;
+  display: inline-block;
+  width: 1.7rem;
+  line-height: 1.7rem;
+  text-align: center;
+  margin: .16rem;
+}
+
+/* line 136, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day {
+  cursor: pointer;
+}
+/* line 139, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day:hover {
+  border-radius: .31rem;
+  background-color: white;
+}
+/* line 144, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--today {
+  font-weight: bold;
+}
+/* line 148, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--highlighted {
+  border-radius: .31rem;
+  background-color: blue;
+  color: #fff;
+}
+/* line 153, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--highlighted:hover {
+  background-color: #0000e6;
+}
+/* line 158, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--selected, .react-datepicker__day--in-selecting-range, .react-datepicker__day--in-range {
+  border-radius: .3rem;
+  background-color: #216ba5;
+  color: #fff;
+}
+/* line 165, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--selected:hover, .react-datepicker__day--in-selecting-range:hover, .react-datepicker__day--in-range:hover {
+  background-color: #1d5d90;
+}
+/* line 170, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--in-selecting-range:not(.react-datepicker__day--in-range) {
+  background-color: rgba(33, 107, 165, 0.5);
+}
+/* line 175, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__month--selecting-range .react-datepicker__day--in-range:not(.react-datepicker__day--in-selecting-range) {
+  background-color: white;
+  color: white;
+}
+/* line 181, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--disabled {
+  cursor: default;
+  color: red;
+}
+/* line 185, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__day--disabled:hover {
+  background-color: transparent;
+}
+
+/* line 191, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__input-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* line 196, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view {
+  width: 50%;
+  left: 25%;
+  position: absolute;
+  bottom: 25px;
+  border: 1px solid transparent;
+  border-radius: .3rem;
+}
+/* line 204, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view:hover {
+  cursor: pointer;
+}
+/* line 207, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view:hover .react-datepicker__year-read-view--down-arrow {
+  border-top-color: #cc0000;
+}
+/* line 212, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view--down-arrow {
+  border-top-color: red;
+  margin-bottom: 3px;
+  left: 5px;
+  top: 9px;
+  position: relative;
+  border-width: .50rem;
+}
+/* line 221, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-read-view--selected-year {
+  right: .50rem;
+  position: relative;
+}
+
+/* line 227, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-dropdown {
+  background-color: white;
+  position: absolute;
+  width: 50%;
+  left: 25%;
+  top: 30px;
+  text-align: center;
+  border-radius: .3rem;
+  border: 1px solid black;
+}
+/* line 237, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-dropdown:hover {
+  cursor: pointer;
+}
+/* line 241, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-dropdown--scrollable {
+  height: 150px;
+  overflow-y: scroll;
+}
+
+/* line 247, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option {
+  line-height: 20px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 254, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:first-of-type {
+  border-top-left-radius: .3rem;
+  border-top-right-radius: .3rem;
+}
+/* line 259, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:last-of-type {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-bottom-left-radius: .3rem;
+  border-bottom-right-radius: .3rem;
+}
+/* line 268, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:hover {
+  background-color: red;
+}
+/* line 271, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:hover .react-datepicker__navigation--years-upcoming {
+  border-bottom-color: #cc0000;
+}
+/* line 275, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option:hover .react-datepicker__navigation--years-previous {
+  border-top-color: #cc0000;
+}
+/* line 280, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__year-option--selected {
+  position: absolute;
+  left: 30px;
+}
+
+/* line 286, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__close-icon {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  height: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+/* line 296, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__close-icon::after {
+  background-color: #216ba5;
+  border-radius: 50%;
+  bottom: 0;
+  box-sizing: border-box;
+  color: #fff;
+  content: "\00d7";
+  cursor: pointer;
+  font-size: 12px;
+  height: 16px;
+  width: 16px;
+  line-height: 1;
+  margin: -8px auto 0;
+  padding: 2px;
+  position: absolute;
+  right: 7px;
+  text-align: center;
+  top: 50%;
+}
+
+/* line 317, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__today-button {
+  background: white;
+  border-top: 1px solid black;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+/* line 326, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/react-datepicker.scss */
+.react-datepicker__tether-element {
+  z-index: 2147483647;
+}
+
+/* line 6, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/users.scss */
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10;
+  margin: 10;
+  text-align: center;
+  height: auto;
+  position: relative;
+  left: 20%;
+  top: 50%;
+  height: 500px;
+  /*transform: translate(-50%, -50%);*/
+  width: 60%;
+}
+
+/* line 22, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/users.scss */
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 400px;
+  text-align: right;
+}
+
+/* line 31, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/users.scss */
+.user-info-item {
+  list-style: none;
+}
+
+/* line 35, /home/ken/Desktop/newbeans/cask-rabbit/app/assets/stylesheets/api/users.scss */
+.number-icon {
+  background: #00964b;
+  border-radius: 50%;
+  float: left;
+  padding: 9px 10px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  margin: 0px 20px 20px 0px;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+ /*
+ html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+}
+*/
+
+
+html, body, footer {
+
+  margin:0;
+  padding:0;
+}
+
+ .container {
+   font-family: 'Josefin Sans', sans-serif;
+   min-width: 100vw;
+   min-height: 100vh;
+   position: relative;
+   display: block;
+   overflow: hidden;
+ }
+
+
+  body {
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+ .content {
+   height: 100%;
+ }
+
+
+
+ /*header {
+   margin-left: 5%;
+ }*/
+
+ h1, h5 {
+   margin-bottom: 0px;
+ }
+
+
+ .index-image {
+   max-height: 200px;
+   max-width: 100px;
+ }
+
+ .header-name {
+   margin: 7px 0 0 0;
+
+ }
+
+ .button-holder {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+ }
+
+
+
+ footer {
+  position: relative;
+  text-align: center;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: gray;
+  color: #fff;
+	overflow: hidden;
+}
+
+ .footer-nav {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-link {
+	display: flex;
+	justify-content: space-between;
+  font-size: $medium;
+}
+
+.footer-img {
+	display: inline-block;
+	max-height: 30px;
+	max-width: 30px;
+	margin: 0 5px;
+}
+
+.footer-links-list {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+}
+
+.footer-link-list-item {
+  display: flex;
+  position: relative;
+  padding: 10px 20px;
+  font-weight: 700;
+  align-content: center;
+  align-items: center;
+}
+
+ .login-input {
+   margin-left: 20px;
+ }
+
+ .login-form-box {
+   outline: 1px solid white;
+   padding: 20px;
+ }
+
+ .filter {
+   font-weight: bold;
+ }
+
+ .header-link {
+   text-decoration: none;
+   color: white;
+ }
+
+ hr {
+   border-bottom: 1px solid grey;
+ }
+
+ .login-form label {
+
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: $xlarge;
+  font-weight: 500;
+  /* color */
+	font-family: Itim, cursive;
+}
+
+.login-form input, textarea {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.login-form-container {
+
+  width: 100%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  color: gray;
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.login-page {
+  /*-webkit-background-size: auto;
+  -moz-background-size: auto;
+  -o-background-size: auto;*/
+  float:left;
+  height: auto;
+  background-size: auto;
+  /*background: url(http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484786853/636088662536835042-1570042978_library_mpwvu3.jpg);*/
+
+}
+
+
+.taskRequest-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10;
+  margin: 10;
+  text-align: center;
+  min-height: 0;
+  position: relative;
+  left: 20%;
+  top: 50%;
+  /*transform: translate(-50%, -50%);*/
+  width: 60%;
+}
+
+/*.taskers-index-list {
+  display: flex;
+  flex-direction: row;
+}*/
+
+.taskers-index {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  float: right;
+}
+
+.tasker-profile {
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+.greeting {
+  align-items: center;
+  color: gray;
+  padding: 10px 0px;
+  width: auto;
+  margin: auto;
+  font-family: 'Josefin Sans', sans-serif;
+}
