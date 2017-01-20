@@ -7,7 +7,6 @@ import {
 } from '../actions/task_request_actions';
 
 const TaskRequestsReducer = (state = { errors: [] }, action) => {
-  console.log(action.type)
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_TASK_REQUEST:

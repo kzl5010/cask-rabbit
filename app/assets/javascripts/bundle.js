@@ -70105,7 +70105,6 @@
 	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { errors: [] };
 	  var action = arguments[1];
 	
-	  console.log(action.type);
 	  Object.freeze(state);
 	  switch (action.type) {
 	    case _task_request_actions.RECEIVE_TASK_REQUEST:
