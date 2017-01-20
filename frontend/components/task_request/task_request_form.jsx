@@ -88,7 +88,7 @@ class TaskRequestForm extends React.Component {
             <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
             onChange={this.handleChange("details")} className="taskRequest-form-text" />
             <TaskerIndexContainer updateTasker={this.updateTasker}/>
-            <button className="taskRequest-button" type="submit"> <div>Submit Request</div>
+            <button className="taskRequest-button" type="submit"> <div>Confirm Request?</div>
             </button>
           </form>
         </section>

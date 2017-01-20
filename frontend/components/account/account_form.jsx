@@ -21,7 +21,7 @@ class AccountForm extends React.Component {
     e.preventDefault();
     let user = this.state;
     this.props.update(user);
-    this.state.edited = "DONE EDITING";
+    this.state.edited = "Edit submitted";
     // location.href = '/'
   }
 
@@ -46,6 +46,10 @@ class AccountForm extends React.Component {
         <form onSubmit={this.handleSubmit} className="user-profile">
           <br/>
           Edit Account Information
+          <br/>
+          <br/>
+          <img src={this.props.currentUser.imageurl} alt="User profile pic"/>
+          <br/>
           {this.state.edited}
         {  // this.renderErrors()
         }

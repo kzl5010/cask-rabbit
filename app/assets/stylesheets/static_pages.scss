@@ -5,14 +5,14 @@
 header {
   font-family: 'Pacifico', cursive;
   color: white;
-  background: #1C2331;
-  width: auto;
+  background: green;
+  width: 100%;
   margin: 0;
 }
 
 .header-nav {
   width: 100vw;
-  margin: 0;
+  // margin: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,8 +20,9 @@ header {
 
 .header-logo {
   display: flex;
-  justify-content: flex-start;
-  width: auto;
+  justify-content: space-between;
+  width: 100%;
+
 }
 
 .header-logo:hover {
@@ -31,15 +32,18 @@ header {
 .logo-img {
 
   padding: 10px;
+  margin-left: 15%;
   height: 40px;
   width: auto;
+  margin-top: 10px;
 }
 
 .logo-h3 {
   color: white;
   display: block;
   font-weight: 700;
-  font-size: 14;
+  font-size: 14pt;
+  margin-right: 30%;
 }
 
 .header-list {
@@ -49,6 +53,8 @@ header {
   color: white;
   display: flex;
   justify-content: space-between;
+  margin-left: 0;
+  margin-right: 5%;
 }
 
 .header-list-item {
@@ -62,8 +68,12 @@ header {
 .header-list-item:hover {
 
   color: white;
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
+// .header-button
 @import "api/react-datepicker";
 @import 'api/users';
+@import 'api/taskers';
+@import 'api/task_requests';
+@import 'api/tasks';

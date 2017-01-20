@@ -29562,7 +29562,7 @@
 	              _react2.default.createElement(
 	                'div',
 	                null,
-	                'Submit Request'
+	                'Confirm Request?'
 	              )
 	            )
 	          )
@@ -66153,7 +66153,7 @@
 	      e.preventDefault();
 	      var user = this.state;
 	      this.props.update(user);
-	      this.state.edited = "DONE EDITING";
+	      this.state.edited = "Edit submitted";
 	      // location.href = '/'
 	    }
 	
@@ -66183,6 +66183,10 @@
 	          { onSubmit: this.handleSubmit, className: 'user-profile' },
 	          _react2.default.createElement('br', null),
 	          'Edit Account Information',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('img', { src: this.props.currentUser.imageurl, alt: 'User profile pic' }),
+	          _react2.default.createElement('br', null),
 	          this.state.edited,
 	          _react2.default.createElement(
 	            'div',
@@ -66373,6 +66377,11 @@
 	        'section',
 	        { className: 'tasks-index' },
 	        _react2.default.createElement(
+	          'h2',
+	          null,
+	          ' Available Tasks '
+	        ),
+	        _react2.default.createElement(
 	          'ul',
 	          { className: 'task-index-list' },
 	          this.props.tasks.map(function (task) {
@@ -66447,6 +66456,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'task-profile' },
+	          _react2.default.createElement('img', { src: this.props.imageurl, alt: 'Task Image' }),
 	          this.props.task.title,
 	          _react2.default.createElement('br', null),
 	          this.props.task.description,
@@ -66576,6 +66586,7 @@
 	    _react2.default.createElement(
 	      'hgroup',
 	      { className: 'greeting-group' },
+	      _react2.default.createElement('img', { src: currentUser.imageurl, alt: 'User profile pic' }),
 	      _react2.default.createElement(
 	        'h2',
 	        { className: 'greeting-name' },
@@ -66869,25 +66880,36 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'taskRequest-profile' },
-	          'Tasker: ',
-	          this.props.taskRequest.tasker,
+	          _react2.default.createElement(
+	            'h4',
+	            null,
+	            'Tasker : ',
+	            this.props.taskRequest.tasker,
+	            ' '
+	          ),
 	          _react2.default.createElement('br', null),
-	          'Tasker email: ',
+	          'Tasker email : ',
 	          this.props.taskRequest.tasker_email,
 	          _react2.default.createElement('br', null),
-	          'Task: ',
+	          'Task : ',
 	          this.props.taskRequest.task,
 	          _react2.default.createElement('br', null),
-	          'Date: ',
+	          'Date : ',
 	          this.props.taskRequest.day,
 	          _react2.default.createElement('br', null),
-	          'Address: ',
-	          this.props.taskRequest.address
-	        ),
-	        _react2.default.createElement(
-	          'button',
-	          { className: 'task-request-button', onClick: this.handleClick },
-	          'DELETE TASK???'
+	          'Address : ',
+	          this.props.taskRequest.address,
+	          _react2.default.createElement('br', null),
+	          'Price : $ ',
+	          this.props.taskRequest.price,
+	          '/hour',
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'task-request-button', onClick: this.handleClick },
+	            'Cancel Task?'
+	          )
 	        )
 	      );
 	    }
@@ -67122,9 +67144,9 @@
 	                { className: 'logo-h3' },
 	                'Home'
 	              )
-	            )
-	          ),
-	          Nav
+	            ),
+	            Nav
+	          )
 	        )
 	      );
 	    }

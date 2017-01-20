@@ -13,6 +13,7 @@ const sessionLinks = () => (
 const personalGreeting = (currentUser, logout) => (
   <section className="greeting">
   	<hgroup className="greeting-group">
+      <img src={currentUser.imageurl} alt="User profile pic"/>
       <h2 className="greeting-name">Welcome to AskRabbit, {currentUser.first_name}!</h2>
       <br/>
       <TaskRequestIndexContainer />

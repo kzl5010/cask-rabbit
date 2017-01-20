@@ -57,8 +57,8 @@ class Header extends React.Component {
             <Link to="/">
               <h3 className="logo-h3">Home</h3>
             </Link>
-          </section>
           {Nav}
+          </section>
         </nav>
       </header>
     );

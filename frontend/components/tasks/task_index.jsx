@@ -18,6 +18,7 @@ class TaskIndex extends React.Component {
     }
     return(
       <section className="tasks-index">
+        <h2> Available Tasks </h2>
         {//<GreetingContainer />
         }
 
