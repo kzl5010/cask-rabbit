@@ -1,6 +1,6 @@
 # FastRabbit
 
-[FastRabbit][http://caskrabbit.herokuapp.com/#/] is a web application for users to request services from "taskers" who are hourly freelancers. FastRabbit is inspired by TaskRabbit and allows users to choose the task they need completed, specify the date and location, and select the freelancer and price.
+[FastRabbit][homepage] is a web application for users to request services from "taskers" who are hourly freelancers. FastRabbit is inspired by TaskRabbit and allows users to choose the task they need completed, specify the date and location, and select the freelancer and price.
 
 Ken Lee is the designer and site owner of FastRabbit.
 
@@ -46,3 +46,4 @@ backend = ./docs/backend.md
 frontend = ./docs/frontend.md
 file storage = ./docs/file_storage.md
 future = ./docs/future.md
+[homepage]:http://caskrabbit.herokuapp.com/#/
