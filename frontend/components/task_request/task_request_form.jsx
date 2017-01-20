@@ -76,23 +76,28 @@ class TaskRequestForm extends React.Component {
 
   render() {
     return (
-      <section>
-        <section className="taskRequest">
+        <section className="taskRequest-container">
           <form className="taskRequest-form" onSubmit={this.handleSubmit}>
+            <br/>
+            <br/>
             <h4>Task Request</h4>
             {  this.renderErrors()
             }
             <DatePicker selected={this.state.date} onChange={this.changeDate} className="none"/>
+            <br/>
+            <br/>
             <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
-            <label>Details for Tasker</label>
+            <br/>
+            <br/>
+            <label>Details for Tasker
             <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
             onChange={this.handleChange("details")} className="taskRequest-form-text" />
+            </label>
             <TaskerIndexContainer updateTasker={this.updateTasker}/>
             <button className="taskRequest-button" type="submit"> <div>Confirm Request?</div>
             </button>
           </form>
         </section>
-      </section>
 
     )
   }

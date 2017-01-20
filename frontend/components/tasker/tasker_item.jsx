@@ -33,21 +33,23 @@ class TaskerItem extends React.Component {
       )
     }
     return (
-      <button className="tasker-button" onClick={this.handleClick}>
       <li className="tasker-item" key={this.props.tasker.id}>
       {// photo here
       }
         <div className="tasker-profile">
-          NAME: {this.props.tasker.name}
+          <img src={this.props.tasker.imageurl} alt="Tasker Image" className="tasker-image"/>
           <br/>
-          E-MAIL: {this.props.tasker.email}
+          Name: {this.props.tasker.name}
           <br/>
-          PRICE PER HOUR: {this.props.tasker.price}
+          E-mail: {this.props.tasker.email}
           <br/>
-          ZIP_CODE: {this.props.tasker.zip_code}
+          Price: ${this.props.tasker.price}/hr
+          <br/>
+          Zip Code: {this.props.tasker.zip_code}
         </div>
+        <button className="tasker-button" onClick={this.handleClick}>Select Tasker?
+        </button>
       </li>
-      </button>
     )
   }
 }

@@ -7,7 +7,7 @@ class AccountForm extends React.Component {
     let user = this.props.currentUser;
     this.state  = { email: user.email, password: "",
     zip_code: user.zip_code, first_name: user.first_name,
-    last_name: user.last_name, id: user.id};
+    last_name: user.last_name, id: user.id, imageurl: user.imageurl};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
@@ -102,6 +102,16 @@ class AccountForm extends React.Component {
                 </label>
               </li>
               <br/>
+              <li className="user-info-item">
+                <label> Image Url : &nbsp; &nbsp;
+                  <input type="text"
+                    value={this.state.imageurl}
+                    onChange={this.handleChange("imageurl")}
+                    className="user-info-input" />
+                </label>
+              </li>
+              <br/>
+
               <input type="submit" value="Submit" />
             </ul>
           </div>
