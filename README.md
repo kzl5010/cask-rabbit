@@ -1,59 +1,48 @@
-[Heroku link]: https://dashboard.heroku.com/apps/caskrabbit
+# FastRabbit
 
-[Trello link][trello]
+[FastRabbit][http://caskrabbit.herokuapp.com/#/] is a web application for users to request services from "taskers" who are hourly freelancers. FastRabbit is inspired by TaskRabbit and allows users to choose the task they need completed, specify the date and location, and select the freelancer and price.
 
-## Minimum Viable Product
-CaskRabbit is a website sprung from TaskRabbit much as Athena emerged fully grown and armored from
-Zeus' skull. By the end of Week 9, this site will meet the following requirements with minimal bugs, abundant seed data and unmatched CSS styling:
+Ken Lee is the designer and site owner of FastRabbit.
 
-- [] Host on Heroku
-- [] New account creation, login, demo login
-- [] Create or Request Tasks
-- [] Become a tasker or compare taskers
+![FastRabbit Homepage: http://caskrabbit.herokuapp.com/#/][imagelink]
 
-##Design Docs
+## Features
 
-[View Wireframes](wireframes)
-[React Components][components]
-[API Endpoints][api-endpoints]
-[DB schema][schema]
-[Sample State][sample-state]
-
-[Wireframes]: docs/wireframes
-[Components]: docs/component-hierarchy.md
-[sample-state]: docs/sample-state.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+- User authentication, editing and guest account
+- Select a task to outsource
+- Use a calendar and googleAPI Places Autocomplete to specify date and location
+- Browse Task Freelancers for the most appropriate one
+- Specify duration and price of the task
+- Cancel unwanted task requests
 
 
-## Implementation Timeline
+![demo_user task requests: herokulink][link]
 
-### Phase 1: Backend setup and Front End User Authentication (2 days)
+## Project Design
 
-**Objective:** Functioning rails project with front-end Authentication
+FastRabbit was built in under two weeks.
 
-### Phase 2: Notes Model, API, and components (2 days)
+A [Design Mockup][./docs/readme.md] was used to ensure accurate and timely completion of features.
 
-**Objective:** Notes can be created, read, edited and destroyed through
-the API.
+A [Database Mockup][./docs/schema.md] was prepared alongside the design proposal.
 
-### Phase 3: Notebooks (2 day)
+## Code Foundation
 
-**Objective:** Notes belong to Notebooks that can be created, read, edited and destroyed through the API.
+FastRabbit is a single-page application built with using React-Redux(js) on the frontend and Ruby-on-Rails for the backend. 
 
-### Phase 4: Tags (1 days)
+- [Rails Backend][backend]
+- [React-Redux Frontend][frontend]
+- [File storage][cloudinary] using Cloudinary
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+## Upcoming Features
 
-### Phase 5: Allow Complex Styling in Notes (1 days, W2 Th 6pm)
+FastRabbit is still very much a work in progress.  
 
-**objective:** Allow rich text editing of notes.
+Upcoming features are imminent in the [Upcoming][upcoming] outline.
 
-### Phase 6: - Pagination / infinite scroll for Notes Index (1 day, W2 F 6pm)
-
-**objective:** Add infinite scroll to Notes Index
-
-### Bonus Features (TBD)
-- [ ] Google Maps API
-- [ ] Changelogs for Tasks
-- [ ] Favorite Tasks, Sponsored or Best Taskers, Forums?
+imagelink = homepage 
+link = demo_user homepage
+backend = ./docs/backend.md
+frontend = ./docs/frontend.md
+file storage = ./docs/file_storage.md
+future = ./docs/future.md
