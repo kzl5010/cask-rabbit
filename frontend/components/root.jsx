@@ -57,13 +57,6 @@ const Root = ({ store }) => {
     }
   }
 
-  const fetchTaskOnEnter = (nextState) => {
-    if (! store.getState().session.currentUser) {
-      replace('/login');
-    } else {
-      store.dispatch(fetchTask(nextState.params.taskId));
-    }
-  }
 
 
   return (

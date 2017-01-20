@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import GreetingContainer from '../home_page/greeting_container';
 
 class AccountForm extends React.Component {
   constructor(props){
@@ -10,7 +11,7 @@ class AccountForm extends React.Component {
     last_name: user.last_name, id: user.id, imageurl: user.imageurl};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
+    //set imageurl to user.imageurl || ""?
   }
 
   handleChange(field) {
@@ -41,6 +42,11 @@ class AccountForm extends React.Component {
   // }
 
   render() {
+    if (!this.props.currentUser) {
+      return (
+        <GreetingContainer/>
+      )
+    }
     return (
       <div className="user-profile-container">
         <form onSubmit={this.handleSubmit} className="user-profile">

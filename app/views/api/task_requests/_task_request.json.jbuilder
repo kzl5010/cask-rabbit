@@ -9,4 +9,5 @@ json.tasker_email task_request.tasker.email
 json.address task_request.address
 json.day task_request.date
 json.task_id task_request.task_id
-json.price task_request.tasker.price
+json.rate task_request.tasker.price
+json.hours task_request.hours

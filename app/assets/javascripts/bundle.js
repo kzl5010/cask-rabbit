@@ -21608,14 +21608,6 @@
 	    }
 	  };
 	
-	  var fetchTaskOnEnter = function fetchTaskOnEnter(nextState) {
-	    if (!store.getState().session.currentUser) {
-	      replace('/login');
-	    } else {
-	      store.dispatch((0, _task_actions.fetchTask)(nextState.params.taskId));
-	    }
-	  };
-	
 	  return _react2.default.createElement(
 	    _reactRedux.Provider,
 	    { store: store },
@@ -29371,7 +29363,7 @@
 	
 	var mapStateToProps = function mapStateToProps(state, ownProps) {
 	  return {
-	    userId: state.session.currentUser.id,
+	    currentUser: state.session.currentUser,
 	    errors: state.taskRequests.errors,
 	    taskers: state.taskers
 	    // task: state.tasks[ownProps.params.taskId]
@@ -29426,6 +29418,10 @@
 	
 	var _tasker_index_container2 = _interopRequireDefault(_tasker_index_container);
 	
+	var _greeting_container = __webpack_require__(432);
+	
+	var _greeting_container2 = _interopRequireDefault(_greeting_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -29450,7 +29446,8 @@
 	      address: "",
 	      tasker_id: "",
 	      date: (0, _moment2.default)(),
-	      details: ""
+	      details: "",
+	      hours: 1
 	    };
 	    _this.onChange = function (address) {
 	      return _this.setState({ address: address });
@@ -29499,14 +29496,15 @@
 	      var taskRequest = this.state;
 	      taskRequest.date = taskRequest.date.toDate();
 	      // taskRequest.tasker_id = this.props.tasker_id;
-	      taskRequest.user_id = this.props.userId;
+	      taskRequest.user_id = this.props.currentUser.id;
 	      taskRequest.task_id = this.props.params.taskId;
 	      this.props.createTaskRequest(taskRequest);
 	      this.setState({
 	        address: "",
 	        tasker_id: "",
 	        date: (0, _moment2.default)(),
-	        details: ""
+	        details: "",
+	        hours: 1
 	      });
 	    }
 	  }, {
@@ -29530,6 +29528,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      if (!this.props.currentUser) {
+	        return _react2.default.createElement(_greeting_container2.default, null);
+	      }
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'taskRequest-container' },
@@ -29544,18 +29545,45 @@
 	            'Task Request'
 	          ),
 	          this.renderErrors(),
-	          _react2.default.createElement(_reactDatepicker2.default, { selected: this.state.date, onChange: this.changeDate, className: 'none' }),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(_reactPlacesAutocomplete2.default, { value: this.state.address, onChange: this.onChange }),
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
-	            'label',
-	            null,
-	            'Details for Tasker',
-	            _react2.default.createElement('textarea', { value: this.state.details, placeholder: 'Describe the task for the Tasker',
-	              onChange: this.handleChange("details"), className: 'taskRequest-form-text' })
+	            'ul',
+	            { className: 'taskRequest-entries' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(_reactDatepicker2.default, { selected: this.state.date, onChange: this.changeDate, className: 'none' })
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(_reactPlacesAutocomplete2.default, { value: this.state.address, onChange: this.onChange })
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'Details for Tasker',
+	                _react2.default.createElement('textarea', { value: this.state.details, placeholder: 'Describe the task for the Tasker',
+	                  onChange: this.handleChange("details"), className: 'taskRequest-form-text' })
+	              )
+	            ),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'Details for Tasker',
+	                _react2.default.createElement('textarea', { value: this.state.details, placeholder: 'Describe the task for the Tasker',
+	                  onChange: this.handleChange("details"), className: 'taskRequest-form-text' })
+	              )
+	            )
 	          ),
 	          _react2.default.createElement(_tasker_index_container2.default, { updateTasker: this.updateTasker }),
 	          _react2.default.createElement(
@@ -66116,6 +66144,10 @@
 	
 	var _reactRouter = __webpack_require__(217);
 	
+	var _greeting_container = __webpack_require__(432);
+	
+	var _greeting_container2 = _interopRequireDefault(_greeting_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -66140,7 +66172,7 @@
 	      last_name: user.last_name, id: user.id, imageurl: user.imageurl };
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    _this.handleChange = _this.handleChange.bind(_this);
-	
+	    //set imageurl to user.imageurl || ""?
 	    return _this;
 	  }
 	
@@ -66181,6 +66213,9 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      if (!this.props.currentUser) {
+	        return _react2.default.createElement(_greeting_container2.default, null);
+	      }
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'user-profile-container' },
@@ -66713,10 +66748,33 @@
 	  );
 	};
 	
+	var unloggedGreeting = function unloggedGreeting() {
+	  return _react2.default.createElement(
+	    'section',
+	    { className: 'unlogged-greeting' },
+	    _react2.default.createElement(
+	      'hgroup',
+	      { className: 'greeting-group' },
+	      _react2.default.createElement(
+	        'h2',
+	        { className: 'greeting-name' },
+	        'Welcome to AskRabbit!'
+	      ),
+	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(
+	        'p',
+	        { className: 'unlogged-greeting-text' },
+	        ' The best site for fast, bespoke tutoring and instruction'
+	      ),
+	      _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484942510/bunny-learning-about-himself_zvb1yl.jpg', alt: 'Bunny Learning' })
+	    )
+	  );
+	};
+	
 	var Greeting = function Greeting(_ref) {
 	  var currentUser = _ref.currentUser,
 	      logout = _ref.logout;
-	  return currentUser ? personalGreeting(currentUser, logout) : null //sessionLinks()
+	  return currentUser ? personalGreeting(currentUser, logout) : unloggedGreeting() //sessionLinks()
 	  ;
 	};
 	
@@ -66921,9 +66979,10 @@
 	          this.props.taskRequest.address,
 	          _react2.default.createElement('br', null),
 	          'Price : $ ',
-	          this.props.taskRequest.price,
-	          '/hour',
+	          this.props.taskRequest.rate * this.props.taskRequest.hours,
 	          _react2.default.createElement('br', null),
+	          'Hours : $ ',
+	          this.props.taskRequest.hours,
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
 	            'button',

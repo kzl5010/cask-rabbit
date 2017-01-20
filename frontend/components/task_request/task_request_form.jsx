@@ -3,6 +3,7 @@ import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete'
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import TaskerIndexContainer from '../tasker/tasker_index_container';
+import GreetingContainer from '../home_page/greeting_container';
 //TODO DECIDE WHETHER THE TASKER IS DECIDED BEFORE OR AFTER THIS
 
 class TaskRequestForm extends React.Component {
@@ -12,7 +13,8 @@ class TaskRequestForm extends React.Component {
       address: "",
       tasker_id: "",
       date: moment(),
-      details: ""
+      details: "",
+      hours: 1
     };
     this.onChange = (address) => this.setState({ address });
     this.changeDate = this.changeDate.bind(this);
@@ -48,14 +50,15 @@ class TaskRequestForm extends React.Component {
     let taskRequest = this.state;
     taskRequest.date = taskRequest.date.toDate();
     // taskRequest.tasker_id = this.props.tasker_id;
-    taskRequest.user_id = this.props.userId;
+    taskRequest.user_id = this.props.currentUser.id;
     taskRequest.task_id = this.props.params.taskId;
     this.props.createTaskRequest(taskRequest);
     this.setState({
       address: "",
       tasker_id: "",
       date: moment(),
-      details: ""
+      details: "",
+      hours: 1
     });
   }
 
@@ -75,6 +78,11 @@ class TaskRequestForm extends React.Component {
   }
 
   render() {
+    if (!this.props.currentUser) {
+      return (
+        <GreetingContainer/>
+      )
+    }
     return (
         <section className="taskRequest-container">
           <form className="taskRequest-form" onSubmit={this.handleSubmit}>
@@ -83,16 +91,30 @@ class TaskRequestForm extends React.Component {
             <h4>Task Request</h4>
             {  this.renderErrors()
             }
-            <DatePicker selected={this.state.date} onChange={this.changeDate} className="none"/>
+            <ul className="taskRequest-entries">
+              <li>
+                <DatePicker selected={this.state.date} onChange={this.changeDate} className="none"/>
+              </li>
             <br/>
             <br/>
-            <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
+              <li>
+                <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
+              </li>
             <br/>
+            <li>
+              <label>Details for Tasker
+              <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
+              onChange={this.handleChange("details")} className="taskRequest-form-text" />
+              </label>
+            </li>
             <br/>
-            <label>Details for Tasker
-            <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
-            onChange={this.handleChange("details")} className="taskRequest-form-text" />
-            </label>
+              <li>
+                <label>Details for Tasker
+                <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
+                onChange={this.handleChange("details")} className="taskRequest-form-text" />
+                </label>
+              </li>
+            </ul>
             <TaskerIndexContainer updateTasker={this.updateTasker}/>
             <button className="taskRequest-button" type="submit"> <div>Confirm Request?</div>
             </button>

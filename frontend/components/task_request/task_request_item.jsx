@@ -29,8 +29,9 @@ class TaskRequestItem extends React.Component {
           <br/>
           Address : {this.props.taskRequest.address}
           <br/>
-          Price : $ {this.props.taskRequest.price }/hour
+          Price : $ {this.props.taskRequest.rate*this.props.taskRequest.hours }
           <br/>
+          Hours : $ {this.props.taskRequest.hours}
           <br/>
           <button className="task-request-button" onClick={this.handleClick}>
             Cancel Task?
