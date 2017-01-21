@@ -59,10 +59,11 @@ const unloggedGreeting = () => (
       <h2 className="greeting-name">Welcome to AskRabbit!</h2>
       <br/>
       <p className="unlogged-greeting-text"> The best site for fast, bespoke tutoring and instruction</p>
-      <img src="http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484942510/bunny-learning-about-himself_zvb1yl.jpg" alt="Bunny Learning"/>
+    {//  <img src="http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484942510/bunny-learning-about-himself_zvb1yl.jpg" alt="Bunny Learning"/>
+    }
     </hgroup>
   </section>
-)
+);
 
 const Greeting = ({ currentUser, logout }) => (
   currentUser ? personalGreeting(currentUser, logout) : unloggedGreeting() //sessionLinks()

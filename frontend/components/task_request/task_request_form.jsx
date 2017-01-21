@@ -8,7 +8,7 @@ import GreetingContainer from '../home_page/greeting_container';
 
 class TaskRequestForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       address: "",
       tasker_id: "",
@@ -81,7 +81,7 @@ class TaskRequestForm extends React.Component {
     if (!this.props.currentUser) {
       return (
         <GreetingContainer/>
-      )
+      );
     }
     return (
         <section className="taskRequest-container">
@@ -109,20 +109,20 @@ class TaskRequestForm extends React.Component {
             </li>
             <br/>
               <li>
-                <label>Details for Tasker
-                <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
-                onChange={this.handleChange("details")} className="taskRequest-form-text" />
+                <label>Hours of work for Tasker &nbsp;&nbsp;
+                <input type="number" value={this.state.hours} placeholder="1"
+                onChange={this.handleChange("hours")} className="taskRequest-form-number" />
                 </label>
               </li>
             </ul>
-            <TaskerIndexContainer updateTasker={this.updateTasker}/>
+            <TaskerIndexContainer updateTasker={this.updateTasker} hours={this.state.hours}/>
             <button className="taskRequest-button" type="submit"> <div>Confirm Request?</div>
             </button>
           </form>
         </section>
 
-    )
+    );
   }
 }
 
-export default TaskRequestForm
+export default TaskRequestForm;

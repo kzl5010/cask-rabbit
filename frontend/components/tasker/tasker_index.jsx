@@ -15,7 +15,7 @@ class TaskerIndex extends React.Component {
       <section className="taskers-index">
         <ul className="tasker-index-list">
           {this.props.taskers.map(tasker => (
-            <TaskerItem key={tasker.id} tasker={tasker} updateTasker={this.props.updateTasker}/>
+            <TaskerItem key={tasker.id} tasker={tasker} updateTasker={this.props.updateTasker} hours={this.props.hours}/>
           ))}
         </ul>
       </section>

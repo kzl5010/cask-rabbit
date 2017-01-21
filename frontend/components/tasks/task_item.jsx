@@ -9,12 +9,12 @@ class TaskItem extends React.Component {
 
   render() {
     return (
-      <li className="task-item" key={this.props.task.id}>
+      <Link to={`/tasks/${this.props.task.id}/task_requests`} className="task-item" key={this.props.task.id}>
       {// photo here
       }
         <div className="task-profile">
           <img src={this.props.task.imageurl} alt="Task Image" className="task-image"/>
-          {this.props.task.title}
+          <h3 className="task-title">{this.props.task.title}</h3>
           <br/>
           {this.props.task.description}
           <br/>
@@ -24,9 +24,9 @@ class TaskItem extends React.Component {
             </button>
           </Link>
         </div>
-      </li>
+      </Link>
 
-    )
+    );
   }
 }
 //
