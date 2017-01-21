@@ -30,7 +30,7 @@ class TaskerItem extends React.Component {
           </div>
         </li>
 
-      )
+      );
     }
     return (
       <li className="tasker-item" key={this.props.tasker.id}>
@@ -39,18 +39,20 @@ class TaskerItem extends React.Component {
         <div className="tasker-profile">
           <img src={this.props.tasker.imageurl} alt="Tasker Image" className="tasker-image"/>
           <br/>
-          Name: {this.props.tasker.name}
+          Name: <strong>{this.props.tasker.name}</strong>
           <br/>
-          E-mail: {this.props.tasker.email}
+          E-mail: <strong>{this.props.tasker.email}</strong>
           <br/>
-          Price: ${this.props.tasker.price}/hr
+          Hourly Rate: ${this.props.tasker.price}
+          <br/>
+          Price: ${this.props.hours*this.props.tasker.price}
           <br/>
           Zip Code: {this.props.tasker.zip_code}
         </div>
-        <button className="tasker-button" onClick={this.handleClick}>Select Tasker?
+        <button className="tasker-button" onClick={this.handleClick}>Select Tasker
         </button>
       </li>
-    )
+    );
   }
 }
 
