@@ -11,3 +11,4 @@ json.day task_request.date
 json.task_id task_request.task_id
 json.rate task_request.tasker.price
 json.hours task_request.hours
+json.tasker_imageurl task_request.tasker.imageurl 

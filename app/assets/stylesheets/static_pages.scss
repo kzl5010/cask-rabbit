@@ -71,6 +71,65 @@ header {
   transform: scale(1.02);
 }
 
+footer {
+ position: relative;
+ text-align: center;
+ bottom: 0;
+ left: 0;
+ width: 100%;
+ background: gray;
+ color: #fff;
+ overflow: hidden;
+}
+
+.footer-nav {
+ width: 100%;
+ margin: 0 auto;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.footer-link {
+ display: flex;
+ justify-content: space-between;
+ font-size: 16px;
+}
+
+.footer-img {
+ display: inline-block;
+ max-height: 30px;
+ max-width: 30px;
+ margin: 0 5px;
+}
+
+.footer-links-list {
+ display: flex;
+ justify-content: space-between;
+ align-content: center;
+ align-items: center;
+}
+
+.footer-link-list-item {
+ display: flex;
+ position: relative;
+ padding: 10px 20px;
+ font-weight: 700;
+ align-content: center;
+ align-items: center;
+}
+
+.login-input {
+  margin-left: 20px;
+}
+
+.login-form-box {
+  margin-top: 30px;
+  outline: 1px solid white;
+  padding: 10px;
+}
+
+
 // .header-button
 @import "api/react-datepicker";
 @import 'api/users';

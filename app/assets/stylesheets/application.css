@@ -33,6 +33,9 @@ span, article, footer, time, small {
 }
 */
 
+li {
+  list-style: none;
+}
 html, body, footer {
 
   margin:0;
@@ -69,7 +72,20 @@ html, body, footer {
    margin-bottom: 0px;
  }
 
+ p {
+   font-size: 18px;
+ }
+
+ h4 {
+   font-size: 20px;
+ }
+
+ h2 {
+   font-size: 30px;
+ }
+
 h3 {
+  font-size: 24px;
   margin-top: 23px;
   color: white;
   text-decoration-color: white;
@@ -93,63 +109,6 @@ h3 {
 
 
 
- footer {
-  position: relative;
-  text-align: center;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: gray;
-  color: #fff;
-	overflow: hidden;
-}
-
- .footer-nav {
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer-link {
-	display: flex;
-	justify-content: space-between;
-  font-size: $medium;
-}
-
-.footer-img {
-	display: inline-block;
-	max-height: 30px;
-	max-width: 30px;
-	margin: 0 5px;
-}
-
-.footer-links-list {
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-}
-
-.footer-link-list-item {
-  display: flex;
-  position: relative;
-  padding: 10px 20px;
-  font-weight: 700;
-  align-content: center;
-  align-items: center;
-}
-
- .login-input {
-   margin-left: 20px;
- }
-
- .login-form-box {
-   margin-top: 30px;
-   outline: 1px solid white;
-   padding: 10px;
- }
 
  .filter {
    font-weight: bold;
@@ -245,13 +204,21 @@ h4 {
   display: flex;
   flex-direction: row;
 }*/
+.greeting-group .tasker-thumb {
+  float: left;
+  width: 130px;
+  height: 186.67px;
+  margin-right: 25px;
+  border-radius: 65%;
+}
 
 .taskRequest-profile {
   background: lightyellow;
   border-radius: 0%;
-  box-shadow: 0px 2px 2px 0px rgba(50,58,59,0.15);
+  /*box-shadow: 0px 2px 2px 0px rgba(50,58,59,0.15);*/
+  box-shadow: 2px 2px 2px 2px rgba(150,58,59,0.15);
   margin: 20px 0px;
-  min-width: 80%;
+  width: 520px;
   font-size: 10pt;
 }
 
@@ -304,45 +271,6 @@ h4 {
   min-width: 100%;
 }
 
-.taskers-index {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-right: 0;
-  margin-left: 15%;
-  width: 700px;
-  height: 500px;
-  left: 15%;
-}
-
-.tasker-profile {
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-.tasker-index {
-    left: 0%;
-    width: 1000px;
-    position: fixed;
-    border-top: 1px solid lightgray;
-    padding-top: 25px;
-}
-
-.tasker-index-list {
-  padding-left: 0;
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.tasker-button {
-  width: 150px;
-  height: 20px;
-  margin-bottom: 20px;
-}
 
 .taskRequest-form {
   height: 100%;
@@ -356,9 +284,24 @@ h4 {
     display: flex;
     align-items: center;
     flex-direction: column;
-    color: gray;
+    flex-wrap: wrap;
+    color: black;
     padding: 10px 0px;
     width: 100%;
     margin-right: 0;
     font-family: 'Josefin Sans', sans-serif;
+}
+
+.greeting-group img {
+  width: 300px;
+  height: 300px;
+}
+
+.welcome-instructions {
+  box-shadow: 2px 2px 2px 2px rgba(150,58,59,0.15);
+}
+
+.taskRequest-details li {
+  left: 0%;
+  font-size: 16px;
 }

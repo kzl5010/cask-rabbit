@@ -19,22 +19,31 @@ class TaskRequestItem extends React.Component {
       {// photo here
       }
         <div className="taskRequest-profile">
+          <img className="tasker-thumb" src={this.props.taskRequest.tasker_imageurl} alt="Tasker Image"/>
           <h4>Tasker : {this.props.taskRequest.tasker} </h4>
-          <br/>
+          <ul className="taskRequest-details">
+          <li>
           Tasker email : {this.props.taskRequest.tasker_email}
-          <br/>
+          </li>
+          <li>
           Task : {this.props.taskRequest.task}
-          <br/>
+          </li>
+          <li>
           Date : {this.props.taskRequest.day}
-          <br/>
+          </li>
+          <li>
           Address : {this.props.taskRequest.address}
-          <br/>
+          </li>
+          <li>
           Price : $ {this.props.taskRequest.rate*this.props.taskRequest.hours }
-          <br/>
+          </li>
+          <li>
           Hours : {this.props.taskRequest.hours}
-          <br/>
+          </li>
+          <li>
           Hourly Rate : $ {this.props.taskRequest.rate}
-          <br/>
+          </li>
+          </ul>
           <button className="task-request-button" onClick={this.handleClick}>
             Cancel Task
           </button>

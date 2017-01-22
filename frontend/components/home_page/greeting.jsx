@@ -18,7 +18,7 @@ const personalGreeting = (currentUser, logout) => (
       <br/>
       <TaskRequestIndexContainer />
   	</hgroup>
-    <div>
+    <div className="welcome-instructions">
     <h3> What do you need help with? </h3>
     { //Add a task_requests index here
     }

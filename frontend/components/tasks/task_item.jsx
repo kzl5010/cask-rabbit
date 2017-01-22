@@ -18,11 +18,13 @@ class TaskItem extends React.Component {
           <br/>
           {this.props.task.description}
           <br/>
-          <Link to={`/tasks/${this.props.task.id}/task_requests`}>
+{/*          <Link to={ // `/tasks/${this.props.task.id}/task_requests`
+}>
             <button className="task-request-button">
               <span>Request Task</span>
             </button>
           </Link>
+        */ }
         </div>
       </Link>
 

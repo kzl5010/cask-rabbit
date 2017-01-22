@@ -66193,7 +66193,7 @@
 	    ),
 	    _react2.default.createElement(
 	      'div',
-	      null,
+	      { className: 'welcome-instructions' },
 	      _react2.default.createElement(
 	        'h3',
 	        null,
@@ -66504,20 +66504,7 @@
 	          ),
 	          _react2.default.createElement('br', null),
 	          this.props.task.description,
-	          _react2.default.createElement('br', null),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/tasks/' + this.props.task.id + '/task_requests' },
-	            _react2.default.createElement(
-	              'button',
-	              { className: 'task-request-button' },
-	              _react2.default.createElement(
-	                'span',
-	                null,
-	                'Request Task'
-	              )
-	            )
-	          )
+	          _react2.default.createElement('br', null)
 	        )
 	      );
 	    }
@@ -66728,6 +66715,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'taskRequest-profile' },
+	          _react2.default.createElement('img', { className: 'tasker-thumb', src: this.props.taskRequest.tasker_imageurl, alt: 'Tasker Image' }),
 	          _react2.default.createElement(
 	            'h4',
 	            null,
@@ -66735,28 +66723,52 @@
 	            this.props.taskRequest.tasker,
 	            ' '
 	          ),
-	          _react2.default.createElement('br', null),
-	          'Tasker email : ',
-	          this.props.taskRequest.tasker_email,
-	          _react2.default.createElement('br', null),
-	          'Task : ',
-	          this.props.taskRequest.task,
-	          _react2.default.createElement('br', null),
-	          'Date : ',
-	          this.props.taskRequest.day,
-	          _react2.default.createElement('br', null),
-	          'Address : ',
-	          this.props.taskRequest.address,
-	          _react2.default.createElement('br', null),
-	          'Price : $ ',
-	          this.props.taskRequest.rate * this.props.taskRequest.hours,
-	          _react2.default.createElement('br', null),
-	          'Hours : ',
-	          this.props.taskRequest.hours,
-	          _react2.default.createElement('br', null),
-	          'Hourly Rate : $ ',
-	          this.props.taskRequest.rate,
-	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'ul',
+	            { className: 'taskRequest-details' },
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'Tasker email : ',
+	              this.props.taskRequest.tasker_email
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'Task : ',
+	              this.props.taskRequest.task
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'Date : ',
+	              this.props.taskRequest.day
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'Address : ',
+	              this.props.taskRequest.address
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'Price : $ ',
+	              this.props.taskRequest.rate * this.props.taskRequest.hours
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'Hours : ',
+	              this.props.taskRequest.hours
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              'Hourly Rate : $ ',
+	              this.props.taskRequest.rate
+	            )
+	          ),
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'task-request-button', onClick: this.handleClick },
