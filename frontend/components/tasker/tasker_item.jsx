@@ -48,9 +48,11 @@ class TaskerItem extends React.Component {
           Price: ${this.props.hours*this.props.tasker.price}
           <br/>
           Zip Code: {this.props.tasker.zip_code}
+          <br/>
+          <br/>
+          <button className="tasker-button" onClick={this.handleClick}>Select Tasker
+          </button>
         </div>
-        <button className="tasker-button" onClick={this.handleClick}>Select Tasker
-        </button>
       </li>
     );
   }

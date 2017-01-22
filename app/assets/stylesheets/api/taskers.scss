@@ -23,16 +23,20 @@
 }
 
 .tasker-profile {
+  margin-top: 30px;
+  box-shadow: 2px 2px 2px 2px rgba(150,58,59,0.15);
+
   font-family: 'Josefin Sans', sans-serif;
 }
 
-.tasker-index-list {
+ul.tasker-index-list {
   padding-left: 0;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   justify-content: space-between;
+  height: 550px;
 }
 
 .tasker-button {
@@ -42,10 +46,6 @@
 }
 
 
-
-.tasker-index-list {
-  padding-left: 0;
-}
 
 .button-tasker {
   list-style: none;

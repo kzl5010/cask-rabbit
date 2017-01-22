@@ -10,6 +10,7 @@ class TaskRequestForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      task_id: this.props.params.taskId,
       address: "",
       tasker_id: "",
       date: moment(),
@@ -51,8 +52,9 @@ class TaskRequestForm extends React.Component {
     taskRequest.date = taskRequest.date.toDate();
     // taskRequest.tasker_id = this.props.tasker_id;
     taskRequest.user_id = this.props.currentUser.id;
-    taskRequest.task_id = this.props.params.taskId;
+    // taskRequest.task_id = this.props.params.taskId;
     this.props.createTaskRequest(taskRequest);
+    debugger;
     this.setState({
       address: "",
       tasker_id: "",
@@ -83,6 +85,17 @@ class TaskRequestForm extends React.Component {
         <GreetingContainer/>
       );
     }
+    let taskOptions = null, taskerOptions = null;
+    if (this.props.tasks.tasks) {
+      taskOptions = this.props.tasks.tasks.map((task, i) => (
+        <option key={i} value={task.id}>{task.title}</option>
+      ));
+    }
+    if (this.props.taskers.taskers) {
+      taskerOptions = this.props.taskers.taskers.map((tasker, i)=>(
+        <option key={i} value={tasker.id}>{tasker.name}</option>
+      ));
+    }
     return (
         <section className="taskRequest-container">
           <form className="taskRequest-form" onSubmit={this.handleSubmit}>
@@ -92,11 +105,18 @@ class TaskRequestForm extends React.Component {
             {  this.renderErrors()
             }
             <ul className="taskRequest-entries">
-              <li>
+              <li>Select Task:  &nbsp; &nbsp;
+                <select value={this.state.task_id} onChange={this.handleChange("task_id")}>
+                { taskOptions
+                }
+                </select>
+              </li>
+              <br/>
+              <li> Select Date :
                 <DatePicker selected={this.state.date} onChange={this.changeDate} className="none"/>
               </li>
-            <br/>
-            <br/>
+              <br/>
+              <br/>
               <li>
                 <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
               </li>
@@ -113,6 +133,13 @@ class TaskRequestForm extends React.Component {
                 <input type="number" value={this.state.hours} placeholder="1"
                 onChange={this.handleChange("hours")} className="taskRequest-form-number" />
                 </label>
+              </li>
+            <br/>
+              <li> Tasker :  &nbsp;
+                <select value={this.state.tasker_id} onChange={this.handleChange("tasker_id")}>
+                {taskerOptions
+                }
+                </select>
               </li>
             </ul>
             <TaskerIndexContainer updateTasker={this.updateTasker} hours={this.state.hours}/>

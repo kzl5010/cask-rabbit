@@ -7,8 +7,8 @@ import { fetchTaskers } from '../../actions/tasker_actions';
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
   errors: state.taskRequests.errors,
-  taskers: state.taskers
-  // task: state.tasks[ownProps.params.taskId]
+  taskers: state.taskers,
+  tasks: state.tasks
 })
 
 const mapDispatchToProps = dispatch => ({
