@@ -41,7 +41,7 @@ Upcoming features are imminent in the [Upcoming][upcoming] outline.
 
 [imagelink]:http://res.cloudinary.com/dsaxhw9ii/image/upload/v1485130075/front-page_ecqngt.png
 link = demo_user homepage
-[readme]:[./docs/readme.md]
+[readme]:[../docs/readme.md]
 backend = ./docs/backend.md
 frontend = ./docs/frontend.md
 file storage = ./docs/file_storage.md
