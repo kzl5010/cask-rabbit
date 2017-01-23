@@ -42,7 +42,7 @@ Upcoming features are imminent in the [Upcoming][upcoming] outline.
 [imagelink]:http://res.cloudinary.com/dsaxhw9ii/image/upload/v1485130075/front-page_ecqngt.png
 [link]:http://res.cloudinary.com/dsaxhw9ii/image/upload/v1485130620/demo-tasks_owrva7.png
 [schema]: ./docs/schema.md
-[readme]: ./docs/readme.md
+[readme]: ./docs/README.md
 [backend]: ./docs/backend.md
 [frontend]: ./docs/frontend.md
 [future]: ./docs/future.md
