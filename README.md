@@ -16,7 +16,7 @@ Ken Lee is the designer and site owner of FastRabbit.
 - Cancel unwanted task requests
 
 
-![demo_user task requests: herokulink][link]
+![demo_user task requests: https://caskrabbit.herokuapp.com/#/tasks/2/task_requests][link]
 
 ## Project Design
 
@@ -24,7 +24,7 @@ FastRabbit was built in under two weeks.
 
 A [Design Mockup][readme] was used to ensure accurate and timely completion of features.
 
-A [Database Mockup][./docs/schema.md] was prepared alongside the design proposal.
+A [Database Mockup][schema] was prepared alongside the design proposal.
 
 ## Code Foundation
 
@@ -40,10 +40,10 @@ FastRabbit is still very much a work in progress.
 Upcoming features are imminent in the [Upcoming][upcoming] outline.
 
 [imagelink]:http://res.cloudinary.com/dsaxhw9ii/image/upload/v1485130075/front-page_ecqngt.png
-link = demo_user homepage
-[readme]:[../docs/readme.md]
-backend = ./docs/backend.md
-frontend = ./docs/frontend.md
-file storage = ./docs/file_storage.md
-future = ./docs/future.md
+[link]:http://res.cloudinary.com/dsaxhw9ii/image/upload/v1485130620/demo-tasks_owrva7.png
+[schema]: ./docs/schema.md
+[readme]: ./docs/readme.md
+[backend]: ./docs/backend.md
+[frontend]: ./docs/frontend.md
+[future]: ./docs/future.md
 [homepage]:http://caskrabbit.herokuapp.com/#/
