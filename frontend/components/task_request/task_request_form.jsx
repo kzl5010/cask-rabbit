@@ -132,7 +132,7 @@ class TaskRequestForm extends React.Component {
                 <label>Hours of work for Tasker &nbsp;&nbsp;
                 <input type="number" value={this.state.hours} placeholder="1"
                 onChange={this.handleChange("hours")} className="taskRequest-form-number"
-                min="0.5" max="10"/>
+                min="0.5" max="10" step="0.5"/>
                 </label>
               </li>
             <br/>

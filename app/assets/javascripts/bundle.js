@@ -29616,7 +29616,7 @@
 	                'Hours of work for Tasker \xA0\xA0',
 	                _react2.default.createElement('input', { type: 'number', value: this.state.hours, placeholder: '1',
 	                  onChange: this.handleChange("hours"), className: 'taskRequest-form-number',
-	                  min: '0.5', max: '10' })
+	                  min: '0.5', max: '10', step: '0.5' })
 	              )
 	            ),
 	            _react2.default.createElement('br', null),
@@ -67290,7 +67290,7 @@
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/' },
-	              _react2.default.createElement('img', { src: 'http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484768700/Logomakr_84jHlS_te5r0b.png', alt: 'logo', className: 'logo-img' })
+	              _react2.default.createElement('img', { src: 'https://res.cloudinary.com/dsaxhw9ii/image/upload/v1485728962/Logomakr_6B1X14_iawlbs.png', alt: 'logo', className: 'logo-img' })
 	            ),
 	            _react2.default.createElement(
 	              _reactRouter.Link,
