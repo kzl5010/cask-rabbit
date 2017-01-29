@@ -123,51 +123,7 @@ h3 {
    border-bottom: 1px solid grey;
  }
 
- .login-form label {
 
-  display: block;
-  text-align: left;
-  margin-bottom: 5px;
-  font-size: $xlarge;
-  font-weight: 500;
-  /* color */
-	font-family: Itim, cursive;
-}
-
-.login-form input, textarea {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.login-form-container {
-
-  width: 100%;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  color: gray;
-}
-
-.login-form {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-h4 {
-  margin: 0px;
-}
-
-.login-page {
-  /*-webkit-background-size: auto;
-  -moz-background-size: auto;
-  -o-background-size: auto;*/
-  float:left;
-  height: auto;
-  background-size: auto;
-  /*background: url(http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484786853/636088662536835042-1570042978_library_mpwvu3.jpg);*/
-
-}
 
 
 

@@ -5,7 +5,7 @@
 header {
   font-family: 'Pacifico', cursive;
   color: white;
-  background: green;
+  background: lightblue;
   width: 100%;
   margin: 0;
   height: 7vh;
@@ -37,7 +37,7 @@ header {
 }
 
 .logo-h3 {
-  color: white;
+  color: red;
   display: block;
   font-weight: 700;
   font-size: 14pt;
@@ -48,7 +48,7 @@ header {
   a {
     color: inherit;
   }
-  color: white;
+  color: red;
   display: flex;
   justify-content: space-between;
   margin-left: 0;
@@ -60,12 +60,13 @@ header {
   position: relative;
   padding: 10px 20px;
   font-weight: 700;
-  color: white;
+  color: red;
+  background-color: transparent;
 }
 
 .header-list-item:hover {
 
-  color: white;
+  color: red;
   transform: scale(1.02);
 }
 
@@ -153,3 +154,4 @@ footer {
 @import 'api/taskers';
 @import 'api/task_requests';
 @import 'api/tasks';
+@import 'api/login'; 

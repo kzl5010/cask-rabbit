@@ -67290,7 +67290,7 @@
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/' },
-	              _react2.default.createElement('img', { src: 'https://res.cloudinary.com/dsaxhw9ii/image/upload/v1485728962/Logomakr_6B1X14_iawlbs.png', alt: 'logo', className: 'logo-img' })
+	              _react2.default.createElement('img', { src: 'https://res.cloudinary.com/dsaxhw9ii/image/upload/v1485732183/Logomakr_7OQBzy_ntnksg.png', alt: 'logo', className: 'logo-img' })
 	            ),
 	            _react2.default.createElement(
 	              _reactRouter.Link,
