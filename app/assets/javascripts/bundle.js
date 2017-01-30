@@ -29222,12 +29222,16 @@
 						_react2.default.createElement(
 							'form',
 							{ onSubmit: this.handleSubmit, className: 'login-form-box' },
-							'Welcome to CaskRabbit!',
-							_react2.default.createElement('br', null),
-							'Please ',
-							this.props.formType,
-							' or ',
-							this.navLink(),
+							_react2.default.createElement(
+								'div',
+								{ className: 'welcome-text' },
+								' Welcome to CaskRabbit!',
+								_react2.default.createElement('br', null),
+								'Please ',
+								this.props.formType,
+								' or ',
+								this.navLink()
+							),
 							this.renderErrors(),
 							_react2.default.createElement(
 								'div',
@@ -29283,7 +29287,7 @@
 										className: 'login-input' })
 								),
 								_react2.default.createElement('br', null),
-								_react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+								_react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Submit' })
 							)
 						)
 					);
@@ -66999,20 +67003,6 @@
 	                _react2.default.createElement(
 	                  'label',
 	                  null,
-	                  ' Password : \xA0 \xA0',
-	                  _react2.default.createElement('input', { type: 'password',
-	                    value: this.state.password,
-	                    onChange: this.handleChange("password"),
-	                    className: 'user-info-input' })
-	                )
-	              ),
-	              _react2.default.createElement('br', null),
-	              _react2.default.createElement(
-	                'li',
-	                { className: 'user-info-item' },
-	                _react2.default.createElement(
-	                  'label',
-	                  null,
 	                  ' First Name : \xA0 \xA0',
 	                  _react2.default.createElement('input', { type: 'text',
 	                    value: this.state.first_name,
@@ -67343,7 +67333,7 @@
 	        { className: 'footer-link' },
 	        _react2.default.createElement(
 	          'h3',
-	          null,
+	          { className: 'footer-text' },
 	          ' Footer Links '
 	        ),
 	        _react2.default.createElement(

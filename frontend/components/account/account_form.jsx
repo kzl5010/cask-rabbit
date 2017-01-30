@@ -72,15 +72,19 @@ class AccountForm extends React.Component {
                 </label>
               </li>
               <br/>
-              <li className="user-info-item">
+{/*              <li className="user-info-item">
                 <label> Password : &nbsp; &nbsp;
                   <input type="password"
-                    value={this.state.password}
-                    onChange={this.handleChange("password")}
+                    value={//this.state.password
+                  }
+                    onChange={//this.handleChange("password")
+                  }
                     className="user-info-input" />
                 </label>
               </li>
               <br/>
+          */  }
+
               <li className="user-info-item">
                 <label> First Name : &nbsp; &nbsp;
                   <input type="text"

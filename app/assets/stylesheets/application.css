@@ -42,17 +42,6 @@ html, body, footer {
   padding:0;
 }
 
- .login-page {
-   font-family: 'Josefin Sans', sans-serif;
-   min-width: 100vw;
-   min-height: 100vh;
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   /*overflow: scroll;*/
- }
-
 
   body {
     font-family: 'Josefin Sans', sans-serif;

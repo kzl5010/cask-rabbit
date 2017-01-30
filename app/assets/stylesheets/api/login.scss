@@ -1,12 +1,26 @@
-.login-input {
-  margin-left: 20px;
-}
 
 .login-form-box {
+  font-family: 'Josefin Sans', sans-serif;
+  width: 70vh;
+  height: 87vh;
+  font-size: 1.5em;
   margin-top: 30px;
   outline: 1px solid white;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
+
+ //
+ // .login-page {
+ //   min-width: 100vw;
+ //   min-height: 100vh;
+ //   position: relative;
+ //   display: flex;
+ //   flex-direction: column;
+ //   align-items: center;
+ //   /*overflow: scroll;*/
+ // }
 
 
 .unlogged-greeting {
@@ -32,21 +46,25 @@
  display: block;
  text-align: left;
  margin-bottom: 5px;
- font-size: $xlarge;
+ font-size: 24px;
  font-weight: 500;
  /* color */
  font-family: Itim, cursive;
 }
 
 .login-form input, textarea {
- display: flex;
- justify-content: flex-end;
+ height: 5vh;
+ width: 20vh;
+}
+
+input.submit-button {
+  width: 10vh;
 }
 
 .login-form-container {
 
  width: 100%;
- height: 500px;
+ height: 87vh;
  display: flex;
  justify-content: center;
  color: gray;
@@ -56,6 +74,14 @@
  display: flex;
  justify-content: center;
  flex-direction: column;
+ align-items: center;
+ height: 80%;
+}
+
+.welcome-text {
+  display:block;
+  // justify-content: center;
+  text-align: center;
 }
 
 h4 {

@@ -77,8 +77,8 @@ footer {
  left: 0;
  width: 100%;
  height: 6vh;
- background: gray;
- color: #fff;
+ background: lightblue;
+ color: red;
  overflow: hidden;
 }
 
@@ -119,33 +119,10 @@ footer {
  align-items: center;
 }
 
-.login-input {
-  margin-left: 20px;
+.footer-text {
+  color: red;
 }
 
-.login-form-box {
-  margin-top: 30px;
-  outline: 1px solid white;
-  padding: 10px;
-}
-
-
-.unlogged-greeting {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  width: 100%;
-  height: 87vh;
-  margin: 0;
-  background: image_url("splashpage.jpg") no-repeat center center fixed;
-  font-family: 'Josefin Sans', sans-serif;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  // -o-background-size: cover;
-  background-size: cover;
-
-}
 
 
 // .header-button
@@ -154,4 +131,4 @@ footer {
 @import 'api/taskers';
 @import 'api/task_requests';
 @import 'api/tasks';
-@import 'api/login'; 
+@import 'api/login';
