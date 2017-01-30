@@ -10,7 +10,7 @@ Ken Lee is the designer and site owner of FastRabbit.
 
 - User authentication, editing and guest account
 - Select a task to outsource
-- Use a calendar and googleAPI Places Autocomplete to specify date and location
+- Use a calendar and Google Places Autocomplete API to specify date and location
 - Browse Task Freelancers for the most appropriate one
 - Specify duration and price of the task
 - Cancel unwanted task requests
