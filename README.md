@@ -45,5 +45,5 @@ Upcoming features are imminent in the [Upcoming][upcoming] outline.
 [readme]: ./docs/README.md
 [backend]: ./docs/backend.md
 [frontend]: ./docs/frontend.md
-[future]: ./docs/future.md
+[upcoming]: ./docs/future.md
 [homepage]:http://caskrabbit.herokuapp.com/#/
