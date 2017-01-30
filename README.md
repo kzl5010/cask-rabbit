@@ -10,21 +10,21 @@ Ken Lee is the designer and site owner of FastRabbit.
 
 - User authentication, editing and guest account
 - Select a task to outsource
-- Use a calendar and googleAPI Places Autocomplete to specify date and location
+- Use a calendar and Google Places Autocomplete API to specify date and location
 - Browse Task Freelancers for the most appropriate one
 - Specify duration and price of the task
 - Cancel unwanted task requests
 
 
-![demo_user task requests: herokulink][link]
+![demo_user task requests: https://caskrabbit.herokuapp.com/#/tasks/2/task_requests][link]
 
 ## Project Design
 
 FastRabbit was built in under two weeks.
 
-A [Design Mockup][./docs/readme.md] was used to ensure accurate and timely completion of features.
+A [Design Mockup][readme] was used to ensure accurate and timely completion of features.
 
-A [Database Mockup][./docs/schema.md] was prepared alongside the design proposal.
+A [Database Mockup][schema] was prepared alongside the design proposal.
 
 ## Code Foundation
 
@@ -39,10 +39,11 @@ FastRabbit is still very much a work in progress.
 
 Upcoming features are imminent in the [Upcoming][upcoming] outline.
 
-imagelink = homepage 
-link = demo_user homepage
-backend = ./docs/backend.md
-frontend = ./docs/frontend.md
-file storage = ./docs/file_storage.md
-future = ./docs/future.md
+[imagelink]:http://res.cloudinary.com/dsaxhw9ii/image/upload/v1485130075/front-page_ecqngt.png
+[link]:http://res.cloudinary.com/dsaxhw9ii/image/upload/v1485130620/demo-tasks_owrva7.png
+[schema]: ./docs/schema.md
+[readme]: ./docs/README.md
+[backend]: ./docs/backend.md
+[frontend]: ./docs/frontend.md
+[upcoming]: ./docs/future.md
 [homepage]:http://caskrabbit.herokuapp.com/#/
