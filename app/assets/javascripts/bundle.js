@@ -28973,7 +28973,6 @@
 	
 	  var formType = location.pathname.slice(1);
 	  var _processForm = formType === 'login' ? _session_actions.login : _session_actions.signup;
-	
 	  return {
 	    processForm: function processForm(user) {
 	      return dispatch(_processForm(user));
@@ -29187,13 +29186,13 @@
 					return _react2.default.createElement(
 						_reactRouter.Link,
 						{ to: '/signup' },
-						'sign up instead'
+						'sign up'
 					);
 				} else {
 					return _react2.default.createElement(
 						_reactRouter.Link,
 						{ to: '/login' },
-						'log in instead'
+						'log in'
 					);
 				}
 			}
@@ -29223,71 +29222,50 @@
 							'form',
 							{ onSubmit: this.handleSubmit, className: 'login-form-box' },
 							_react2.default.createElement(
-								'div',
-								{ className: 'welcome-text' },
-								' Welcome to CaskRabbit!',
-								_react2.default.createElement('br', null),
-								'Please ',
-								this.props.formType,
-								' or ',
-								this.navLink()
+								'h1',
+								{ className: 'welcome-screen-text' },
+								' Get Help Fast  '
 							),
-							this.renderErrors(),
 							_react2.default.createElement(
 								'div',
 								{ className: 'login-form' },
 								_react2.default.createElement('br', null),
-								_react2.default.createElement(
-									'label',
-									null,
-									' Email:',
-									_react2.default.createElement('input', { type: 'text',
-										value: this.state.email,
-										onChange: this.update("email"),
-										className: 'login-input' })
-								),
 								_react2.default.createElement('br', null),
 								_react2.default.createElement(
-									'label',
+									'p',
 									null,
-									' Password:',
-									_react2.default.createElement('input', { type: 'password',
-										value: this.state.password,
-										onChange: this.update("password"),
-										className: 'login-input' })
+									'Please ',
+									this.props.formType,
+									' or ',
+									this.navLink()
 								),
+								this.renderErrors(),
+								_react2.default.createElement('input', { type: 'text',
+									value: this.state.email,
+									onChange: this.update("email"),
+									className: 'login-input', placeholder: 'Email' }),
 								_react2.default.createElement('br', null),
-								_react2.default.createElement(
-									'label',
-									null,
-									' First Name:',
-									_react2.default.createElement('input', { type: 'text',
-										value: this.state.first_name,
-										onChange: this.update("first_name"),
-										className: 'login-input' })
-								),
+								_react2.default.createElement('input', { type: 'password',
+									value: this.state.password,
+									onChange: this.update("password"),
+									className: 'login-input', placeholder: 'Password' }),
 								_react2.default.createElement('br', null),
-								_react2.default.createElement(
-									'label',
-									null,
-									' Last Name:',
-									_react2.default.createElement('input', { type: 'text',
-										value: this.state.last_name,
-										onChange: this.update("last_name"),
-										className: 'login-input' })
-								),
+								_react2.default.createElement('input', { type: 'text',
+									value: this.state.first_name,
+									onChange: this.update("first_name"),
+									className: 'login-input', placeholder: 'First Name' }),
 								_react2.default.createElement('br', null),
-								_react2.default.createElement(
-									'label',
-									null,
-									' Zip_code:',
-									_react2.default.createElement('input', { type: 'text',
-										value: this.state.zip_code,
-										onChange: this.update("zip_code"),
-										className: 'login-input' })
-								),
+								_react2.default.createElement('input', { type: 'text',
+									value: this.state.last_name,
+									onChange: this.update("last_name"),
+									className: 'login-input', placeholder: 'Last Name' }),
 								_react2.default.createElement('br', null),
-								_react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Submit' })
+								_react2.default.createElement('input', { type: 'text',
+									value: this.state.zip_code,
+									onChange: this.update("zip_code"),
+									className: 'login-input', placeholder: 'Zip Code' }),
+								_react2.default.createElement('br', null),
+								_react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Register' })
 							)
 						)
 					);
@@ -29298,37 +29276,35 @@
 						_react2.default.createElement(
 							'form',
 							{ onSubmit: this.handleSubmit, className: 'login-form-box' },
-							'Welcome to CaskRabbit!',
-							_react2.default.createElement('br', null),
-							'Please ',
-							this.props.formType,
-							' or ',
-							this.navLink(),
-							this.renderErrors(),
+							_react2.default.createElement(
+								'h1',
+								{ className: 'welcome-screen-text' },
+								' Get Help Fast  '
+							),
 							_react2.default.createElement(
 								'div',
 								{ className: 'login-form' },
-								_react2.default.createElement('br', null),
 								_react2.default.createElement(
-									'label',
+									'p',
 									null,
-									' Email:',
-									_react2.default.createElement('input', { type: 'text',
-										value: this.state.email,
-										onChange: this.update("email"),
-										className: 'login-input' })
+									'Please ',
+									this.props.formType,
+									' or ',
+									this.navLink()
 								),
 								_react2.default.createElement('br', null),
-								_react2.default.createElement(
-									'label',
-									null,
-									' Password:',
-									_react2.default.createElement('input', { type: 'password',
-										value: this.state.password,
-										onChange: this.update("password"),
-										className: 'login-input' })
-								),
-								_react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+								this.renderErrors(),
+								_react2.default.createElement('input', { type: 'text',
+									value: this.state.email,
+									onChange: this.update("email"),
+									className: 'login-input', placeholder: 'Email' }),
+								_react2.default.createElement('br', null),
+								_react2.default.createElement('input', { type: 'password',
+									value: this.state.password,
+									onChange: this.update("password"),
+									className: 'login-input', placeholder: 'Password' }),
+								_react2.default.createElement('br', null),
+								_react2.default.createElement('input', { type: 'submit', value: 'Sign In' })
 							)
 						)
 					);
@@ -29504,7 +29480,6 @@
 	      taskRequest.user_id = this.props.currentUser.id;
 	      // taskRequest.task_id = this.props.params.taskId;
 	      this.props.createTaskRequest(taskRequest);
-	      debugger;
 	      this.setState({
 	        address: "",
 	        tasker_id: "",

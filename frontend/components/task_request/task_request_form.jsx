@@ -54,7 +54,6 @@ class TaskRequestForm extends React.Component {
     taskRequest.user_id = this.props.currentUser.id;
     // taskRequest.task_id = this.props.params.taskId;
     this.props.createTaskRequest(taskRequest);
-    debugger;
     this.setState({
       address: "",
       tasker_id: "",

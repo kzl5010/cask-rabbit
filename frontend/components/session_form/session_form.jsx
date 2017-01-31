@@ -38,9 +38,9 @@ class SessionForm extends React.Component {
 
 	navLink() {
 		if (this.props.formType === "login") {
-			return <Link to="/signup">sign up instead</Link>;
+			return <Link to="/signup">sign up</Link>;
 		} else {
-			return <Link to="/login">log in instead</Link>;
+			return <Link to="/login">log in</Link>;
 		}
 	}
 
@@ -61,49 +61,46 @@ class SessionForm extends React.Component {
 			return (
 				<div className="login-form-container">
 					<form onSubmit={this.handleSubmit} className="login-form-box">
-						<div className="welcome-text"> Welcome to CaskRabbit!
+						{ // <div className="welcome-text">
+					}
+			{ /* <br/>
 						<br/>
-						Please {this.props.formType} or {this.navLink()}
 						</div>
-						{this.renderErrors()}
+					*/}
+				<h1 className="welcome-screen-text">	Get Help Fast  </h1>
 						<div className="login-form">
 							<br/>
-							<label> Email:
+							<br/>
+							<p>
+							Please {this.props.formType} or {this.navLink()}
+							</p>
+							{this.renderErrors()}
 								<input type="text"
 									value={this.state.email}
 									onChange={this.update("email")}
-									className="login-input" />
-							</label>
+									className="login-input" placeholder="Email" />
 							<br/>
-							<label> Password:
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update("password")}
-									className="login-input" />
-							</label>
+									className="login-input" placeholder="Password" />
 							<br/>
-							<label> First Name:
 								<input type="text"
 									value={this.state.first_name}
 									onChange={this.update("first_name")}
-									className="login-input" />
-							</label>
+									className="login-input" placeholder="First Name" />
 							<br/>
-							<label> Last Name:
 								<input type="text"
 									value={this.state.last_name}
 									onChange={this.update("last_name")}
-									className="login-input" />
-							</label>
+									className="login-input" placeholder="Last Name" />
 							<br/>
-							<label> Zip_code:
 								<input type="text"
 									value={this.state.zip_code}
 									onChange={this.update("zip_code")}
-									className="login-input" />
-							</label>
+									className="login-input" placeholder="Zip Code"/>
 							<br/>
-							<input className="submit-button" type="submit" value="Submit" />
+							<input className="submit-button" type="submit" value="Register" />
 						</div>
 					</form>
 				</div>
@@ -113,26 +110,25 @@ class SessionForm extends React.Component {
 			return (
 				<div className="login-form-container">
 					<form onSubmit={this.handleSubmit} className="login-form-box">
-						Welcome to CaskRabbit!
-						<br/>
-						Please {this.props.formType} or {this.navLink()}
-						{this.renderErrors()}
+
+					<h1 className="welcome-screen-text">	Get Help Fast  </h1>
 						<div className="login-form">
+						<p>
+						Please {this.props.formType} or {this.navLink()}
+						</p>
 							<br/>
-							<label> Email:
+							{this.renderErrors()}
 								<input type="text"
 									value={this.state.email}
 									onChange={this.update("email")}
-									className="login-input" />
-							</label>
+									className="login-input" placeholder="Email"/>
 							<br/>
-							<label> Password:
 								<input type="password"
 									value={this.state.password}
 									onChange={this.update("password")}
-									className="login-input" />
-							</label>
-							<input type="submit" value="Submit" />
+									className="login-input" placeholder="Password"/>
+							<br/>
+							<input type="submit" value="Sign In" />
 						</div>
 					</form>
 				</div>

@@ -23,6 +23,8 @@ header {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-items: center;
+  height: 7vh; 
 
 }
 
@@ -48,6 +50,7 @@ header {
   a {
     color: inherit;
   }
+  margin-bottom: 0px;
   color: red;
   display: flex;
   justify-content: space-between;
@@ -62,6 +65,11 @@ header {
   font-weight: 700;
   color: red;
   background-color: transparent;
+}
+
+.header-button {
+  cursor: pointer;
+  margin-bottom: 12px;
 }
 
 .header-list-item:hover {
@@ -125,7 +133,6 @@ footer {
 
 
 
-// .header-button
 @import "api/react-datepicker";
 @import 'api/users';
 @import 'api/taskers';
