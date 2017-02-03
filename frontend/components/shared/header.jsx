@@ -54,9 +54,11 @@ class Header extends React.Component {
             <Link to="/">
               <img src="https://res.cloudinary.com/dsaxhw9ii/image/upload/v1485732183/Logomakr_7OQBzy_ntnksg.png" alt="logo" className="logo-img"/>
             </Link>
-            <Link to="/">
+{/*
+              <Link to="/">
               <h3 className="logo-h3">Home</h3>
             </Link>
+            */ } 
           {Nav}
           </section>
         </nav>

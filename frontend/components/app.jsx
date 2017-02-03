@@ -5,7 +5,7 @@ import HeaderContainer from './shared/header_container';
 import Footer from './shared/footer';
 
 const App = ({ children }) => (
-  <div id="container" className="login-page">
+  <div id="container">
     <header>
       <HeaderContainer />
     </header>

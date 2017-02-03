@@ -33,6 +33,7 @@ span, article, footer, time, small {
 }
 */
 
+
 li {
   list-style: none;
 }
@@ -69,9 +70,7 @@ html, body, footer {
    font-size: 20px;
  }
 
- h2 {
-   font-size: 30px;
- }
+
 
 h3 {
   font-size: 24px;
@@ -136,7 +135,9 @@ h3 {
   align-items: center;
   color: gray;
   padding: 10px 0px;
-  width: 80%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
   margin: 0;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -159,9 +160,15 @@ h3 {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.greeting-group img {
-  width: 300px;
-  height: 300px;
+.first-line-greeting {
+  font-size: 1.75em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.first-line-greeting h2 {
+  padding-bottom: 27px;
 }
 
 .welcome-instructions {

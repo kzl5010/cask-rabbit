@@ -54,7 +54,7 @@ class AccountForm extends React.Component {
           Edit Account Information
           <br/>
           <br/>
-          <img src={this.props.currentUser.imageurl} alt="User profile pic"/>
+          <img src={this.props.currentUser.imageurl} alt="User profile pic" className="user-profile-pic"/>
           <br/>
           {this.state.edited}
         {  // this.renderErrors()

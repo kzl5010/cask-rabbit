@@ -66207,13 +66207,17 @@
 	    _react2.default.createElement(
 	      'hgroup',
 	      { className: 'greeting-group' },
-	      _react2.default.createElement('img', { src: currentUser.imageurl, alt: 'User profile pic' }),
 	      _react2.default.createElement(
-	        'h2',
-	        { className: 'greeting-name' },
-	        'Welcome to AskRabbit, ',
-	        currentUser.first_name,
-	        '!'
+	        'div',
+	        { className: 'first-line-greeting' },
+	        _react2.default.createElement('img', { src: currentUser.imageurl, alt: 'User profile pic', className: 'user-profile-pic' }),
+	        _react2.default.createElement(
+	          'h2',
+	          { className: 'greeting-name' },
+	          'Welcome to AskRabbit, ',
+	          currentUser.first_name,
+	          '!'
+	        )
 	      ),
 	      _react2.default.createElement('br', null),
 	      _react2.default.createElement(_task_request_index_container2.default, null)
@@ -66948,7 +66952,7 @@
 	          'Edit Account Information',
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('br', null),
-	          _react2.default.createElement('img', { src: this.props.currentUser.imageurl, alt: 'User profile pic' }),
+	          _react2.default.createElement('img', { src: this.props.currentUser.imageurl, alt: 'User profile pic', className: 'user-profile-pic' }),
 	          _react2.default.createElement('br', null),
 	          this.state.edited,
 	          _react2.default.createElement(
@@ -67075,7 +67079,7 @@
 	  var children = _ref.children;
 	  return _react2.default.createElement(
 	    'div',
-	    { id: 'container', className: 'login-page' },
+	    { id: 'container' },
 	    _react2.default.createElement(
 	      'header',
 	      null,
@@ -67256,15 +67260,6 @@
 	              _reactRouter.Link,
 	              { to: '/' },
 	              _react2.default.createElement('img', { src: 'https://res.cloudinary.com/dsaxhw9ii/image/upload/v1485732183/Logomakr_7OQBzy_ntnksg.png', alt: 'logo', className: 'logo-img' })
-	            ),
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/' },
-	              _react2.default.createElement(
-	                'h3',
-	                { className: 'logo-h3' },
-	                'Home'
-	              )
 	            ),
 	            Nav
 	          )

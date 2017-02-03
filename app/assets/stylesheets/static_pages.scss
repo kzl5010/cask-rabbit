@@ -24,10 +24,19 @@ header {
   justify-content: space-between;
   width: 100%;
   align-items: center;
-  height: 7vh; 
+  height: 7vh;
+  a {
+    text-decoration: none;
+  }
 
 }
 
+.user-profile-pic {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
 
 .logo-img {
 
@@ -49,6 +58,7 @@ header {
 .header-list {
   a {
     color: inherit;
+    text-decoration: none;
   }
   margin-bottom: 0px;
   color: red;
