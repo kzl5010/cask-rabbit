@@ -21622,8 +21622,9 @@
 	        _react2.default.createElement(_reactRouter.Route, { path: 'signup', component: _session_form_container2.default, onEnter: _redirectIfLoggedIn }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'taskers', component: _tasker_index_container2.default, onEnter: fetchTaskersOnEnter }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'task_requests', component: _task_request_index_container2.default, onEnter: fetchTaskRequestsOnEnter }),
+	        _react2.default.createElement(_reactRouter.Route, { path: 'task_request', component: _task_request_form_container2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: 'account', component: _account_container2.default, onEnter: _ensureLoggedIn }),
-	        _react2.default.createElement(_reactRouter.Route, { path: '/tasks/:taskId/task_requests', component: _task_request_form_container2.default, onEnter: fetchTaskersOnEnter })
+	        _react2.default.createElement(_reactRouter.Route, { path: '/tasks/:taskId/task_requests', component: _task_request_form_container2.default })
 	      )
 	    )
 	  );
@@ -29595,7 +29596,7 @@
 	                'Hours of work for Tasker \xA0\xA0',
 	                _react2.default.createElement('input', { type: 'number', value: this.state.hours, placeholder: '1',
 	                  onChange: this.handleChange("hours"), className: 'taskRequest-form-number',
-	                  min: '0.5', max: '10', step: '0.5' })
+	                  min: '1.0', max: '10', step: '0.5' })
 	              )
 	            ),
 	            _react2.default.createElement('br', null),
@@ -66214,12 +66215,20 @@
 	        _react2.default.createElement(
 	          'h2',
 	          { className: 'greeting-name' },
-	          'Welcome to AskRabbit, ',
+	          'Welcome to FastRabbit, ',
 	          currentUser.first_name,
 	          '!'
 	        )
 	      ),
-	      _react2.default.createElement('br', null),
+	      _react2.default.createElement(
+	        'button',
+	        { className: 'make_tr' },
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { to: '/task_request', activeClassName: 'make_tr' },
+	          'Request a Task!'
+	        )
+	      ),
 	      _react2.default.createElement(_task_request_index_container2.default, null)
 	    ),
 	    _react2.default.createElement(
@@ -66327,13 +66336,13 @@
 	      { className: 'greeting-group' },
 	      _react2.default.createElement(
 	        'h2',
-	        { className: 'greeting-name' },
-	        'Welcome to AskRabbit!'
+	        { className: 'unlogged-greeting-text' },
+	        'Welcome to FastRabbit!'
 	      ),
 	      _react2.default.createElement('br', null),
 	      _react2.default.createElement(
 	        'p',
-	        { className: 'unlogged-greeting-text' },
+	        { className: 'unlogged-greeting-p' },
 	        ' The best site for fast, bespoke tutoring and instruction'
 	      )
 	    )
@@ -66960,21 +66969,16 @@
 	            { className: 'user-info' },
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
+	              'h2',
+	              null,
+	              ' Email : \xA0 \xA0 ',
+	              this.state.email,
+	              '  '
+	            ),
+	            _react2.default.createElement(
 	              'ul',
 	              null,
-	              _react2.default.createElement(
-	                'li',
-	                { className: 'user-info-item' },
-	                _react2.default.createElement(
-	                  'label',
-	                  null,
-	                  ' Email : \xA0 \xA0',
-	                  _react2.default.createElement('input', { type: 'text',
-	                    value: this.state.email,
-	                    onChange: this.handleChange("email"),
-	                    className: 'user-info-input' })
-	                )
-	              ),
+	              _react2.default.createElement('li', { className: 'user-info-item' }),
 	              _react2.default.createElement('br', null),
 	              _react2.default.createElement(
 	                'li',

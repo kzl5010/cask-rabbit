@@ -62,14 +62,9 @@ class AccountForm extends React.Component {
 
           <div className="user-info">
             <br/>
+            <h2> Email : &nbsp; &nbsp; {this.state.email}  </h2>
             <ul>
               <li className="user-info-item">
-                <label> Email : &nbsp; &nbsp;
-                  <input type="text"
-                    value={this.state.email}
-                    onChange={this.handleChange("email")}
-                    className="user-info-input" />
-                </label>
               </li>
               <br/>
 {/*              <li className="user-info-item">

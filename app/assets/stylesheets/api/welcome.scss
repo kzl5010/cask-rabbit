@@ -1,0 +1,20 @@
+.make_tr {
+    border-radius: 4px;
+    background: rgba(255,255,255,0);
+    text-align: center;
+    padding: 0.5em 3em 0.5em;
+    font-size: 1.25rem;
+    margin: 20px 0 10px 0;
+    border: 1px solid #00964b;
+    font-family: "Proxima Regular", Arial, Helvetica, sans-serif;
+    color: #00964b;
+    z-index: 2;
+}
+
+.make_tr {
+    transition: all 0.3s ease 0s;
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+}

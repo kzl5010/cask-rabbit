@@ -2,5 +2,12 @@
   <% if logged_in? %>
     window.currentUser = <%= render("api/users/user.json.jbuilder", user: current_user).html_safe %>
   <% end %>
+
+
+  window.carouselOne = "<%=image_url('front_page/woodburner.jpg')%>"
+  window.carouselTwo = "<%=image_url('front_page/trash.jpg')%>"
+  window.carouselThree = "<%=image_url('front_page/wateringflowers.jpg')%>"
+  window.carouselFour = "<%=image_url('front_page/wheelbarrow.jpg')%>"
+
 </script>
 <main id="root"></main>

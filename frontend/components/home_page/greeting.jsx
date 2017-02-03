@@ -15,9 +15,11 @@ const personalGreeting = (currentUser, logout) => (
   	<hgroup className="greeting-group">
       <div className="first-line-greeting">
       <img src={currentUser.imageurl} alt="User profile pic" className="user-profile-pic"/>
-      <h2 className="greeting-name">Welcome to AskRabbit, {currentUser.first_name}!</h2>
+      <h2 className="greeting-name">Welcome to FastRabbit, {currentUser.first_name}!</h2>
       </div>
-      <br/>
+      <button className="make_tr"><Link to="/task_request" activeClassName="make_tr">Request a Task!</Link>
+      </button>
+
       <TaskRequestIndexContainer />
   	</hgroup>
     <div className="welcome-instructions">
@@ -58,9 +60,9 @@ const personalGreeting = (currentUser, logout) => (
 const unloggedGreeting = () => (
   <section className="unlogged-greeting">
     <hgroup className="greeting-group">
-      <h2 className="greeting-name">Welcome to AskRabbit!</h2>
+      <h2 className="unlogged-greeting-text">Welcome to FastRabbit!</h2>
       <br/>
-      <p className="unlogged-greeting-text"> The best site for fast, bespoke tutoring and instruction</p>
+      <p className="unlogged-greeting-p"> The best site for fast, bespoke tutoring and instruction</p>
     {//  <img src="http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484942510/bunny-learning-about-himself_zvb1yl.jpg" alt="Bunny Learning"/>
     }
     </hgroup>

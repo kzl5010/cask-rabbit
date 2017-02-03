@@ -69,8 +69,9 @@ const Root = ({ store }) => {
           <Route path="signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn} />
           <Route path="taskers" component={TaskerIndexContainer} onEnter= { fetchTaskersOnEnter } />
           <Route path="task_requests" component={TaskRequestIndexContainer} onEnter={ fetchTaskRequestsOnEnter }/>
+          <Route path="task_request" component={TaskRequestFormContainer} />
           <Route path="account" component={AccountContainer} onEnter={_ensureLoggedIn} />
-          <Route path="/tasks/:taskId/task_requests" component={TaskRequestFormContainer} onEnter= {fetchTaskersOnEnter } />
+          <Route path="/tasks/:taskId/task_requests" component={TaskRequestFormContainer} />
         </Route>
       </Router>
     </Provider>
