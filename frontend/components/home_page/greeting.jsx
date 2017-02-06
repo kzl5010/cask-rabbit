@@ -2,6 +2,21 @@ import React from 'react';
 import { Link } from 'react-router';
 import TaskIndexContainer from '../tasks/task_index_container';
 import TaskRequestIndexContainer from '../task_request/task_request_index_container';
+import Slider from 'react-slick';
+
+const styles = {
+  dots: false,
+  infinite: true,
+  autoplay: true,
+  autoplaySpeed: 4000,
+  speed: 1500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+  arrows: false,
+  fade: true
+};
+
 const sessionLinks = () => (
   <nav className="login-signup">
     <Link to="/login" activeClassName="current">Login</Link>
@@ -59,13 +74,15 @@ const personalGreeting = (currentUser, logout) => (
 
 const unloggedGreeting = () => (
   <section className="unlogged-greeting">
-    <hgroup className="greeting-group">
-      <h2 className="unlogged-greeting-text">Welcome to FastRabbit!</h2>
-      <br/>
-      <p className="unlogged-greeting-p"> The best site for fast, bespoke tutoring and instruction</p>
-    {//  <img src="http://res.cloudinary.com/dsaxhw9ii/image/upload/v1484942510/bunny-learning-about-himself_zvb1yl.jpg" alt="Bunny Learning"/>
-    }
-    </hgroup>
+    <Slider className="carousel-container"{...styles}>
+      <img src={carouselOne}/>
+      <img src={carouselTwo}/>
+      <img src={carouselThree}/>
+      <img src={carouselFour}/>
+    </Slider>
+    <div className="carousel-text">
+      <h1>Fast improvement through exceptional tutors available now!</h1>
+    </div>
   </section>
 );
 

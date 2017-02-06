@@ -25,11 +25,12 @@ class Header extends React.Component {
     if (this.props.currentUser) {
       Nav = (
         <ul className="header-list">
-          <li className="header-list-item"><Link to="/">Dashboard</Link></li>
-          <li className="header-list-item"><Link to="/account">Account</Link></li>
+          <button className="header-button"><Link to="/">Dashboard</Link>
+          </button>
+          <button className="header-button"><Link to="/account">Account</Link>
+          </button>
 
           <button className="header-button" onClick={this.handleClick}>Log Out</button>
-          <br/>
         {//    <button className="header-button" onClick={logout}>Log Out</button>
 //        <li className="header-list-item"><Link to="/taskers">Taskers</Link></li>
         }
@@ -39,9 +40,11 @@ class Header extends React.Component {
     }else {
       Nav = (
         <ul className="header-list">
-          <li className="header-list-item"><Link to="/login">Log In</Link></li>
-          <li className="header-list-item"><Link to="/signup">Sign Up</Link></li>
-          <button className="header-button" onClick={this.loginGuest}>Demo Login</button>
+          <button className="header-button"><Link to="/login">Log In</Link>
+          </button>
+          <button className="header-button"><Link to="/signup">Sign Up</Link>
+          </button>
+          <button className="header-button" onClick={this.loginGuest}>Guest</button>
 
         </ul>
       );
@@ -58,7 +61,7 @@ class Header extends React.Component {
               <Link to="/">
               <h3 className="logo-h3">Home</h3>
             </Link>
-            */ } 
+            */ }
           {Nav}
           </section>
         </nav>

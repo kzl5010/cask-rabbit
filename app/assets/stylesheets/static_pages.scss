@@ -5,10 +5,11 @@
 header {
   font-family: 'Pacifico', cursive;
   color: white;
-  background: lightblue;
+  background: white;
   width: 100%;
   margin: 0;
-  height: 7vh;
+  height: 6vh;
+  border-bottom: 1px solid #dce0e6;
 }
 
 .header-nav {
@@ -19,6 +20,25 @@ header {
   align-items: center;
 }
 
+.header-list > button:not(:last-child) {
+    border-right: 1px solid #cfd2d3;
+}
+
+header button {
+    margin: 0;
+    border: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    font: inherit;
+    text-align: inherit;
+    text-decoration: inherit;
+    list-style: none;
+    color: inherit;
+    background: transparent;
+    padding-bottom: 20px;
+    outline:none;
+    // border-right: 1px solid #cfd2d3;
+}
 .header-logo {
   display: flex;
   justify-content: space-between;
@@ -48,7 +68,7 @@ header {
 }
 
 .logo-h3 {
-  color: red;
+  color: green;
   display: block;
   font-weight: 700;
   font-size: 14pt;
@@ -61,11 +81,11 @@ header {
     text-decoration: none;
   }
   margin-bottom: 0px;
-  color: red;
+  color: green;
   display: flex;
   justify-content: space-between;
   margin-left: 0;
-  margin-right: 5%;
+  margin-right: 20px;
 }
 
 .header-list-item {
@@ -73,8 +93,9 @@ header {
   position: relative;
   padding: 10px 20px;
   font-weight: 700;
-  color: red;
+  color: green;
   background-color: transparent;
+  margin-bottom: 20px;
 }
 
 .header-button {
@@ -84,7 +105,7 @@ header {
 
 .header-list-item:hover {
 
-  color: red;
+  color: green;
   transform: scale(1.02);
 }
 
@@ -95,9 +116,10 @@ footer {
  left: 0;
  width: 100%;
  height: 6vh;
- background: lightblue;
- color: red;
+ background: white;
+ color: green;
  overflow: hidden;
+ border-top: 1px solid #dce0e6;
 }
 
 .footer-nav {
@@ -112,6 +134,7 @@ footer {
  display: flex;
  justify-content: space-between;
  font-size: 16px;
+ width: 100%;
 }
 
 .footer-img {
@@ -126,23 +149,25 @@ footer {
  justify-content: space-between;
  align-content: center;
  align-items: center;
+ width: 20%;
 }
 
 .footer-link-list-item {
  display: flex;
  position: relative;
- padding: 10px 20px;
  font-weight: 700;
  align-content: center;
  align-items: center;
 }
 
 .footer-text {
-  color: red;
+  color: green;
+  margin-left: 20px;
+  margin-top: 30px;
 }
 
 
-@import "api/welcome"; 
+@import "api/welcome";
 @import "api/react-datepicker";
 @import 'api/users';
 @import 'api/taskers';

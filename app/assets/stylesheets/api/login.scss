@@ -30,13 +30,7 @@
   width: 100%;
   height: 87vh;
   margin: 0;
-  background: image_url("splashpage.jpg") no-repeat center center fixed;
   font-family: 'Josefin Sans', sans-serif;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  // -o-background-size: cover;
-  background-size: cover;
-
 }
 
 
@@ -75,7 +69,7 @@ input.submit-button {
  height: 87vh;
  display: flex;
  justify-content: center;
- color: red;
+ color: white;
  background: image_url("splashpage.jpg") no-repeat center center fixed;
  font-family: 'Josefin Sans', sans-serif;
  -webkit-background-size: cover;
@@ -85,13 +79,20 @@ input.submit-button {
 }
 
 .login-form {
-  background: rgba(208,180,164,0.73);
+  background: rgba(0,150,0,0.73);
   border-radius: 19px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 80%;
+  height: 85%;
+}
+
+.errors {
+  margin-bottom: 0;
+}
+.login-form a {
+  color: pink
 }
 
 .welcome-text {
@@ -106,6 +107,7 @@ h4 {
 
 .welcome-screen-text {
   text-align: center;
+  color: white;
 }
 .login-page {
  /*-webkit-background-size: auto;
