@@ -9,18 +9,9 @@ class TaskRequestForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      form_num: 1,
+      details: null,
       task_id: this.props.params.taskId,
-      address: "",
-      form: {
-        details: null,
-        task_id: this.props.params.taskId,
-        address: null
-      },
-      tasker_id: "",
-      date: moment(),
-      details: "",
-      hours: 1
+      address: null
     };
     this.onChange = (address) => this.setState({ address });
     this.changeDate = this.changeDate.bind(this);
@@ -34,12 +25,11 @@ class TaskRequestForm extends React.Component {
     this.props.fetchTaskers();
   }
 
-  updateForm(obj) {
-    this.setState({form: obj});
-  }
-
   handleChange(field) {
-    return e => this.setState({[field]: e.target.value});
+    return e => {
+      this.setState({[field]: e.target.value});
+      this.props.updateForm(this.state);
+    }
   }
 
   changeDate(date) {
@@ -57,19 +47,8 @@ class TaskRequestForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let taskRequest = this.state;
-    taskRequest.date = taskRequest.date.toDate();
-    // taskRequest.tasker_id = this.props.tasker_id;
-    taskRequest.user_id = this.props.currentUser.id;
-    // taskRequest.task_id = this.props.params.taskId;
-    this.props.createTaskRequest(taskRequest);
-    this.setState({
-      address: "",
-      tasker_id: "",
-      date: moment(),
-      details: "",
-      hours: 1
-    });
+    this.props.updateForm(this.state);
+    this.props.nextStage(e);
   }
 
   renderErrors() {
