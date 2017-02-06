@@ -13,7 +13,7 @@ header {
 }
 
 .header-nav {
-  width: 100vw;
+  width: 100%;
   // margin: 0;
   display: flex;
   justify-content: space-between;
@@ -61,10 +61,11 @@ header button {
 .logo-img {
 
   padding: 10px;
-  margin-left: 15%;
+  margin-left: 20px;
   height: 40px;
   width: auto;
   margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .logo-h3 {

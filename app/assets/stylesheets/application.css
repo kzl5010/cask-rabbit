@@ -51,6 +51,7 @@ html {
 
   body {
     font-family: 'Josefin Sans', sans-serif;
+    background-color: #f9fafb;
   }
 
  .content {
@@ -132,8 +133,6 @@ h3 {
   margin-right: 25px;
   border-radius: 65%;
 }
-
-
 
 
 .greeting {

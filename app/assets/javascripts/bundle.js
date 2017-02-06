@@ -69535,7 +69535,7 @@
 	            _react2.default.createElement(
 	              _reactRouter.Link,
 	              { to: '/' },
-	              _react2.default.createElement('img', { src: 'https://res.cloudinary.com/dsaxhw9ii/image/upload/v1485732183/Logomakr_7OQBzy_ntnksg.png', alt: 'logo', className: 'logo-img' })
+	              _react2.default.createElement('img', { src: 'https://res.cloudinary.com/dsaxhw9ii/image/upload/v1486359739/Logomakr_15Wz0G_z63cem.png', alt: 'logo', className: 'logo-img' })
 	            ),
 	            Nav
 	          )
@@ -69580,7 +69580,7 @@
 	        _react2.default.createElement(
 	          'h3',
 	          { className: 'footer-text' },
-	          ' Footer Links '
+	          ' Designed and built by Ken Lee '
 	        ),
 	        _react2.default.createElement(
 	          'ul',
@@ -69591,7 +69591,6 @@
 	            _react2.default.createElement(
 	              'a',
 	              { href: 'https://github.com/kzl5010/cask-rabbit' },
-	              'Github',
 	              _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
 	            )
 	          ),
@@ -69601,7 +69600,6 @@
 	            _react2.default.createElement(
 	              'a',
 	              { href: 'https://github.com/kzl5010/cask-rabbit' },
-	              ' LinkedIn',
 	              _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
 	            )
 	          ),

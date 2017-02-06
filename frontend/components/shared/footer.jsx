@@ -5,15 +5,15 @@ const Footer = () => (
   <footer>
     <nav className="footer-nav">
       <section className="footer-link">
-        <h3 className="footer-text"> Footer Links </h3>
+        <h3 className="footer-text"> Designed and built by Ken Lee </h3>
         <ul className="footer-links-list">
           <li className="footer-link-list-item">
-            <a href="https://github.com/kzl5010/cask-rabbit">Github
+            <a href="https://github.com/kzl5010/cask-rabbit">
             <img className="footer-img" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" alt="Github"/>
             </a>
           </li>
           <li className="footer-link-list-item">
-            <a href="https://github.com/kzl5010/cask-rabbit"> LinkedIn
+            <a href="https://github.com/kzl5010/cask-rabbit">
             <img className="footer-img" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png" alt="Github"/>
             </a>
           </li>
