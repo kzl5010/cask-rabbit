@@ -82,7 +82,7 @@ class FirstForm extends React.Component {
     //   ));
     // }
     return (
-      <form className="taskRequest-form" onSubmit={this.handleSubmit}>
+      <form className="first-form" onSubmit={this.handleSubmit}>
           <h4>Task Request</h4>
             <div id="alert">{  this.renderErrors()   } </div>
             <ul className="taskRequest-entries">

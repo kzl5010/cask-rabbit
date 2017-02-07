@@ -1,5 +1,5 @@
 import React from 'react';
-import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
+// import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import TaskerIndexContainer from '../tasker/tasker_index_container';
@@ -11,7 +11,7 @@ class SecondForm extends React.Component {
     this.state = {
       tasker_id: "",
       date: moment(),
-      hours: 1,
+      hours: 1
       // errors: null
     };
 
@@ -34,12 +34,14 @@ class SecondForm extends React.Component {
   }
 
   changeDate(date) {
-    this.setState({ date: date});
-    this.props.updateForm(this.state);
+    this.setState({ date: date });
+    debugger;
+    // this.props.updateForm(this.state);
   }
 
   updateTasker(tasker_id) {
     this.setState({tasker_id: tasker_id});
+    this.props.updateForm(this.state);
   }
 
   nextForm(e) {
@@ -47,6 +49,7 @@ class SecondForm extends React.Component {
   }
 
   handleSubmit(e) {
+    debugger;
     e.preventDefault();
     this.props.updateForm(this.state);
     this.props.nextStage(e);
@@ -92,14 +95,14 @@ class SecondForm extends React.Component {
 
 
       return (
-        <form className="taskRequest-form" onSubmit={this.handleSubmit}>
+        <form className="second-form" onSubmit={this.handleSubmit}>
           <h4>Choose Tasker</h4>
             <div id="alert">{
               // this.renderErrors()
                } </div>
             <ul className="taskRequest-entries">
               <li> Select Date :
-                <DatePicker selected={this.state.date} onChange={this.changeDate} className="none"/>
+                <DatePicker selected={this.state.date} onChange={this.changeDate} className="date"/>
               </li>
               <li>
                 <label>Hours of work for Tasker &nbsp;&nbsp;
@@ -117,7 +120,7 @@ class SecondForm extends React.Component {
               </li>
             </ul>
             <TaskerIndexContainer updateTasker={this.updateTasker} hours={this.state.hours}/>
-            <button className="taskRequest-button" type="submit"> <div>Confirm Request?</div>
+            <button className="submit" type="submit" value="Save">
             </button>
           </form>
     );

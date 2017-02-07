@@ -9,39 +9,23 @@ class ThirdForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // details: null,
-      // task_id: this.props.params.taskId,
-      // address: null
+      details: this.props.details,
+      task_id: this.props.task_id,
+      address: this.props.address,
+      tasker_id: this.props.tasker_id,
+      date: this.props.date
     };
     this.onChange = (address) => this.setState({ address });
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateTasker = this.updateTasker.bind(this);
   }
 
-  componentDidMount() {
-    // this.props.fetchTasks();
-    // this.props.fetchTaskers();
-  }
-
-  handleChange(field) {
-    return e => {
-      this.setState({[field]: e.target.value});
-      this.props.updateForm(this.state);
-    }
-  }
-
-  changeDate(date) {
-    this.setState({ date: date});
-  }
-
-  updateTasker(tasker_id) {
-    this.setState({tasker_id: tasker_id});
-  }
-
-  nextForm(e) {
-    e.preventDefault();
-
-  }
+  // handleChange(field) {
+  //   return e => {
+  //     this.setState({[field]: e.target.value});
+  //     this.props.updateForm(this.state);
+  //   }
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -65,24 +49,8 @@ class ThirdForm extends React.Component {
   }
 
   render() {
-    // if (!this.props.currentUser) {
-    //   return (
-    //     <GreetingContainer/>
-    //   );
-    // }
-    // let taskOptions = null, taskerOptions = null;
-    // if (this.props.tasks.tasks) {
-    //   taskOptions = this.props.tasks.tasks.map((task, i) => (
-    //     <option key={i} value={task.id}>{task.title}</option>
-    //   ));
-    // }
-    // if (this.props.taskers.taskers) {
-    //   taskerOptions = this.props.taskers.taskers.map((tasker, i)=>(
-    //     <option key={i} value={tasker.id}>{tasker.name}</option>
-    //   ));
-    // }
     return (
-      <form className="taskRequest-form" onSubmit={this.handleSubmit}>
+      <form className="taskRequest-form" onSubmit={this.props.handleSubmit}>
       </form>
     );
   }

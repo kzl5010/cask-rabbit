@@ -35,7 +35,7 @@ header button {
     list-style: none;
     color: inherit;
     background: transparent;
-    padding-bottom: 20px;
+    padding-bottom: 7px;
     outline:none;
     // border-right: 1px solid #cfd2d3;
 }
@@ -101,7 +101,8 @@ header button {
 
 .header-button {
   cursor: pointer;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 1px; 
 }
 
 .header-list-item:hover {
@@ -151,6 +152,7 @@ footer {
  align-content: center;
  align-items: center;
  width: 20%;
+ margin-top: 10px;
 }
 
 .footer-link-list-item {
@@ -164,7 +166,7 @@ footer {
 .footer-text {
   color: green;
   margin-left: 20px;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 

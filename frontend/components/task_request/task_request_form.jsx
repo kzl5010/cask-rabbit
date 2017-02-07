@@ -74,6 +74,7 @@ class TaskRequestForm extends React.Component {
   }
 
   nextStage(e) {
+    debugger;
     e.preventDefault();
     if ((this.state.stage === 1) && this.formComplete()) {
       this.setState({ stage: 2 });
@@ -86,7 +87,7 @@ class TaskRequestForm extends React.Component {
       $('#2').addClass('stage-complete');
       $('#3').addClass('stage-active');
     } else if (this.state.stage === 3){
-      this.createBooking();
+      this.handleSubmit();
     }
   }
 
@@ -122,18 +123,22 @@ class TaskRequestForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let taskRequest = this.state;
-    taskRequest.date = taskRequest.date.toDate();
-    // taskRequest.tasker_id = this.props.tasker_id;
+    taskRequest.date = taskRequest.form2.date.toDate();
+    taskRequest.tasker_id = this.state.form2.tasker_id;
+    taskRequest.hours = this.state.form2.hours;
+    taskRequest.details = this.state.form.details;
+    taskRequest.task_id = this.state.form.task_id;
+    taskRequest.address = this.state.form.address;
     taskRequest.user_id = this.props.currentUser.id;
     // taskRequest.task_id = this.props.params.taskId;
     this.props.createTaskRequest(taskRequest);
-    this.setState({
-      address: "",
-      tasker_id: "",
-      date: moment(),
-      details: "",
-      hours: 1
-    });
+    // this.setState({
+    //   address: "",
+    //   tasker_id: "",
+    //   date: moment(),
+    //   details: "",
+    //   hours: 1
+    // });
   }
 
   renderErrors() {
@@ -177,11 +182,12 @@ class TaskRequestForm extends React.Component {
 
     let stage;
     if (this.state.stage === 1) {
-      stage = <FirstForm nextStage={this.nextStage} updateForm={this.updateForm} task_id={this.state.task_id} tasks={this.props.tasks.tasks}/>
+      stage = <FirstForm nextStage={this.nextStage} updateForm={this.updateForm} task_id={this.state.form.task_id} tasks={this.props.tasks.tasks}/>
     } else if (this.state.stage === 2) {
       stage = <SecondForm nextStage={this.nextStage} updateForm={this.updateForm2} taskers={this.props.taskers.taskers}/>
     } else {
-      stage = <ThirdForm nextStage={this.nextStage} details={this.state} submit={this.handleSubmit}/>
+      stage = <ThirdForm nextStage={this.nextStage} details={this.state.form.details} submit={this.handleSubmit}
+      task_id={this.state.form.task_id} address={this.state.form.address}/>
     }
 
     return (
