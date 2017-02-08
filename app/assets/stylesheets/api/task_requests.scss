@@ -4,14 +4,31 @@
 
 .first-form {
   margin-top: 20px;
+  width: 800px;
+  margin: auto;
+  height: 77vh;
 }
+
+.first-form select,input {
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+    height: 45px;
+    padding: 10px 20px;
+    color: #828a8b;
+    border: 1px solid #cfd2d3;
+    font-size: 1em;
+    margin: 0px 0px 25px 0px;
+    outline: none;
+  }
 
 .second-form {
   margin-top: 20px;
 }
 
 .third-form {
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 .taskRequest-form input {
   width: 300px;
@@ -24,23 +41,23 @@
   /*margin-left: 25%;*/
 }
 
-.taskRequest-container {
-  left: 0%;
-  display: block;
-  align-items: stretch;
-  justify-content: space-around;
-  padding: 0;
-  margin-right: 0;
-  float: left;
-  border: 0;
-  text-align: center;
-  min-width: 700px;
-  position: relative;
-  top: 50%;
-  /*transform: translate(-50%, -50%);*/
-  width: 96.5%;
-  height: 87vh;
-}
+// .taskRequest-container {
+//   left: 0%;
+//   display: block;
+//   align-items: stretch;
+//   justify-content: space-around;
+//   padding: 0;
+//   margin-right: 0;
+//   float: left;
+//   border: 0;
+//   text-align: center;
+//   min-width: 700px;
+//   position: relative;
+//   top: 50%;
+//   /*transform: translate(-50%, -50%);*/
+//   width: 96.5%;
+//   height: 87vh;
+// }
 
 .taskRequest-profile {
   background: lightyellow;
@@ -53,13 +70,13 @@
 }
 
 .taskRequest-entries {
-  display: flex;
-  align-items: center;
+  display: block;
   list-style: none;
-  flex-direction: column;
   height: auto;
-  width: 100%;
+  width: 94%;
   justify-content: center;
+  padding-left: 0px;
+  margin-left: 0px;
 
 }
 
@@ -90,7 +107,9 @@
 
 .stage-header {
     text-align: center;
-    background: white
+    background: white;
+    margin-top:7px;
+    margin-bottom: 15px;
 }
 
 .stage-header ul {
@@ -105,7 +124,7 @@
 
 .stage-items-group li {
   float: left;
-  padding: 15px 57.5px;
+  padding: 15px 45px;
   width: 200px;
 
   border-left: 1px solid #ebecec;
@@ -119,6 +138,9 @@
   border-right: 1px solid #ebecec;
 }
 
+.stage-items-group > li:nth-child(3) {
+  padding-right: 45px;
+}
 .stage-complete {
   color: #00964b;
 

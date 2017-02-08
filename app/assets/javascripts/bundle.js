@@ -65073,6 +65073,17 @@
 	      //     <GreetingContainer/>
 	      //   );
 	      // }
+	
+	      var AutocompleteItem = function AutocompleteItem(_ref) {
+	        var suggestion = _ref.suggestion;
+	        return _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement('i', { className: 'fa fa-map-marker' }),
+	          suggestion
+	        );
+	      };
+	
 	      var taskOptions = null,
 	          taskerOptions = null;
 	      if (this.props.tasks) {
@@ -65109,7 +65120,8 @@
 	          _react2.default.createElement(
 	            'li',
 	            null,
-	            'Select Task:  \xA0 \xA0',
+	            'Select Task  ',
+	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
 	              'select',
 	              { value: this.state.task_id, onChange: this.handleChange("task_id") },
@@ -65120,7 +65132,7 @@
 	          _react2.default.createElement(
 	            'li',
 	            null,
-	            _react2.default.createElement(_reactPlacesAutocomplete2.default, { value: this.state.address, onChange: this.onChange })
+	            _react2.default.createElement(_reactPlacesAutocomplete2.default, { value: this.state.address, onChange: this.onChange, autocompleteItem: AutocompleteItem })
 	          ),
 	          _react2.default.createElement(
 	            'li',

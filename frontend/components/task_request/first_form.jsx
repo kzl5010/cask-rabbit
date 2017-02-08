@@ -70,6 +70,9 @@ class FirstForm extends React.Component {
     //     <GreetingContainer/>
     //   );
     // }
+
+    const AutocompleteItem = ({ suggestion }) => (<div><i className="fa fa-map-marker"/>{suggestion}</div>)
+
     let taskOptions = null, taskerOptions = null;
     if (this.props.tasks) {
       taskOptions = this.props.tasks.map((task, i) => (
@@ -86,14 +89,14 @@ class FirstForm extends React.Component {
           <h4>Task Request</h4>
             <div id="alert">{  this.renderErrors()   } </div>
             <ul className="taskRequest-entries">
-              <li>Select Task:  &nbsp; &nbsp;
+              <li>Select Task  <br/>
                 <select value={this.state.task_id} onChange={this.handleChange("task_id")}>
                 <option/>
                 {taskOptions}
                 </select>
               </li>
               <li>
-                <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
+                <PlacesAutocomplete value={this.state.address} onChange={this.onChange} autocompleteItem={AutocompleteItem}/>
               </li>
             <li>
               <label>Describe your problem
