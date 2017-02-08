@@ -65116,37 +65116,59 @@
 	        ),
 	        _react2.default.createElement(
 	          'ul',
-	          { className: 'taskRequest-entries' },
+	          { className: 'taskRequest-entries-1' },
 	          _react2.default.createElement(
-	            'li',
-	            null,
-	            'Select Task  ',
-	            _react2.default.createElement('br', null),
+	            'div',
+	            { className: 'first-box' },
 	            _react2.default.createElement(
-	              'select',
-	              { value: this.state.task_id, onChange: this.handleChange("task_id") },
-	              _react2.default.createElement('option', null),
-	              taskOptions
+	              'li',
+	              null,
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'Select Task  ',
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement(
+	                  'select',
+	                  { value: this.state.task_id, onChange: this.handleChange("task_id") },
+	                  _react2.default.createElement('option', null),
+	                  taskOptions
+	                )
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'li',
+	              null,
+	              ' ',
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                _react2.default.createElement(_reactPlacesAutocomplete2.default, { value: this.state.address, onChange: this.onChange, autocompleteItem: AutocompleteItem })
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'li',
-	            null,
-	            _react2.default.createElement(_reactPlacesAutocomplete2.default, { value: this.state.address, onChange: this.onChange, autocompleteItem: AutocompleteItem })
-	          ),
-	          _react2.default.createElement(
-	            'li',
-	            null,
+	            'div',
+	            { className: 'first-box' },
 	            _react2.default.createElement(
-	              'label',
+	              'li',
 	              null,
-	              'Describe your problem',
-	              _react2.default.createElement('textarea', { value: this.state.details, rows: '10', cols: '50', placeholder: 'Describe the task for the Tasker',
-	                onChange: this.handleChange("details"), className: 'taskRequest-form-text' })
+	              _react2.default.createElement(
+	                'label',
+	                null,
+	                'Describe your problem',
+	                _react2.default.createElement('br', null),
+	                _react2.default.createElement('textarea', { value: this.state.details, rows: '10', cols: '50', placeholder: 'Describe the task for the Tasker',
+	                  onChange: this.handleChange("details"), className: 'taskRequest-form-text' })
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'submit', type: 'submit', value: 'Save' },
+	              'Save'
 	            )
 	          )
-	        ),
-	        _react2.default.createElement('button', { className: 'submit', type: 'submit', value: 'Save' })
+	        )
 	      );
 	    }
 	  }]);
