@@ -187,7 +187,9 @@ class TaskRequestForm extends React.Component {
       stage = <SecondForm nextStage={this.nextStage} updateForm={this.updateForm2} taskers={this.props.taskers.taskers}/>
     } else {
       stage = <ThirdForm nextStage={this.nextStage} details={this.state.form.details} submit={this.handleSubmit}
-      task_id={this.state.form.task_id} address={this.state.form.address}/>
+      task_id={this.state.form.task_id} address={this.state.form.address} tasker_id={this.state.form2.tasker_id}
+      taskers={this.props.taskers.taskers} date={this.state.form2.date} hours={this.state.form2.hours}
+      tasks={this.props.tasks.tasks}/>
     }
 
     return (
@@ -197,8 +199,8 @@ class TaskRequestForm extends React.Component {
         <nav className='stage-header'>
           <ul className='stage-items-group'>
             <li id='1' className='stage-active'><strong>1.</strong>Task Details</li>
-            <li id='2'><strong>2.</strong>Select Tasker</li>
-            <li id='3'><strong>3.</strong> Confirm and Book</li>
+            <li id='2'><strong>2.</strong>Tasker</li>
+            <li id='3'><strong>3.</strong> Confirm</li>
           </ul>
         </nav>
         <div className="booking-form">

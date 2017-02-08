@@ -1,6 +1,18 @@
 // Place all the styles related to the api/task_requests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.first-form {
+  margin-top: 20px;
+}
+
+.second-form {
+  margin-top: 20px;
+}
+
+.third-form {
+  margin-top: 20px; 
+}
 .taskRequest-form input {
   width: 300px;
 }
@@ -14,10 +26,8 @@
 
 .taskRequest-container {
   left: 0%;
-  display: flex;
-  flex-direction: column;
+  display: block;
   align-items: stretch;
-  flex-wrap: wrap;
   justify-content: space-around;
   padding: 0;
   margin-right: 0;
@@ -28,8 +38,8 @@
   position: relative;
   top: 50%;
   /*transform: translate(-50%, -50%);*/
-  width: 80%;
-  height: 1000px;
+  width: 96.5%;
+  height: 87vh;
 }
 
 .taskRequest-profile {
@@ -76,4 +86,47 @@
 
 .task-request-button {
   margin-top: 20px;
+}
+
+.stage-header {
+    text-align: center;
+    background: white
+}
+
+.stage-header ul {
+  width: 100vh;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  color: #b4b9b9;
+  margin: auto;
+
+}
+
+.stage-items-group li {
+  float: left;
+  padding: 15px 57.5px;
+  width: 200px;
+
+  border-left: 1px solid #ebecec;
+  border-bottom: 1.5px solid #ebecec;
+  border-right: 1px solid #ebecec;
+
+}
+
+.stage-items-group > li:nth-child(2) {
+  border-left: 1px solid #ebecec;
+  border-right: 1px solid #ebecec;
+}
+
+.stage-complete {
+  color: #00964b;
+
+}
+
+
+.stage-active {
+  color: #00964b;
+  font-family: "Proxima Semibold", Arial, Helvetica, sans-serif;
+
 }

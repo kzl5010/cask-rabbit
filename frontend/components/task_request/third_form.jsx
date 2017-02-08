@@ -1,9 +1,4 @@
 import React from 'react';
-import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
-import moment from 'moment';
-import DatePicker from 'react-datepicker';
-import TaskerIndexContainer from '../tasker/tasker_index_container';
-import GreetingContainer from '../home_page/greeting_container';
 
 class ThirdForm extends React.Component {
   constructor(props) {
@@ -50,7 +45,11 @@ class ThirdForm extends React.Component {
 
   render() {
     return (
-      <form className="taskRequest-form" onSubmit={this.props.handleSubmit}>
+      <form className="request-details" onSubmit={this.props.handleSubmit}>
+        <section className="request-section">
+          <h1> Confirm Request </h1>
+          <p> Task <br/> <strong> {this.state.task_id}</strong></p>
+        </section>
       </form>
     );
   }
