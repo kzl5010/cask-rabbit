@@ -8,11 +8,9 @@ class ThirdForm extends React.Component {
       task_id: this.props.task_id,
       address: this.props.address,
       tasker_id: this.props.tasker_id,
-      date: this.props.date
+      date: this.props.date,
+      hours: this.props.hours
     };
-    this.onChange = (address) => this.setState({ address });
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.updateTasker = this.updateTasker.bind(this);
   }
 
   // handleChange(field) {
@@ -28,20 +26,20 @@ class ThirdForm extends React.Component {
     this.props.nextStage(e);
   }
 
-  renderErrors() {
-    if (this.props.errors === undefined) {
-      return null;
-    }
-    return(
-      <ul className="errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  // renderErrors() {
+  //   if (this.props.errors === undefined) {
+  //     return null;
+  //   }
+  //   return(
+  //     <ul className="errors">
+  //       {this.props.errors.map((error, i) => (
+  //         <li key={`error-${i}`}>
+  //           {error}
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   render() {
     return (

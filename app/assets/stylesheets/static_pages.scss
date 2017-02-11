@@ -11,6 +11,13 @@ header {
   height: 6vh;
 }
 
+#container {
+  min-height: 100%;
+  // margin-bottom: -45px;
+}
+
+
+
 .header-nav {
   width: 100%;
   // margin: 0;
@@ -34,7 +41,7 @@ header button {
     list-style: none;
     color: inherit;
     background: transparent;
-    padding-bottom: 7px;
+    padding-bottom: 2px;
     outline:none;
     // border-right: 1px solid #cfd2d3;
 }
@@ -45,6 +52,7 @@ header button {
   align-items: center;
   height: 7vh;
   border-bottom: 1px solid #dce0e6;
+  background: white;
   a {
     text-decoration: none;
   }
@@ -62,7 +70,7 @@ header button {
 
   padding: 10px;
   margin-left: 20px;
-  height: 40px;
+  height: 30px;
   width: auto;
   margin-top: 16px;
   margin-bottom: 15px;
@@ -101,8 +109,8 @@ header button {
 
 .header-button {
   cursor: pointer;
-  margin-bottom: 15px;
-  padding-bottom: 8px;
+  margin-bottom: 20px;
+  padding-bottom: 0px;
 }
 
 .header-list-item:hover {
@@ -112,12 +120,12 @@ header button {
 }
 
 footer {
- position: relative;
+ // position: fixed;
  text-align: center;
  bottom: 0;
  left: 0;
  width: 100%;
- height: 6vh;
+ height: 45px;
  background: white;
  color: green;
  overflow: hidden;
@@ -152,7 +160,7 @@ footer {
  align-content: center;
  align-items: center;
  width: 20%;
- margin-top: 10px;
+ margin-top: 1vh;
 }
 
 .footer-link-list-item {
@@ -166,7 +174,7 @@ footer {
 .footer-text {
   color: green;
   margin-left: 20px;
-  margin-top: 15px;
+  margin-top: 1.5vh;
 }
 
 

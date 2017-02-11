@@ -35,8 +35,7 @@ class SecondForm extends React.Component {
 
   changeDate(date) {
     this.setState({ date: date });
-    debugger;
-    // this.props.updateForm(this.state);
+    this.props.updateForm(this.state);
   }
 
   updateTasker(tasker_id) {

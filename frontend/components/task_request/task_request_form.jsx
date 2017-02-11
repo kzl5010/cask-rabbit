@@ -74,7 +74,6 @@ class TaskRequestForm extends React.Component {
   }
 
   nextStage(e) {
-    debugger;
     e.preventDefault();
     if ((this.state.stage === 1) && this.formComplete()) {
       this.setState({ stage: 2 });

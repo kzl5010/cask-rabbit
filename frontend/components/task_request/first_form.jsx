@@ -105,7 +105,7 @@ class FirstForm extends React.Component {
               <div className="first-box">
             <li>
               <label>Describe your problem<br/>
-              <textarea value={this.state.details} rows='10' cols='50' placeholder="Describe the task for the Tasker"
+              <textarea value={this.state.details} rows='10' cols='40' placeholder="Describe the task for the Tasker"
               onChange={this.handleChange("details")} className="taskRequest-form-text"/>
               </label>
             </li>
