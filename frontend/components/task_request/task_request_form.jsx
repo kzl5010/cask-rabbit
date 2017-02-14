@@ -203,6 +203,7 @@ class TaskRequestForm extends React.Component {
           </ul>
         </nav>
         <div className="booking-form">
+          {this.missingFields}
           {stage}
         </div>
       </section>

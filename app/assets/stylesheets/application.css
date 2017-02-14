@@ -128,10 +128,11 @@ h3 {
 }*/
 .greeting-group .tasker-thumb {
   float: left;
-  width: 130px;
-  height: 170.83px;
+  width: 120px;
+  height: 150px;
   margin-right: 25px;
-  border-radius: 65%;
+  border-radius: 55%;
+  padding:15px;
 }
 
 

@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import TaskIndexContainer from '../tasks/task_index_container';
 import TaskRequestIndexContainer from '../task_request/task_request_index_container';
 import Slider from 'react-slick';
+import { login } from '../../actions/session_actions';
+
 
 const styles = {
   dots: false,
@@ -16,6 +18,13 @@ const styles = {
   arrows: false,
   fade: true
 };
+
+const loginGuest = (e) => {
+  e.preventDefault();
+  const guest = { user: {email: "fakeaccount@gmail.com", password :"password"}}
+  this.props.login(guest);
+}
+
 
 const sessionLinks = () => (
   <nav className="login-signup">
@@ -81,7 +90,7 @@ const unloggedGreeting = () => (
       <img src={carouselFour}/>
     </Slider>
     <div className="carousel-text">
-      <h1>Fast improvement through exceptional tutors available now!</h1>
+      <h1>Book an exceptional tutor now!</h1>
     </div>
   </section>
 );

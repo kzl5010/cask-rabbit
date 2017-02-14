@@ -29682,6 +29682,7 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'booking-form' },
+	          this.missingFields,
 	          stage
 	        )
 	      );
@@ -62031,6 +62032,8 @@
 	
 	var _reactSlick2 = _interopRequireDefault(_reactSlick);
 	
+	var _session_actions = __webpack_require__(277);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var styles = {
@@ -62044,6 +62047,12 @@
 	  adaptiveHeight: true,
 	  arrows: false,
 	  fade: true
+	};
+	
+	var loginGuest = function loginGuest(e) {
+	  e.preventDefault();
+	  var guest = { user: { email: "fakeaccount@gmail.com", password: "password" } };
+	  undefined.props.login(guest);
 	};
 	
 	var sessionLinks = function sessionLinks() {
@@ -62208,7 +62217,7 @@
 	      _react2.default.createElement(
 	        'h1',
 	        null,
-	        'Fast improvement through exceptional tutors available now!'
+	        'Book an exceptional tutor now!'
 	      )
 	    )
 	  );
