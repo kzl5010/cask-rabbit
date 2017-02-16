@@ -7,6 +7,7 @@ import GreetingContainer from '../home_page/greeting_container';
 import FirstForm from './first_form';
 import SecondForm from './second_form';
 import ThirdForm from './third_form';
+import { hashHistory } from 'react-router'
 
 class TaskRequestForm extends React.Component {
   constructor(props) {
@@ -86,7 +87,20 @@ class TaskRequestForm extends React.Component {
       $('#2').addClass('stage-complete');
       $('#3').addClass('stage-active');
     } else if (this.state.stage === 3){
-      this.handleSubmit();
+      // this.handleSubmit();
+      let taskRequest = this.state;
+      taskRequest.date = this.state.form2.date.toDate();
+      taskRequest.tasker_id = this.state.form2.tasker_id;
+      taskRequest.hours = this.state.form2.hours;
+      taskRequest.details = this.state.form.details;
+      taskRequest.task_id = this.state.form.task_id;
+      taskRequest.address = this.state.form.address;
+      taskRequest.user_id = this.props.currentUser.id;
+      taskRequest.form2 = null;
+      console.log(taskRequest);
+      // taskRequest.task_id = this.props.params.taskId;
+      this.props.createTaskRequest(taskRequest);
+      hashHistory.push("/")
     }
   }
 
@@ -120,7 +134,7 @@ class TaskRequestForm extends React.Component {
   }
 
   handleSubmit(e) {
-    e.preventDefault();
+    // e.preventDefault();
     let taskRequest = this.state;
     taskRequest.date = taskRequest.form2.date.toDate();
     taskRequest.tasker_id = this.state.form2.tasker_id;

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment'; 
 
 class ThirdForm extends React.Component {
   constructor(props) {
@@ -11,6 +12,8 @@ class ThirdForm extends React.Component {
       date: this.props.date,
       hours: this.props.hours
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // handleChange(field) {
@@ -22,7 +25,7 @@ class ThirdForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.updateForm(this.state);
+    // this.props.updateForm(this.state);
     this.props.nextStage(e);
   }
 
@@ -43,10 +46,11 @@ class ThirdForm extends React.Component {
 
   render() {
     return (
-      <form className="request-details" onSubmit={this.props.handleSubmit}>
+      <form className="request-details" onSubmit={this.handleSubmit}>
         <section className="request-section">
           <h1> Confirm Request </h1>
           <p> Task <br/> <strong> {this.state.task_id}</strong></p>
+          <button className="confirm-and-book-button" type="submit" value="submit"/>
         </section>
       </form>
     );

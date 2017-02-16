@@ -20,10 +20,10 @@ class TaskRequestItem extends React.Component {
       }
         <div className="taskRequest-profile">
           <img className="tasker-thumb" src={this.props.taskRequest.tasker_imageurl} alt="Tasker Image"/>
-          <h4>Tasker : {this.props.taskRequest.tasker} </h4>
+          <h4>{this.props.taskRequest.tasker} </h4>
           <ul className="taskRequest-details">
           <li>
-          Tasker email : {this.props.taskRequest.tasker_email}
+          Email : {this.props.taskRequest.tasker_email}
           </li>
           <li>
           Task : {this.props.taskRequest.task}
@@ -31,9 +31,12 @@ class TaskRequestItem extends React.Component {
           <li>
           Date : {this.props.taskRequest.day}
           </li>
+          { /*
           <li>
-          Address : {this.props.taskRequest.address}
+          Address : {//this.props.taskRequest.address
+        }
           </li>
+        */ }
           <li>
           Price : $ {this.props.taskRequest.rate*this.props.taskRequest.hours }
           </li>
