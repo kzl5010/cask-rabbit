@@ -21,7 +21,7 @@ class TaskRequestForm extends React.Component {
         address: null
       },
       form2: {
-        tasker_id: "",
+        tasker_id: "1",
         date: moment(),
         hours: 1
       },

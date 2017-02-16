@@ -29439,7 +29439,7 @@
 	        address: null
 	      },
 	      form2: {
-	        tasker_id: "",
+	        tasker_id: "1",
 	        date: (0, _moment2.default)(),
 	        hours: 1
 	      },
@@ -44662,7 +44662,8 @@
 	  return {
 	    taskers: state.taskers.taskers,
 	    updateTasker: ownProps.updateTasker,
-	    hours: ownProps.hours
+	    hours: ownProps.hours,
+	    nextStage: ownProps.nextStage
 	  };
 	};
 	
@@ -44722,7 +44723,7 @@
 	          'ul',
 	          { className: 'tasker-index-list' },
 	          this.props.taskers.map(function (tasker) {
-	            return _react2.default.createElement(_tasker_item2.default, { key: tasker.id, tasker: tasker, updateTasker: _this2.props.updateTasker, hours: _this2.props.hours });
+	            return _react2.default.createElement(_tasker_item2.default, { key: tasker.id, tasker: tasker, updateTasker: _this2.props.updateTasker, hours: _this2.props.hours, nextStage: _this2.props.nextStage });
 	          })
 	        )
 	      );
@@ -44794,6 +44795,7 @@
 	    value: function handleClick(e) {
 	      e.preventDefault();
 	      this.props.updateTasker(this.props.tasker.id);
+	      this.props.nextStage(e);
 	    }
 	  }, {
 	    key: 'render',
@@ -62675,12 +62677,6 @@
 	              null,
 	              'Hours : ',
 	              this.props.taskRequest.hours
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Hourly Rate : $ ',
-	              this.props.taskRequest.rate
 	            )
 	          ),
 	          _react2.default.createElement(
@@ -69509,7 +69505,7 @@
 	    var _this = _possibleConstructorReturn(this, (SecondForm.__proto__ || Object.getPrototypeOf(SecondForm)).call(this, props));
 	
 	    _this.state = {
-	      tasker_id: "",
+	      tasker_id: "1",
 	      date: (0, _moment2.default)(),
 	      hours: 1
 	      // errors: null
@@ -69560,7 +69556,7 @@
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
-	      debugger;
+	      // debugger;
 	      e.preventDefault();
 	      this.props.updateForm(this.state);
 	      this.props.nextStage(e);
@@ -69655,10 +69651,14 @@
 	              { value: this.state.tasker_id, onChange: this.handleChange("tasker_id") },
 	              taskerOptions
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            _react2.default.createElement('button', { className: 'submit', type: 'submit', value: 'Save' })
 	          )
 	        ),
-	        _react2.default.createElement(_tasker_index_container2.default, { updateTasker: this.updateTasker, hours: this.state.hours }),
-	        _react2.default.createElement('button', { className: 'submit', type: 'submit', value: 'Save' })
+	        _react2.default.createElement(_tasker_index_container2.default, { updateTasker: this.updateTasker, hours: this.state.hours, nextStage: this.props.nextStage })
 	      );
 	    }
 	  }]);

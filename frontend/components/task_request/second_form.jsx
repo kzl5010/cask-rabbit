@@ -9,7 +9,7 @@ class SecondForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasker_id: "",
+      tasker_id: "1",
       date: moment(),
       hours: 1
       // errors: null
@@ -48,7 +48,7 @@ class SecondForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger;
+    // debugger;
     e.preventDefault();
     this.props.updateForm(this.state);
     this.props.nextStage(e);
@@ -117,10 +117,12 @@ class SecondForm extends React.Component {
                 }
                 </select>
               </li>
+              <li>
+              <button className="submit" type="submit" value="Save">
+              </button>
+              </li>
             </ul>
-            <TaskerIndexContainer updateTasker={this.updateTasker} hours={this.state.hours}/>
-            <button className="submit" type="submit" value="Save">
-            </button>
+            <TaskerIndexContainer updateTasker={this.updateTasker} hours={this.state.hours} nextStage={this.props.nextStage}/>
           </form>
     );
   }

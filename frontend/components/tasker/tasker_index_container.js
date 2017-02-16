@@ -8,7 +8,8 @@ const convertTaskers = ({taskers}) => values(taskers);
 const mapStateToProps = (state, ownProps) => ({
   taskers: state.taskers.taskers,
   updateTasker: ownProps.updateTasker,
-  hours: ownProps.hours
+  hours: ownProps.hours,
+  nextStage: ownProps.nextStage
 });
 
 //Filter out to only within users zip code?

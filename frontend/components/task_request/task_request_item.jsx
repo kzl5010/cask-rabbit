@@ -40,9 +40,12 @@ class TaskRequestItem extends React.Component {
           <li>
           Hours : {this.props.taskRequest.hours}
           </li>
+          {/*
           <li>
-          Hourly Rate : $ {this.props.taskRequest.rate}
+          Hourly Rate : $ {//this.props.taskRequest.rate
+        }
           </li>
+        */}
           </ul>
           <button className="task-request-button" onClick={this.handleClick}>
             Cancel Task
