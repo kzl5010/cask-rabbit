@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment'; 
+import moment from 'moment';
 
 class ThirdForm extends React.Component {
   constructor(props) {
@@ -25,6 +25,7 @@ class ThirdForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger;
     // this.props.updateForm(this.state);
     this.props.nextStage(e);
   }
@@ -47,11 +48,17 @@ class ThirdForm extends React.Component {
   render() {
     return (
       <form className="request-details" onSubmit={this.handleSubmit}>
-        <section className="request-section">
-          <h1> Confirm Request </h1>
-          <p> Task <br/> <strong> {this.state.task_id}</strong></p>
-          <button className="confirm-and-book-button" type="submit" value="submit"/>
-        </section>
+
+
+      <div className='third-form'>
+        <h1> Are these details correct? </h1>
+        <p>Tasker <br/><strong>{this.props.taskers[this.props.tasker_id-1].name}</strong></p>
+        <p>Task <br/><strong>{this.props.tasks[this.state.task_id-1].title}</strong></p>
+        <p>Place <br/><strong>{this.props.address}</strong></p>
+        <p>Description <br/><strong>{this.props.details}</strong></p>
+        <input className='submit' type="submit" value="Confirm & Book"/>
+      </div>
+
       </form>
     );
   }
