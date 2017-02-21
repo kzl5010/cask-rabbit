@@ -22,6 +22,12 @@ export const logout = () => dispatch => (
    err => dispatch(receiveErrors(err.responseJSON)))
  );
 
+ export const guestlogin = () => dispatch => (
+   APIUtil.login({ user: {email: "fakeaccount@gmail.com", password :"password"}}).then(
+     user1 => dispatch(receiveCurrentUser(user1)), err => dispatch(receiveErrors(err.responseJSON))
+   )
+ )
+
 const receiveCurrentUser = (currentUser) => ({
   type: RECEIVE_CURRENT_USER,
   currentUser

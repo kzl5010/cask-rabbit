@@ -15,13 +15,10 @@ class TaskRequestItem extends React.Component {
 
   render() {
     return (
-      <li className="taskRequest-item" key={this.props.taskRequest.id}>
-      {// photo here
-      }
         <div className="taskRequest-profile">
           <img className="tasker-thumb" src={this.props.taskRequest.tasker_imageurl} alt="Tasker Image"/>
-          <h4>{this.props.taskRequest.tasker} </h4>
           <ul className="taskRequest-details">
+          <li><h4>{this.props.taskRequest.tasker} </h4></li>
           <li>
           Email : {this.props.taskRequest.tasker_email}
           </li>
@@ -49,12 +46,13 @@ class TaskRequestItem extends React.Component {
         }
           </li>
         */}
+          <li>
+          </li>
           </ul>
           <button className="task-request-button" onClick={this.handleClick}>
-            Cancel Task
+          Cancel Task
           </button>
         </div>
-      </li>
     );
   }
 }

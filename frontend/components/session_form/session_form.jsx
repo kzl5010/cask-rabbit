@@ -69,8 +69,6 @@ class SessionForm extends React.Component {
 					*/}
 				<h1 className="welcome-screen-text">	Get Help Fast  </h1>
 						<div className="login-form">
-							<br/>
-							<br/>
 							<p>
 							Please {this.props.formType} or {this.navLink()}
 							</p>
@@ -116,7 +114,7 @@ class SessionForm extends React.Component {
 						<p>
 						Please {this.props.formType} or {this.navLink()}
 						</p>
-							<br/>
+
 							{this.renderErrors()}
 								<input type="text"
 									value={this.state.email}

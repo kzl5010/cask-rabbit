@@ -4,7 +4,7 @@
   width: 70vh;
   height: 87vh;
   font-size: 1.5em;
-  margin-top: 30px;
+  margin-top: 15px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -47,7 +47,9 @@
 
 .login-form input, textarea {
  height: 5vh;
- width: 20vh;
+ min-width:200px;
+ max-width:375px;
+ width: 25vw;
  font-size: 1.0em;
  border-radius: 6px;
  margin: 10px;
@@ -56,7 +58,7 @@
 
 .login-form p {
   margin-top: 15px;
-  font-size: 1.5em;
+  font-size: 1.3em;
   margin-bottom: 0px;
 }
 input.submit-button {
@@ -85,11 +87,13 @@ input.submit-button {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 85%;
+  height: 78vh;
 }
 
 .errors {
+  font-size:0.8em;
   margin-bottom: 0;
+  font-color:red;
 }
 .login-form a {
   color: pink
@@ -108,6 +112,8 @@ h4 {
 .welcome-screen-text {
   text-align: center;
   color: white;
+  font-size:42px;
+  margin-top: 0px;
 }
 .login-page {
  /*-webkit-background-size: auto;

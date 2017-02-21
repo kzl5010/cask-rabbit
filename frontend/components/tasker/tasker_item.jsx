@@ -11,7 +11,7 @@ class TaskerItem extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.updateTasker(this.props.tasker.id);
-    this.props.nextStage(e); 
+    this.props.nextStage(e);
   }
 
   render() {
@@ -49,7 +49,6 @@ class TaskerItem extends React.Component {
           Price: ${this.props.hours*this.props.tasker.price}
           <br/>
           Zip Code: {this.props.tasker.zip_code}
-          <br/>
           <br/>
           <button className="tasker-button" onClick={this.handleClick}>Select Tasker
           </button>

@@ -17,11 +17,13 @@ class TaskRequestIndex extends React.Component {
     }
     return(
       <section className="taskRequest-index">
-        <ul className="taskRequest-index-list">
+        { //<ul className="taskRequest-index-list">
+      }
           {this.props.taskRequests.map(taskRequest => (
             <TaskRequestItem key={taskRequest.id} taskRequest={taskRequest} deleteTaskRequest={this.props.deleteTaskRequest}/>
           ))}
-        </ul>
+        {//</ul>
+        }
       </section>
     )
   }

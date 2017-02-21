@@ -118,7 +118,7 @@ class SecondForm extends React.Component {
                 </select>
               </li>
               <li>
-              <button className="submit" type="submit" value="Save">
+              <button className="submit" type="submit" value="Save">Save
               </button>
               </li>
             </ul>

@@ -4,14 +4,14 @@
 
 .booking-form {
   margin:auto;
-  width: 1000px;
-  height: 565px;
+  width: 100vw;
+  height: 78.9vh;
 }
 .first-form {
   margin-top: 20px;
   width: 80%;
   margin: auto;
-  height: 540px;
+  height: 80vh;
 }
 
 .first-form h4 {
@@ -27,12 +27,15 @@
   border-radius: 0%;
   box-shadow: 0px 2px 2px 0px rgba(50,58,59,0.15);
   margin: 10px 0px;
+  height: 35vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .first-form label {
   padding: 7px 20px;
+  margin: auto;
   display: block;
   font-size: 20px;
 }
@@ -46,14 +49,15 @@
   box-sizing: border-box;
   border-radius: 4px;
   width: 100%;
-  height: 150px;
+  height: 20vh;
   padding: 10px 20px;
   color: #828a8b;
   border: 1px solid #cfd2d3;
   font-size: 1em;
   margin: auto;
-  margin: 0px 0px 10px 0px;
+  // margin: 0px 0px 10px 0px;
   outline: none;
+  max-width: none;
 }
 
 .first-form .submit {
@@ -70,7 +74,25 @@
     border: none;
     transition: all 0.3s ease 0s;
     margin-bottom: 10px;
+    margin-top: 0px;
   }
+
+  .second-form .submit {
+      margin: auto;
+      font-family: "Proxima Thin", Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      width: auto;
+      height: 45px;
+      color: white;
+      background-color: #1da3bf;
+      text-align: center;
+      padding: 0.5em 1.38em 0.5em;
+      font-size: 1.25rem;
+      border: none;
+      transition: all 0.3s ease 0s;
+      margin-bottom: 10px;
+      margin-top: 15px;
+    }
 
 .first-form select,input {
     background: #fff;
@@ -122,10 +144,13 @@
 //   height: 87vh;
 // }
 
+.taskRequest-container {
+  height: 87vh;
+}
 .taskRequest-profile {
   background: white;
   border-radius: 0%;
-  /*box-shadow: 0px 2px 2px 0px rgba(50,58,59,0.15);*/
+  /*box-shadow: 0px 2px 2px 0px rgba(50,58,59,0.1c5);*/
   box-shadow: 2px 2px 2px 2px rgba(150,58,59,0.15);
   margin: 20px 0px;
   width: 700px;
@@ -144,7 +169,7 @@
 }
 
 .taskRequest-entries {
-  display: block;
+  display: flex;
   list-style: none;
   height: auto;
   width: 275px;
@@ -152,8 +177,11 @@
   justify-content: center;
   padding-left: 0px;
   margin-left: 20px;
-  position: fixed
-
+  position: fixed;
+  box-shadow: 2px 2px 2px 2px rgba(150, 58, 59, 0.15);
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
 .taskRequest-entries:nth-last-child(0) {
@@ -179,20 +207,25 @@
 
 .task-request-button {
   margin-top: 20px;
+  text-align: right;
+  float: right;
+  font-size: 18px;
+  color: #626a6b;
+  padding: 10px;
 }
 
 .stage-header {
     text-align: center;
     background: white;
     margin-top:7px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .stage-header ul {
   height: 50px;
   width: 100vh;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-top: 15px;
   color: #b4b9b9;
   margin: auto;
@@ -218,11 +251,21 @@
 .stage-items-group > li:nth-child(3) {
   padding-right: 45px;
 }
+
 .stage-complete {
   color: #00964b;
-
 }
 
+.request-section h1 {
+  margin-top: 0px;
+}
+
+.taskRequest-details li {
+  left: 0%;
+  font-size: 16px;
+  width: 500px;
+  margin-right:0px; 
+}
 
 .stage-active {
   color: #00964b;

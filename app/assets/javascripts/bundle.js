@@ -28993,7 +28993,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.update = exports.logout = exports.login = exports.signup = exports.RECEIVE_ERRORS = exports.RECEIVE_CURRENT_USER = undefined;
+	exports.guestlogin = exports.update = exports.logout = exports.login = exports.signup = exports.RECEIVE_ERRORS = exports.RECEIVE_CURRENT_USER = undefined;
 	
 	var _session_api_util = __webpack_require__(278);
 	
@@ -29035,6 +29035,16 @@
 	var update = exports.update = function update(user) {
 	  return function (dispatch) {
 	    return APIUtil.update(user).then(function (user1) {
+	      return dispatch(receiveCurrentUser(user1));
+	    }, function (err) {
+	      return dispatch(receiveErrors(err.responseJSON));
+	    });
+	  };
+	};
+	
+	var guestlogin = exports.guestlogin = function guestlogin() {
+	  return function (dispatch) {
+	    return APIUtil.login({ user: { email: "fakeaccount@gmail.com", password: "password" } }).then(function (user1) {
 	      return dispatch(receiveCurrentUser(user1));
 	    }, function (err) {
 	      return dispatch(receiveErrors(err.responseJSON));
@@ -29230,8 +29240,6 @@
 							_react2.default.createElement(
 								'div',
 								{ className: 'login-form' },
-								_react2.default.createElement('br', null),
-								_react2.default.createElement('br', null),
 								_react2.default.createElement(
 									'p',
 									null,
@@ -29293,7 +29301,6 @@
 									' or ',
 									this.navLink()
 								),
-								_react2.default.createElement('br', null),
 								this.renderErrors(),
 								_react2.default.createElement('input', { type: 'text',
 									value: this.state.email,
@@ -44862,7 +44869,6 @@
 	          _react2.default.createElement('br', null),
 	          'Zip Code: ',
 	          this.props.tasker.zip_code,
-	          _react2.default.createElement('br', null),
 	          _react2.default.createElement('br', null),
 	          _react2.default.createElement(
 	            'button',
@@ -62560,13 +62566,9 @@
 	      return _react2.default.createElement(
 	        'section',
 	        { className: 'taskRequest-index' },
-	        _react2.default.createElement(
-	          'ul',
-	          { className: 'taskRequest-index-list' },
-	          this.props.taskRequests.map(function (taskRequest) {
-	            return _react2.default.createElement(_task_request_item2.default, { key: taskRequest.id, taskRequest: taskRequest, deleteTaskRequest: _this2.props.deleteTaskRequest });
-	          })
-	        )
+	        this.props.taskRequests.map(function (taskRequest) {
+	          return _react2.default.createElement(_task_request_item2.default, { key: taskRequest.id, taskRequest: taskRequest, deleteTaskRequest: _this2.props.deleteTaskRequest });
+	        })
 	      );
 	    }
 	  }]);
@@ -62641,57 +62643,58 @@
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'li',
-	        { className: 'taskRequest-item', key: this.props.taskRequest.id },
+	        'div',
+	        { className: 'taskRequest-profile' },
+	        _react2.default.createElement('img', { className: 'tasker-thumb', src: this.props.taskRequest.tasker_imageurl, alt: 'Tasker Image' }),
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'taskRequest-profile' },
-	          _react2.default.createElement('img', { className: 'tasker-thumb', src: this.props.taskRequest.tasker_imageurl, alt: 'Tasker Image' }),
+	          'ul',
+	          { className: 'taskRequest-details' },
 	          _react2.default.createElement(
-	            'h4',
+	            'li',
 	            null,
-	            this.props.taskRequest.tasker,
-	            ' '
-	          ),
-	          _react2.default.createElement(
-	            'ul',
-	            { className: 'taskRequest-details' },
 	            _react2.default.createElement(
-	              'li',
+	              'h4',
 	              null,
-	              'Email : ',
-	              this.props.taskRequest.tasker_email
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Task : ',
-	              this.props.taskRequest.task
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Date : ',
-	              this.props.taskRequest.day
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Price : $ ',
-	              this.props.taskRequest.rate * this.props.taskRequest.hours
-	            ),
-	            _react2.default.createElement(
-	              'li',
-	              null,
-	              'Hours : ',
-	              this.props.taskRequest.hours
+	              this.props.taskRequest.tasker,
+	              ' '
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'button',
-	            { className: 'task-request-button', onClick: this.handleClick },
-	            'Cancel Task'
-	          )
+	            'li',
+	            null,
+	            'Email : ',
+	            this.props.taskRequest.tasker_email
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Task : ',
+	            this.props.taskRequest.task
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Date : ',
+	            this.props.taskRequest.day
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Price : $ ',
+	            this.props.taskRequest.rate * this.props.taskRequest.hours
+	          ),
+	          _react2.default.createElement(
+	            'li',
+	            null,
+	            'Hours : ',
+	            this.props.taskRequest.hours
+	          ),
+	          _react2.default.createElement('li', null)
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'task-request-button', onClick: this.handleClick },
+	          'Cancel Task'
 	        )
 	      );
 	    }
@@ -69663,7 +69666,11 @@
 	          _react2.default.createElement(
 	            'li',
 	            null,
-	            _react2.default.createElement('button', { className: 'submit', type: 'submit', value: 'Save' })
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'submit', type: 'submit', value: 'Save' },
+	              'Save'
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(_tasker_index_container2.default, { updateTasker: this.updateTasker, hours: this.state.hours, nextStage: this.props.nextStage })
