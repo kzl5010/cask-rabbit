@@ -17,7 +17,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   width: 600px;
-  height: 1850px;
+  height: 1550px;
   float: right;
 
   margin-right: 100px;
@@ -30,6 +30,7 @@
   margin-bottom: 30px;
   font-family: 'Josefin Sans', sans-serif;
   margin-left: 30px;
+  height: 220px;
 }
 
 ul.tasker-index-list {
@@ -43,9 +44,15 @@ ul.tasker-index-list {
 }
 
 .tasker-button {
-  width: 150px;
-  height: 20px;
-  margin-bottom: 20px;
+  height: 45px;
+  color: white;
+  background-color: #1da3bf;
+  text-align: center;
+  padding: 0.5em 1.38em 0.5em;
+  font-size: 1.25rem;
+  border: none;
+  transition: all 0.3s ease 0s;
+  margin-top: 36px;
 }
 
 .greeting-group .tasker-thumb {
@@ -55,7 +62,7 @@ ul.tasker-index-list {
   margin-right: 25px;
   border-radius: 55%;
   padding:15px;
-  padding-top: 7px; 
+  padding-top: 7px;
 }
 
 
@@ -65,6 +72,10 @@ ul.tasker-index-list {
 }
 
 .tasker-image {
-  height: 100px;
-  width: auto;
+  padding: 20px;
+  width: 180px;
+  height:180px;
+  float: left;
+  color: #1da3bf;
+  text-align: center;
 }
