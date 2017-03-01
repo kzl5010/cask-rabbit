@@ -46,6 +46,7 @@ header button {
     // border-right: 1px solid #cfd2d3;
 }
 .header-logo {
+  min-width: 1000px; 
   display: flex;
   justify-content: space-between;
   width: 100%;

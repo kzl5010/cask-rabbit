@@ -1,6 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import GreetingContainer from '../home_page/greeting_container';
+
 
 class AccountForm extends React.Component {
   constructor(props){
@@ -23,6 +24,7 @@ class AccountForm extends React.Component {
     let user = this.state;
     this.props.update(user);
     this.state.edited = "Edit submitted";
+    hashHistory.push("/")
     // location.href = '/'
   }
 

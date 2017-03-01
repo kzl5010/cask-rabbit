@@ -11,7 +11,12 @@
     z-index: 2;
 }
 
+.tasks-index h2 {
+  margin-left: 20px;
+}
+
 .make_tr {
+    margin-left: 20px;
     transition: all 0.3s ease 0s;
     transition-property: all;
     transition-duration: 0.3s;
@@ -46,6 +51,14 @@
   padding-bottom: 0px;
   // margin-top: 20vh;
 }
+
+.root {
+  height: 100%;
+}
 .slick-slide {
   height: 87.9vh;
+}
+
+.user-info .h2 {
+  width: 350px;
 }

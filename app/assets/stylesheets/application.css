@@ -43,6 +43,10 @@ html, body, footer {
   padding:0;
 }
 
+footer {
+  min-width: 1000px; 
+}
+
 html, body {
   height:100%;
   width: 100%;
@@ -167,6 +171,7 @@ h3 {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 20px;
 }
 
 .first-line-greeting h2 {
