@@ -39,7 +39,7 @@ class SecondForm extends React.Component {
   }
 
   updateTasker(tasker_id) {
-    this.setState({ tasker_id: tasker_id });
+    this.setState({tasker_id: tasker_id});
     this.props.updateForm(this.state);
   }
 

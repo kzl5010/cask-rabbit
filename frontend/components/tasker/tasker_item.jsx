@@ -11,7 +11,6 @@ class TaskerItem extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.updateTasker(this.props.tasker.id);
-    debugger;
     this.props.nextStage(e);
   }
 
