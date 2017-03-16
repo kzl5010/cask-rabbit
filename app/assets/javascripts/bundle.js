@@ -62195,7 +62195,16 @@
 	  };
 	};
 	
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(_greeting2.default);
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  console.log(_session_actions.login);
+	  return {
+	    login: function login(user) {
+	      return dispatch((0, _session_actions.login)(user));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_greeting2.default);
 
 /***/ },
 /* 397 */
@@ -62208,6 +62217,8 @@
 	});
 	
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(1);
 	
@@ -62231,199 +62242,265 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var styles = {
-	  dots: false,
-	  infinite: true,
-	  autoplay: true,
-	  autoplaySpeed: 4000,
-	  speed: 1500,
-	  slidesToShow: 1,
-	  slidesToScroll: 1,
-	  adaptiveHeight: true,
-	  arrows: false,
-	  fade: true
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var loginGuest = function loginGuest(e) {
-	  e.preventDefault();
-	  var guest = { user: { email: "fakeaccount@gmail.com", password: "password" } };
-	  undefined.props.login(guest);
-	};
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	var sessionLinks = function sessionLinks() {
-	  return _react2.default.createElement(
-	    'nav',
-	    { className: 'login-signup' },
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: '/login', activeClassName: 'current' },
-	      'Login'
-	    ),
-	    '\xA0or\xA0',
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { to: '/signup', activeClassName: 'current' },
-	      'Sign up!'
-	    )
-	  );
-	};
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var personalGreeting = function personalGreeting(currentUser, logout) {
-	  return _react2.default.createElement(
-	    'section',
-	    { className: 'greeting' },
-	    _react2.default.createElement(
-	      'hgroup',
-	      { className: 'greeting-group' },
-	      _react2.default.createElement(
-	        'div',
-	        { className: 'first-line-greeting' },
-	        _react2.default.createElement('img', { src: currentUser.imageurl, alt: 'User profile pic', className: 'user-profile-pic' }),
-	        _react2.default.createElement(
-	          'h2',
-	          { className: 'greeting-name' },
-	          'Welcome to FastRabbit, ',
-	          currentUser.first_name,
-	          '!'
-	        )
-	      ),
-	      _react2.default.createElement(
-	        'button',
-	        { className: 'make_tr' },
+	var Greeting = function (_React$Component) {
+	  _inherits(Greeting, _React$Component);
+	
+	  function Greeting(props) {
+	    _classCallCheck(this, Greeting);
+	
+	    // console.log(this.props.currentUser);
+	    var _this = _possibleConstructorReturn(this, (Greeting.__proto__ || Object.getPrototypeOf(Greeting)).call(this, props));
+	
+	    console.log(_this.props);
+	    _this.state = {
+	      user: _this.props.currentUser
+	    };
+	    _this.user = _this.props.currentUser;
+	    _this.loginGuest = _this.loginGuest.bind(_this);
+	    return _this;
+	  }
+	
+	  _createClass(Greeting, [{
+	    key: 'shouldComponentUpdate',
+	    value: function shouldComponentUpdate(nextProps, nextState) {
+	      // debugger;
+	      // console.log(nextProps);
+	      // console.log(nextProps);
+	      // console.log(this.state.user);
+	      if (!this.state.user) {
+	        console.log("ayy11");
+	        this.setState({ user: nextProps.user });
+	        console.log(this.state.user);
+	        return true;
+	      }
+	      if (this.state.user && nextProps.user !== this.state.user) {
+	        console.log(nextProps);
+	        console.log(nextState);
+	        console.log("ayy");
+	        this.setState({ user: null });
+	        console.log(this.state.user);
+	        return true;
+	      }
+	    }
+	  }, {
+	    key: 'loginGuest',
+	    value: function loginGuest(e) {
+	      e.preventDefault();
+	      var guest = { email: "fakeaccount@gmail.com", password: "password" };
+	      this.props.login({ user: guest });
+	      // this.props.login({guest});
+	      // this.props.login(guest);
+	      this.setState({ user: guest });
+	      // debugger;
+	      console.log({ guest: guest });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var styles = {
+	        dots: false,
+	        infinite: true,
+	        autoplay: true,
+	        autoplaySpeed: 4000,
+	        speed: 1500,
+	        slidesToShow: 1,
+	        slidesToScroll: 1,
+	        adaptiveHeight: true,
+	        arrows: false,
+	        fade: true
+	      };
+	
+	      var sessionLinks = _react2.default.createElement(
+	        'nav',
+	        { className: 'login-signup' },
 	        _react2.default.createElement(
 	          _reactRouter.Link,
-	          { to: '/task_request', activeClassName: 'make_tr' },
-	          'Request a Task!'
-	        )
-	      ),
-	      _react2.default.createElement(_task_request_index_container2.default, null)
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'welcome-instructions' },
-	      _react2.default.createElement(
-	        'h3',
-	        null,
-	        ' What do you need help with? '
-	      ),
-	      _react2.default.createElement(
-	        'h4',
-	        null,
-	        'How to get Started'
-	      ),
-	      _react2.default.createElement(
-	        'p',
-	        null,
-	        'Taskers love helping'
-	      ),
-	      _react2.default.createElement(
-	        'ul',
-	        null,
+	          { to: '/login', activeClassName: 'current' },
+	          'Login'
+	        ),
+	        '\xA0or\xA0',
 	        _react2.default.createElement(
-	          'li',
-	          null,
+	          _reactRouter.Link,
+	          { to: '/signup', activeClassName: 'current' },
+	          'Sign up!'
+	        )
+	      );
+	
+	      if (this.state.user) {
+	        var personalGreeting = _react2.default.createElement(
+	          'section',
+	          { className: 'greeting' },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'number-icon' },
-	            '1'
+	            'hgroup',
+	            { className: 'greeting-group' },
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'first-line-greeting' },
+	              _react2.default.createElement('img', { src: this.state.user.imageurl, alt: 'User profile pic', className: 'user-profile-pic' }),
+	              _react2.default.createElement(
+	                'h2',
+	                { className: 'greeting-name' },
+	                'Welcome to FastRabbit, ',
+	                this.state.user.first_name,
+	                '!'
+	              )
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { className: 'make_tr' },
+	              _react2.default.createElement(
+	                _reactRouter.Link,
+	                { to: '/task_request', activeClassName: 'make_tr' },
+	                'Request a Task!'
+	              )
+	            ),
+	            _react2.default.createElement(_task_request_index_container2.default, null)
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'content' },
+	            { className: 'welcome-instructions' },
 	            _react2.default.createElement(
 	              'h3',
 	              null,
-	              'Pick a Task'
+	              ' What do you need help with? '
+	            ),
+	            _react2.default.createElement(
+	              'h4',
+	              null,
+	              'How to get Started'
 	            ),
 	            _react2.default.createElement(
 	              'p',
 	              null,
-	              'Choose a task from a list of available jobs'
+	              'Taskers love helping'
+	            ),
+	            _react2.default.createElement(
+	              'ul',
+	              null,
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'number-icon' },
+	                  '1'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'content' },
+	                  _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'Pick a Task'
+	                  ),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Choose a task from a list of available jobs'
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'number-icon' },
+	                  '2'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'content' },
+	                  _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'Pick a Tasker'
+	                  ),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Select a Tasker that suits your unique needs'
+	                  )
+	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'number-icon' },
+	                  '3'
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'content' },
+	                  _react2.default.createElement(
+	                    'h3',
+	                    null,
+	                    'Get it Done'
+	                  ),
+	                  _react2.default.createElement(
+	                    'p',
+	                    null,
+	                    'Your Tasker puts in the work and ideally gets paid\u2122'
+	                  )
+	                )
+	              )
 	            )
-	          )
+	          ),
+	          _react2.default.createElement(_task_index_container2.default, null)
+	        );
+	        return personalGreeting;
+	      }
+	
+	      var unloggedGreeting = _react2.default.createElement(
+	        'section',
+	        { className: 'unlogged-greeting' },
+	        _react2.default.createElement(
+	          _reactSlick2.default,
+	          _extends({ className: 'carousel-container' }, styles),
+	          _react2.default.createElement('img', { src: carouselOne }),
+	          _react2.default.createElement('img', { src: carouselTwo }),
+	          _react2.default.createElement('img', { src: carouselThree }),
+	          _react2.default.createElement('img', { src: carouselFour })
 	        ),
 	        _react2.default.createElement(
-	          'li',
-	          null,
+	          'div',
+	          { className: 'carousel-text' },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'number-icon' },
-	            '2'
+	            'h1',
+	            null,
+	            'Book an exceptional tutor now!'
 	          ),
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'content' },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              'Pick a Tasker'
-	            ),
-	            _react2.default.createElement(
-	              'p',
-	              null,
-	              'Select a Tasker that suits your unique needs'
-	            )
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'li',
-	          null,
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'number-icon' },
-	            '3'
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'content' },
-	            _react2.default.createElement(
-	              'h3',
-	              null,
-	              'Get it Done'
-	            ),
-	            _react2.default.createElement(
-	              'p',
-	              null,
-	              'Your Tasker puts in the work and ideally gets paid\u2122'
-	            )
+	            'button',
+	            { onClick: this.loginGuest },
+	            "Explore as Guest"
 	          )
 	        )
-	      )
-	    ),
-	    _react2.default.createElement(_task_index_container2.default, null)
-	  );
-	};
+	      );
+	      // if (this.user) {
+	      //   return personalGreeting;
+	      // }
 	
-	var unloggedGreeting = function unloggedGreeting() {
-	  return _react2.default.createElement(
-	    'section',
-	    { className: 'unlogged-greeting' },
-	    _react2.default.createElement(
-	      _reactSlick2.default,
-	      _extends({ className: 'carousel-container' }, styles),
-	      _react2.default.createElement('img', { src: carouselOne }),
-	      _react2.default.createElement('img', { src: carouselTwo }),
-	      _react2.default.createElement('img', { src: carouselThree }),
-	      _react2.default.createElement('img', { src: carouselFour })
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'carousel-text' },
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        'Book an exceptional tutor now!'
-	      )
-	    )
-	  );
-	};
+	      return unloggedGreeting;
+	    }
+	  }]);
 	
-	var Greeting = function Greeting(_ref) {
-	  var currentUser = _ref.currentUser,
-	      logout = _ref.logout;
-	  return currentUser ? personalGreeting(currentUser, logout) : unloggedGreeting() //sessionLinks()
-	  ;
-	};
+	  return Greeting;
+	}(_react2.default.Component);
+	
+	//
+	// const Greeting = ({ currentUser, logout }) => (
+	//   currentUser ? personalGreeting(currentUser, logout) : unloggedGreeting() //sessionLinks()
+	// );
+	
 	
 	exports.default = Greeting;
 
