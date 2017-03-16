@@ -10,33 +10,34 @@ class Greeting extends React.Component {
     super(props);
     // console.log(this.props.currentUser);
     console.log(this.props);
-    this.state = {
-      user: this.props.currentUser
-    }
+    // this.state = {
+    //   user: this.props.currentUser
+    // }
     this.user = this.props.currentUser;
     this.loginGuest = this.loginGuest.bind(this);
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    // debugger;
-    // console.log(nextProps);
-    // console.log(nextProps);
-    // console.log(this.state.user);
-    if (!this.state.user) {
-      console.log("ayy11");
-      this.setState( {user: nextProps.user} )
-      console.log(this.state.user);
-      return true;
-    }
-    if (this.state.user && nextProps.user !== this.state.user) {
-      console.log(nextProps);
-      console.log(nextState);
-      console.log("ayy");
-      this.setState( {user: null} )
-      console.log(this.state.user);
-      return true;
-    }
-  }
+  // componentWillReceiveProps(nextProps, nextState) {
+  //   // debugger;
+  //   // console.log(nextProps);
+  //   // console.log(nextProps);
+  //   // console.log(this.state.user);
+  //   if (!this.state.user) {
+  //     console.log("ayy11");
+  //     this.setState( {user: nextProps.user} )
+  //     console.log(this.state.user);
+  //     return true;
+  //   }
+  //   // if (this.state.user && nextProps.user !== this.state.user) {
+  //   //   console.log(nextProps);
+  //   //   console.log(nextState);
+  //   //   console.log("ayy");
+  //   //   this.setState( {user: null} )
+  //   //   console.log(this.state.user);
+  //   //   return true;
+  //   // }
+  //   return true;
+  // }
 
   loginGuest(e) {
     e.preventDefault();
@@ -44,7 +45,7 @@ class Greeting extends React.Component {
     this.props.login({user: guest});
     // this.props.login({guest});
     // this.props.login(guest);
-    this.setState({user: guest});
+    // this.setState({user: guest});
     // debugger;
     console.log({guest});
   }
@@ -71,13 +72,13 @@ class Greeting extends React.Component {
       </nav>
     );
 
-    if (this.state.user) {
+    if (this.props.currentUser) {
       const personalGreeting = (
         <section className="greeting">
         <hgroup className="greeting-group">
         <div className="first-line-greeting">
-        <img src={this.state.user.imageurl} alt="User profile pic" className="user-profile-pic"/>
-        <h2 className="greeting-name">Welcome to FastRabbit, {this.state.user.first_name}!</h2>
+        <img src={this.props.currentUser.imageurl} alt="User profile pic" className="user-profile-pic"/>
+        <h2 className="greeting-name">Welcome to FastRabbit, {this.props.currentUser.first_name}!</h2>
         </div>
         <button className="make_tr"><Link to="/task_request" activeClassName="make_tr">Request a Task!</Link>
         </button>

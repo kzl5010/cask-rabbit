@@ -62258,37 +62258,37 @@
 	    var _this = _possibleConstructorReturn(this, (Greeting.__proto__ || Object.getPrototypeOf(Greeting)).call(this, props));
 	
 	    console.log(_this.props);
-	    _this.state = {
-	      user: _this.props.currentUser
-	    };
+	    // this.state = {
+	    //   user: this.props.currentUser
+	    // }
 	    _this.user = _this.props.currentUser;
 	    _this.loginGuest = _this.loginGuest.bind(_this);
 	    return _this;
 	  }
 	
+	  // componentWillReceiveProps(nextProps, nextState) {
+	  //   // debugger;
+	  //   // console.log(nextProps);
+	  //   // console.log(nextProps);
+	  //   // console.log(this.state.user);
+	  //   if (!this.state.user) {
+	  //     console.log("ayy11");
+	  //     this.setState( {user: nextProps.user} )
+	  //     console.log(this.state.user);
+	  //     return true;
+	  //   }
+	  //   // if (this.state.user && nextProps.user !== this.state.user) {
+	  //   //   console.log(nextProps);
+	  //   //   console.log(nextState);
+	  //   //   console.log("ayy");
+	  //   //   this.setState( {user: null} )
+	  //   //   console.log(this.state.user);
+	  //   //   return true;
+	  //   // }
+	  //   return true;
+	  // }
+	
 	  _createClass(Greeting, [{
-	    key: 'shouldComponentUpdate',
-	    value: function shouldComponentUpdate(nextProps, nextState) {
-	      // debugger;
-	      // console.log(nextProps);
-	      // console.log(nextProps);
-	      // console.log(this.state.user);
-	      if (!this.state.user) {
-	        console.log("ayy11");
-	        this.setState({ user: nextProps.user });
-	        console.log(this.state.user);
-	        return true;
-	      }
-	      if (this.state.user && nextProps.user !== this.state.user) {
-	        console.log(nextProps);
-	        console.log(nextState);
-	        console.log("ayy");
-	        this.setState({ user: null });
-	        console.log(this.state.user);
-	        return true;
-	      }
-	    }
-	  }, {
 	    key: 'loginGuest',
 	    value: function loginGuest(e) {
 	      e.preventDefault();
@@ -62296,7 +62296,7 @@
 	      this.props.login({ user: guest });
 	      // this.props.login({guest});
 	      // this.props.login(guest);
-	      this.setState({ user: guest });
+	      // this.setState({user: guest});
 	      // debugger;
 	      console.log({ guest: guest });
 	    }
@@ -62332,7 +62332,7 @@
 	        )
 	      );
 	
-	      if (this.state.user) {
+	      if (this.props.currentUser) {
 	        var personalGreeting = _react2.default.createElement(
 	          'section',
 	          { className: 'greeting' },
@@ -62342,12 +62342,12 @@
 	            _react2.default.createElement(
 	              'div',
 	              { className: 'first-line-greeting' },
-	              _react2.default.createElement('img', { src: this.state.user.imageurl, alt: 'User profile pic', className: 'user-profile-pic' }),
+	              _react2.default.createElement('img', { src: this.props.currentUser.imageurl, alt: 'User profile pic', className: 'user-profile-pic' }),
 	              _react2.default.createElement(
 	                'h2',
 	                { className: 'greeting-name' },
 	                'Welcome to FastRabbit, ',
-	                this.state.user.first_name,
+	                this.props.currentUser.first_name,
 	                '!'
 	              )
 	            ),
