@@ -7,9 +7,15 @@ class AccountForm extends React.Component {
   constructor(props){
     super(props);
     let user = this.props.currentUser;
-    this.state  = { email: user.email, password: "",
-    zip_code: user.zip_code, first_name: user.first_name,
-    last_name: user.last_name, id: user.id, imageurl: user.imageurl};
+    this.state  = {
+      email: user.email,
+      password: "",
+      zip_code: user.zip_code,
+      first_name: user.first_name,
+      last_name: user.last_name,
+      id: user.id,
+      imageurl: user.imageurl
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     //set imageurl to user.imageurl || ""?
@@ -52,10 +58,7 @@ class AccountForm extends React.Component {
     return (
       <div className="user-profile-container">
         <form onSubmit={this.handleSubmit} className="user-profile">
-          <br/>
-          Edit Account Information
-          <br/>
-          <br/>
+          <p className="account-header"> Edit Account Information</p>
           <img src={this.props.currentUser.imageurl} alt="User profile pic" className="user-profile-pic"/>
           <br/>
           {this.state.edited}
@@ -63,9 +66,8 @@ class AccountForm extends React.Component {
         }
 
           <div className="user-info">
-            <br/>
-            <h2> Email : &nbsp; &nbsp; {this.state.email}  </h2>
-            <ul>
+            <p className="account-info"> Email : &nbsp; &nbsp; {this.state.email}  </p>
+            <ul className="user-inputs">
               <li className="user-info-item">
               </li>
               <br/>
@@ -83,7 +85,7 @@ class AccountForm extends React.Component {
           */  }
 
               <li className="user-info-item">
-                <label> First Name : &nbsp; &nbsp;
+                <label> <p className="account-info">First Name : &nbsp; &nbsp;</p>
                   <input type="text"
                     value={this.state.first_name}
                     onChange={this.handleChange("first_name")}
@@ -92,7 +94,7 @@ class AccountForm extends React.Component {
               </li>
               <br/>
               <li className="user-info-item">
-                <label> Last Name : &nbsp; &nbsp;
+                <label> <p className="account-info">Last Name : &nbsp; &nbsp;</p>
                   <input type="text"
                     value={this.state.last_name}
                     onChange={this.handleChange("last_name")}
@@ -101,7 +103,7 @@ class AccountForm extends React.Component {
               </li>
               <br/>
               <li className="user-info-item">
-                <label> Zip Code : &nbsp; &nbsp;
+                <label> <p className="account-info">Zip Code : &nbsp; &nbsp;</p>
                   <input type="text"
                     value={this.state.zip_code}
                     onChange={this.handleChange("zip_code")}
@@ -110,7 +112,7 @@ class AccountForm extends React.Component {
               </li>
               <br/>
               <li className="user-info-item">
-                <label> Image Url : &nbsp; &nbsp;
+                <label> <p className="account-info">Image Url : &nbsp; &nbsp;</p>
                   <input type="text"
                     value={this.state.imageurl}
                     onChange={this.handleChange("imageurl")}
@@ -119,7 +121,7 @@ class AccountForm extends React.Component {
               </li>
               <br/>
 
-              <input type="submit" value="Submit" />
+              <input className="edit-user-submit" type="submit" value="Submit" />
             </ul>
           </div>
         </form>
