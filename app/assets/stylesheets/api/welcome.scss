@@ -9,7 +9,10 @@
     font-family: "Proxima Regular", Arial, Helvetica, sans-serif;
     color: #00964b;
     z-index: 2;
-    cursor: pointer; 
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    margin-bottom:27px;
 }
 
 .tasks-index h2 {
@@ -39,7 +42,7 @@
 .carousel-text {
   text-align: center;
   position: absolute;
-  top: 50%;
+  top: 35%;
   color: red;
   font-size: 65px;
 }
@@ -62,4 +65,15 @@
 
 .user-info .h2 {
   width: 350px;
+}
+
+.guest-login {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }

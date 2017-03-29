@@ -85,7 +85,7 @@ class Greeting extends React.Component {
         <img src={this.props.currentUser.imageurl} alt="User profile pic" className="user-profile-pic"/>
         <h2 className="greeting-name">Welcome to FastRabbit, {this.props.currentUser.first_name}!</h2>
         </div>
-         <button className="make_tr" onClick={this.redirectToTaskRequest}>Request a Task!</button>
+         <button className="make_tr" onClick={this.redirectToTaskRequest}>Request Task!</button>
 {//        <Link to="/task_request" activeClassName="make_tr">Request a Task!</Link>
 }
 
@@ -96,27 +96,27 @@ class Greeting extends React.Component {
         { //Add a task_requests index here
         }
         <h4>How to get Started</h4>
-        <p>Taskers love helping</p>
+        <p className="num-icon-content">Taskers love helping</p>
         <ul>
         <li>
         <div className='number-icon'>1</div>
         <div className='content'>
         <h3>Pick a Task</h3>
-        <p>Choose a task from a list of available jobs</p>
+        <p className="num-icon-content">Choose a task from a list of available jobs</p>
         </div>
         </li>
         <li>
         <div className='number-icon'>2</div>
         <div className='content'>
         <h3>Pick a Tasker</h3>
-        <p>Select a Tasker that suits your unique needs</p>
+        <p className="num-icon-content">Select a Tasker that suits your unique needs</p>
         </div>
         </li>
         <li>
         <div className='number-icon'>3</div>
         <div className='content'>
         <h3>Get it Done</h3>
-        <p>Your Tasker puts in the work and ideally gets paid™</p>
+        <p className="num-icon-content">Your Tasker puts in the work and ideally gets paid™</p>
         </div>
         </li>
         </ul>
@@ -139,7 +139,7 @@ class Greeting extends React.Component {
       </Slider>
       <div className="carousel-text">
       <h1>Book an exceptional tutor now!</h1>
-      <button onClick={this.loginGuest}>{"Explore as Guest"}</button>
+      <button className="guest-login" onClick={this.loginGuest}>{"Explore as Guest"}</button>
       </div>
       </section>
     );
