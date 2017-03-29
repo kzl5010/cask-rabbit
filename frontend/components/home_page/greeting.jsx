@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import TaskIndexContainer from '../tasks/task_index_container';
 import TaskRequestIndexContainer from '../task_request/task_request_index_container';
 import Slider from 'react-slick';
@@ -15,8 +15,13 @@ class Greeting extends React.Component {
     // }
     this.user = this.props.currentUser;
     this.loginGuest = this.loginGuest.bind(this);
+    this.redirectToTaskRequest = this.redirectToTaskRequest.bind(this);
   }
 
+  redirectToTaskRequest(e) {
+    e.preventDefault()
+    this.props.router.push("/task_request");
+  }
   // componentWillReceiveProps(nextProps, nextState) {
   //   // debugger;
   //   // console.log(nextProps);
@@ -80,8 +85,9 @@ class Greeting extends React.Component {
         <img src={this.props.currentUser.imageurl} alt="User profile pic" className="user-profile-pic"/>
         <h2 className="greeting-name">Welcome to FastRabbit, {this.props.currentUser.first_name}!</h2>
         </div>
-        <button className="make_tr"><Link to="/task_request" activeClassName="make_tr">Request a Task!</Link>
-        </button>
+         <button className="make_tr" onClick={this.redirectToTaskRequest}>Request a Task!</button>
+{//        <Link to="/task_request" activeClassName="make_tr">Request a Task!</Link>
+}
 
         <TaskRequestIndexContainer />
         </hgroup>
