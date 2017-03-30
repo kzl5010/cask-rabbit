@@ -43,13 +43,13 @@ class TaskRequestForm extends React.Component {
   formComplete() {
     this.missingFields = [];
     if (!this.state.form.details) {
-      this.missingFields.push("You must write some details");
+      this.missingFields.push("Details can't be blank. ");
     }
     if (!this.state.form.task_id) {
-      this.missingFields.push("You must choose a task");
+      this.missingFields.push("Please choose a task. ");
     }
     if (!this.state.form.address) {
-      this.missingFields.push("You must choose an address");
+      this.missingFields.push("Please choose an address.");
     }
     if (this.missingFields.length > 0) {
       // this.displayMissing();
@@ -97,7 +97,7 @@ class TaskRequestForm extends React.Component {
       taskRequest.address = this.state.form.address;
       taskRequest.user_id = this.props.currentUser.id;
       taskRequest.form2 = null;
-      console.log(taskRequest);
+      // console.log(taskRequest);
       // taskRequest.task_id = this.props.params.taskId;
       this.props.createTaskRequest(taskRequest);
       hashHistory.push("/")
@@ -217,7 +217,7 @@ class TaskRequestForm extends React.Component {
           </ul>
         </nav>
         <div className="booking-form">
-          {this.missingFields}
+          <p className="missing-fields">{this.missingFields}</p>
           {stage}
         </div>
       </section>

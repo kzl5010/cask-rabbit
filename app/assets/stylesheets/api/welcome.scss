@@ -19,6 +19,12 @@
   margin-left: 20px;
 }
 
+button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 .make_tr {
     margin-left: 20px;
     transition: all 0.3s ease 0s;
@@ -79,5 +85,5 @@
 }
 
 .num-icon-content {
-  font-size: 18px; 
+  font-size: 18px;
 }
