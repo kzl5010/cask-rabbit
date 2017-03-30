@@ -33,11 +33,30 @@
   margin-bottom: 5px;
 }
 
-.task-title {
-  color:black;
-}
+// .task-title {
+//   color:black;
+// }
 
 .tasks-index {
   width: 750px;
   color: black;
+}
+
+.task-description {
+  padding-top:5px;
+  padding-bottom:5px;
+  color: black;
+  width: 100px;
+  height: auto;
+  font-size: 22px;
+  margin-top: 55%;
+  background: white;
+}
+
+.task-description:hover {
+  color:green;
+}
+
+h3.task-title:hover {
+  color:green; 
 }

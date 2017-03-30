@@ -5,6 +5,10 @@ import { Link, hashHistory, withRouter } from 'react-router';
 class TaskItem extends React.Component {
   constructor(props){
     super(props);
+    this.style = {
+      backgroundSize: 'cover',
+      backgroundImage: 'url(' + this.props.task.imageurl + ')'
+    };
   }
 
   render() {
@@ -12,12 +16,13 @@ class TaskItem extends React.Component {
       <Link to={`/tasks/${this.props.task.id}/task_requests`} className="task-item" key={this.props.task.id}>
       {// photo here
       }
-        <div className="task-profile">
-          <img src={this.props.task.imageurl} alt="Task Image" className="task-image"/>
+        <div className="task-profile" style={this.style}>
+          { //<img src={this.props.task.imageurl} alt="Task Image" className="task-image"/>
+        }
           <h3 className="task-title">{this.props.task.title}</h3>
-          <br/>
+          <p className="task-description">
           {this.props.task.description}
-          <br/>
+          </p>
 {/*          <Link to={ // `/tasks/${this.props.task.id}/task_requests`
 }>
             <button className="task-request-button">

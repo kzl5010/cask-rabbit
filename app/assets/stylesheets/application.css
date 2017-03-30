@@ -33,7 +33,7 @@ span, article, footer, time, small {
 }
 */
 .taskRequest-profile h4 {
-  padding-left: 0px;   
+  padding-left: 0px;
 }
 
 li {
@@ -153,6 +153,10 @@ h3 {
 
 .greeting h3 {
   color: black;
+}
+
+h3.task-title {
+  color: white;
 }
 
 
