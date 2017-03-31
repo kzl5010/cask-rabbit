@@ -26,11 +26,16 @@
 
 .tasker-profile {
   // margin-top: 30px;
+  background-color: white;
   box-shadow: 2px 2px 2px 2px rgba(150,58,59,0.15);
   margin-bottom: 30px;
   font-family: 'Josefin Sans', sans-serif;
   margin-left: 30px;
   height: 220px;
+}
+
+.tasker-profile:nth-child(2) {
+  margin-top: 10px;
 }
 
 ul.tasker-index-list {
@@ -53,7 +58,7 @@ ul.tasker-index-list {
   font-size: 1.25rem;
   border: none;
   transition: all 0.3s ease 0s;
-  margin-top: 36px;
+  margin-top: 0px;
 }
 
 .greeting-group .tasker-thumb {
@@ -79,4 +84,17 @@ ul.tasker-index-list {
   float: left;
   color: #1da3bf;
   text-align: center;
+}
+
+.tasker-detail-1 {
+  margin-top: 0px;
+  margin-bottom: 7.5px;
+  font-size: 20px;
+  color: green; 
+}
+
+.tasker-detail {
+  margin-bottom: 7.5px;
+  margin-top: 7.5px;
+  font-size: 20px;
 }

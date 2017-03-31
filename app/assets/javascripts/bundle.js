@@ -44992,12 +44992,12 @@
 	    key: 'handleClick',
 	    value: function handleClick(e) {
 	      e.preventDefault();
-	      this.props.updateTasker(this.props.tasker.id);
-	      this.props.nextStage(e);
+	      this.props.updateTasker(this.props.tasker.id, e);
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      console.log(this.props.updateTasker);
 	      if (this.props.updateTasker === undefined) {
 	        return _react2.default.createElement(
 	          'li',
@@ -45005,13 +45005,26 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'tasker-profile' },
-	            this.props.tasker.name,
-	            _react2.default.createElement('br', null),
-	            this.props.tasker.email,
-	            _react2.default.createElement('br', null),
-	            this.props.tasker.zip_code,
-	            _react2.default.createElement('br', null),
-	            this.props.tasker.price
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'tasker-detail' },
+	              this.props.tasker.name
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'tasker-detail' },
+	              this.props.tasker.email
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'tasker-detail' },
+	              this.props.tasker.zip_code
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              { className: 'tasker-detail' },
+	              this.props.tasker.price
+	            )
 	          )
 	        );
 	      }
@@ -45023,29 +45036,36 @@
 	          { className: 'tasker-profile' },
 	          _react2.default.createElement('img', { src: this.props.tasker.imageurl, alt: 'Tasker Image', className: 'tasker-image' }),
 	          _react2.default.createElement('br', null),
-	          'Name: ',
 	          _react2.default.createElement(
-	            'strong',
-	            null,
+	            'p',
+	            { className: 'tasker-detail-1' },
+	            'Name: ',
 	            this.props.tasker.name
 	          ),
-	          _react2.default.createElement('br', null),
-	          'E-mail: ',
 	          _react2.default.createElement(
-	            'strong',
-	            null,
+	            'p',
+	            { className: 'tasker-detail' },
+	            'E-mail: ',
 	            this.props.tasker.email
 	          ),
-	          _react2.default.createElement('br', null),
-	          'Hourly Rate: $',
-	          this.props.tasker.price,
-	          _react2.default.createElement('br', null),
-	          'Price: $',
-	          this.props.hours * this.props.tasker.price,
-	          _react2.default.createElement('br', null),
-	          'Zip Code: ',
-	          this.props.tasker.zip_code,
-	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'tasker-detail' },
+	            'Hourly Rate: $',
+	            this.props.tasker.price
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'tasker-detail' },
+	            'Cost: $',
+	            this.props.hours * this.props.tasker.price
+	          ),
+	          _react2.default.createElement(
+	            'p',
+	            { className: 'tasker-detail' },
+	            'Zip Code: ',
+	            this.props.tasker.zip_code
+	          ),
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'tasker-button', onClick: this.handleClick },
@@ -62917,7 +62937,7 @@
 	            null,
 	            _react2.default.createElement(
 	              'h4',
-	              null,
+	              { className: 'tr-tasker-name' },
 	              this.props.taskRequest.tasker,
 	              ' '
 	            )
@@ -66360,9 +66380,14 @@
 	    }
 	  }, {
 	    key: 'updateTasker',
-	    value: function updateTasker(tasker_id) {
-	      this.setState({ tasker_id: tasker_id });
-	      this.props.updateForm(this.state);
+	    value: function updateTasker(tasker_id, e) {
+	      var that = this;
+	      this.setState({ tasker_id: tasker_id }, function () {
+	        that.handleSubmit(e);
+	        // that.props.updateForm(that.state);
+	      });
+	
+	      // setTimeout(this.props.nextStage, 1000, e);
 	    }
 	  }, {
 	    key: 'nextForm',
@@ -66764,13 +66789,6 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'user-info' },
-	            _react2.default.createElement(
-	              'p',
-	              { className: 'account-info' },
-	              ' Email : \xA0 \xA0 ',
-	              this.state.email,
-	              '  '
-	            ),
 	            _react2.default.createElement(
 	              'ul',
 	              { className: 'user-inputs' },

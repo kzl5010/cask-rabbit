@@ -38,9 +38,14 @@ class SecondForm extends React.Component {
     this.props.updateForm(this.state);
   }
 
-  updateTasker(tasker_id) {
-    this.setState({tasker_id: tasker_id});
-    this.props.updateForm(this.state);
+  updateTasker(tasker_id, e) {
+    let that = this;
+    this.setState({tasker_id: tasker_id}, function(){
+      that.handleSubmit(e);
+      // that.props.updateForm(that.state);
+    });
+
+    // setTimeout(this.props.nextStage, 1000, e);
   }
 
   nextForm(e) {

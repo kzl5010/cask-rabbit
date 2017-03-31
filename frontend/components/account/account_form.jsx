@@ -66,7 +66,8 @@ class AccountForm extends React.Component {
         }
 
           <div className="user-info">
-            <p className="account-info"> Email : &nbsp; &nbsp; {this.state.email}  </p>
+            {//<p className="account-info"> Email : &nbsp; &nbsp; {this.state.email}  </p>
+          }
             <ul className="user-inputs">
               <li className="user-info-item">
               </li>

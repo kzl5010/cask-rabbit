@@ -18,7 +18,7 @@ class TaskRequestItem extends React.Component {
         <div className="taskRequest-profile">
           <img className="tasker-thumb" src={this.props.taskRequest.tasker_imageurl} alt="Tasker Image"/>
           <ul className="taskRequest-details">
-          <li><h4>{this.props.taskRequest.tasker} </h4></li>
+          <li><h4 className="tr-tasker-name">{this.props.taskRequest.tasker} </h4></li>
           <li>
           Email : {this.props.taskRequest.tasker_email}
           </li>
