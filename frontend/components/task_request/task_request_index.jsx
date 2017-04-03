@@ -11,6 +11,10 @@ class TaskRequestIndex extends React.Component {
     this.props.fetchTaskRequests();
   }
 
+  componentWillMount() {
+    this.props.fetchTaskRequests();
+  }
+
   render() {
     if (this.props.taskRequests === undefined) {
       return null;
