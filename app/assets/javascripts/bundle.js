@@ -63301,11 +63301,6 @@
 	            _react2.default.createElement(
 	              'h3',
 	              null,
-	              ' What do you need help with? '
-	            ),
-	            _react2.default.createElement(
-	              'h4',
-	              null,
 	              'How to get Started'
 	            ),
 	            _react2.default.createElement(
@@ -63329,7 +63324,7 @@
 	                  { className: 'content' },
 	                  _react2.default.createElement(
 	                    'h3',
-	                    null,
+	                    { className: 'header-i' },
 	                    'Pick a Task'
 	                  ),
 	                  _react2.default.createElement(
@@ -63352,7 +63347,7 @@
 	                  { className: 'content' },
 	                  _react2.default.createElement(
 	                    'h3',
-	                    null,
+	                    { className: 'header-i' },
 	                    'Pick a Tasker'
 	                  ),
 	                  _react2.default.createElement(
@@ -63375,7 +63370,7 @@
 	                  { className: 'content' },
 	                  _react2.default.createElement(
 	                    'h3',
-	                    null,
+	                    { className: 'header-i' },
 	                    'Get it Done'
 	                  ),
 	                  _react2.default.createElement(
