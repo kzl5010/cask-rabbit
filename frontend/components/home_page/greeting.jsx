@@ -130,18 +130,18 @@ class Greeting extends React.Component {
 
 
     const unloggedGreeting = (
-      <section className="unlogged-greeting">
-      <Slider className="carousel-container"{...styles}>
-      <img src={carouselOne}/>
-      <img src={carouselTwo}/>
-      <img src={carouselThree}/>
-      <img src={carouselFour}/>
-      </Slider>
-      <div className="carousel-text">
-      <h1>Book an exceptional tutor now!</h1>
-      <button className="guest-login" onClick={this.loginGuest}>{"Explore as Guest"}</button>
+
+    <div className="splash-div">
+      <div className="background-img">
+      <div className="splash-welcome-container">
+        <div className="carousel-text">
+          <h1>Find a tutor <br/> Learn at your pace</h1>
+          <button className="guest-login" onClick={this.loginGuest}>{"Explore as Guest"}</button>
+        </div>
       </div>
-      </section>
+    </div>
+    </div>
+
     );
     // if (this.user) {
     //   return personalGreeting;

@@ -10,7 +10,8 @@ const App = ({ children }) => (
       <HeaderContainer />
     </header>
     {children}
-    <Footer />
+    {//<Footer />
+    }
   </div>
 );
 
