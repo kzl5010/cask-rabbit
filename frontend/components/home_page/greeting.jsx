@@ -92,30 +92,31 @@ class Greeting extends React.Component {
         <TaskRequestIndexContainer />
         </hgroup>
         <div className="welcome-instructions">
-        <h3> What do you need help with? </h3>
+        {//<h3> What do you need help with? </h3> TODO add searchbar here
+        }
         { //Add a task_requests index here
         }
-        <h4>How to get Started</h4>
+        <h3>How to get Started</h3>
         <p className="num-icon-content">Taskers love helping</p>
         <ul>
         <li>
         <div className='number-icon'>1</div>
         <div className='content'>
-        <h3>Pick a Task</h3>
+        <h3 className="header-i">Pick a Task</h3>
         <p className="num-icon-content">Choose a task from a list of available jobs</p>
         </div>
         </li>
         <li>
         <div className='number-icon'>2</div>
         <div className='content'>
-        <h3>Pick a Tasker</h3>
+        <h3 className="header-i">Pick a Tasker</h3>
         <p className="num-icon-content">Select a Tasker that suits your unique needs</p>
         </div>
         </li>
         <li>
         <div className='number-icon'>3</div>
         <div className='content'>
-        <h3>Get it Done</h3>
+        <h3 className="header-i">Get it Done</h3>
         <p className="num-icon-content">Your Tasker puts in the work and ideally gets paid™</p>
         </div>
         </li>
