@@ -70190,6 +70190,12 @@
 	
 	var _reactRouter = __webpack_require__(225);
 	
+	var _login_modal_container = __webpack_require__(828);
+	
+	var _login_modal_container2 = _interopRequireDefault(_login_modal_container);
+	
+	var _reactBootstrap = __webpack_require__(573);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -70197,6 +70203,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import SignupModalContainer from './signup_modal_container';
+	
 	
 	var Header = function (_React$Component) {
 	  _inherits(Header, _React$Component);
@@ -70263,11 +70271,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            { className: 'header-button' },
-	            _react2.default.createElement(
-	              _reactRouter.Link,
-	              { to: '/login' },
-	              'Log In'
-	            )
+	            _react2.default.createElement(_login_modal_container2.default, null)
 	          ),
 	          _react2.default.createElement(
 	            'button',
@@ -93325,6 +93329,237 @@
 	exports.bootstrapUtils = _bootstrapUtils;
 	exports.createChainedFunction = _createChainedFunction3['default'];
 	exports.ValidComponentChildren = _ValidComponentChildren3['default'];
+
+/***/ }),
+/* 828 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(185);
+	
+	var _session_actions = __webpack_require__(287);
+	
+	var _login_modal = __webpack_require__(831);
+	
+	var _login_modal2 = _interopRequireDefault(_login_modal);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(_ref, ownProps) {
+	  var session = _ref.session;
+	  return {
+	    currentUser: session.currentUser,
+	    errors: session.errors
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    login: function login(user) {
+	      return dispatch((0, _session_actions.login)(user));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_login_modal2.default);
+
+/***/ }),
+/* 829 */,
+/* 830 */,
+/* 831 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactBootstrap = __webpack_require__(573);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var LoginModal = function (_React$Component) {
+	  _inherits(LoginModal, _React$Component);
+	
+	  function LoginModal(props) {
+	    _classCallCheck(this, LoginModal);
+	
+	    var _this = _possibleConstructorReturn(this, (LoginModal.__proto__ || Object.getPrototypeOf(LoginModal)).call(this, props));
+	
+	    _this.state = { email: "", password: "", showModal: false };
+	    _this.handleSubmit = _this.handleSubmit.bind(_this);
+	    _this.update = _this.update.bind(_this);
+	    _this.open = _this.open.bind(_this);
+	    _this.close = _this.close.bind(_this);
+	    _this.headertype = _this.props.headertype || "header-link";
+	    return _this;
+	  }
+	
+	  _createClass(LoginModal, [{
+	    key: 'open',
+	    value: function open() {
+	      this.setState({ showModal: true });
+	    }
+	  }, {
+	    key: 'close',
+	    value: function close() {
+	      this.setState({ showModal: false });
+	    }
+	  }, {
+	    key: 'handleSubmit',
+	    value: function handleSubmit(e) {
+	      e.preventDefault();
+	      var user = this.state;
+	      this.props.login({ user: user });
+	    }
+	  }, {
+	    key: 'renderErrors',
+	    value: function renderErrors() {
+	      return _react2.default.createElement(
+	        'ul',
+	        { className: 'errors' },
+	        this.props.errors.map(function (error, i) {
+	          return _react2.default.createElement(
+	            'li',
+	            { key: 'error-' + i },
+	            error
+	          );
+	        })
+	      );
+	    }
+	  }, {
+	    key: 'update',
+	    value: function update(field) {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        return _this2.setState(_defineProperty({}, field, e.target.value));
+	      };
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var tooltip = _react2.default.createElement(
+	        _reactBootstrap.Tooltip,
+	        { id: 'modal-tooltip' },
+	        'wow.'
+	      );
+	      return _react2.default.createElement(
+	        'span',
+	        { className: 'login1-form-container' },
+	        _react2.default.createElement(
+	          _reactBootstrap.Button,
+	          { className: 'pull-right',
+	            bsStyle: 'link',
+	            bsSize: 'medium',
+	            onClick: this.open
+	          },
+	          ' Login'
+	        ),
+	        _react2.default.createElement(
+	          _reactBootstrap.Modal,
+	          { show: this.state.showModal, onHide: this.close },
+	          _react2.default.createElement(
+	            _reactBootstrap.Modal.Header,
+	            { closeButton: true },
+	            _react2.default.createElement(
+	              _reactBootstrap.Col,
+	              { md: 12 },
+	              _react2.default.createElement(_reactBootstrap.Image, { src: 'https://res.cloudinary.com/dsaxhw9ii/image/upload/v1495010116/Logomakr_0lSyvU_j6ldwz.png', alt: 'logo', className: 'logo-img' })
+	            )
+	          ),
+	          _react2.default.createElement(
+	            _reactBootstrap.Modal.Body,
+	            null,
+	            _react2.default.createElement(
+	              'h1',
+	              { className: 'welcome-screen-text text-center' },
+	              ' Get your racquet fast  '
+	            ),
+	            _react2.default.createElement(
+	              'form',
+	              { onSubmit: this.handleSubmit, className: 'form-horizontal' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'login-form' },
+	                this.renderErrors(),
+	                _react2.default.createElement(
+	                  _reactBootstrap.InputGroup,
+	                  null,
+	                  _react2.default.createElement(
+	                    _reactBootstrap.InputGroup.Addon,
+	                    null,
+	                    _react2.default.createElement('i', { className: 'fa fa-envelope fa-fw fa-fh', 'aria-hidden': 'true' })
+	                  ),
+	                  _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text',
+	                    value: this.state.email,
+	                    onChange: this.update("email"),
+	                    className: 'login-input', placeholder: 'Email' })
+	                ),
+	                _react2.default.createElement(
+	                  _reactBootstrap.InputGroup,
+	                  null,
+	                  _react2.default.createElement(
+	                    _reactBootstrap.InputGroup.Addon,
+	                    null,
+	                    _react2.default.createElement('i', { className: 'fa fa-lock fa-fw fa-fh', 'aria-hidden': 'true' })
+	                  ),
+	                  _react2.default.createElement(_reactBootstrap.FormControl, { type: 'password',
+	                    value: this.state.password,
+	                    onChange: this.update("password"),
+	                    className: 'login-input', placeholder: 'Password' })
+	                ),
+	                _react2.default.createElement(
+	                  'div',
+	                  { className: 'text-center' },
+	                  _react2.default.createElement(
+	                    _reactBootstrap.Button,
+	                    { type: 'submit', bsSize: 'medium' },
+	                    'Sign in'
+	                  )
+	                )
+	              )
+	            )
+	          ),
+	          _react2.default.createElement(_reactBootstrap.Clearfix, { visibleSmBlock: true }),
+	          _react2.default.createElement(
+	            _reactBootstrap.Modal.Footer,
+	            null,
+	            _react2.default.createElement(
+	              _reactBootstrap.Button,
+	              { onClick: this.close, bsSize: 'medium' },
+	              'Close'
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+	
+	  return LoginModal;
+	}(_react2.default.Component);
+	
+	exports.default = LoginModal;
 
 /***/ })
 /******/ ]);

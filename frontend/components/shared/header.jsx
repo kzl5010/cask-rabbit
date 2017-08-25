@@ -1,5 +1,8 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
+import LoginModalContainer from './login_modal_container';
+// import SignupModalContainer from './signup_modal_container';
+import { Button, Col, Row } from 'react-bootstrap';
 
 class Header extends React.Component {
   constructor(props){
@@ -40,8 +43,7 @@ class Header extends React.Component {
     }else {
       Nav = (
         <ul className="header-list">
-          <button className="header-button"><Link to="/login">Log In</Link>
-          </button>
+          <button className="header-button"><LoginModalContainer/></button>
           <button className="header-button"><Link to="/signup">Sign Up</Link>
           </button>
           <button className="header-button" onClick={this.loginGuest}>Guest</button>
