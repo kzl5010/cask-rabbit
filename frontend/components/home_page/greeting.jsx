@@ -2,17 +2,13 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import TaskIndexContainer from '../tasks/task_index_container';
 import TaskRequestIndexContainer from '../task_request/task_request_index_container';
-import Slider from 'react-slick';
-import { login } from '../../actions/session_actions';
+import { Modal, Button, Grid, Tooltip, Col, FormGroup, FormControl, Clearfix, Row,
+  InputGroup, ButtonGroup, Jumbotron, PageHeader, Image } from 'react-bootstrap';
 
 class Greeting extends React.Component {
   constructor(props){
     super(props);
-    // console.log(this.props.currentUser);
     console.log(this.props);
-    // this.state = {
-    //   user: this.props.currentUser
-    // }
     this.user = this.props.currentUser;
     this.loginGuest = this.loginGuest.bind(this);
     this.redirectToTaskRequest = this.redirectToTaskRequest.bind(this);
@@ -22,27 +18,6 @@ class Greeting extends React.Component {
     e.preventDefault()
     this.props.router.push("/task_request");
   }
-  // componentWillReceiveProps(nextProps, nextState) {
-  //   // debugger;
-  //   // console.log(nextProps);
-  //   // console.log(nextProps);
-  //   // console.log(this.state.user);
-  //   if (!this.state.user) {
-  //     console.log("ayy11");
-  //     this.setState( {user: nextProps.user} )
-  //     console.log(this.state.user);
-  //     return true;
-  //   }
-  //   // if (this.state.user && nextProps.user !== this.state.user) {
-  //   //   console.log(nextProps);
-  //   //   console.log(nextState);
-  //   //   console.log("ayy");
-  //   //   this.setState( {user: null} )
-  //   //   console.log(this.state.user);
-  //   //   return true;
-  //   // }
-  //   return true;
-  // }
 
   loginGuest(e) {
     e.preventDefault();
@@ -132,7 +107,7 @@ class Greeting extends React.Component {
 
     const unloggedGreeting = (
 
-    <div className="splash-div">
+    <Jumbotron className="jumbo-greeting">
       <div className="background-img">
       <div className="splash-welcome-container">
         <div className="carousel-text">
@@ -141,7 +116,7 @@ class Greeting extends React.Component {
         </div>
       </div>
     </div>
-    </div>
+    </Jumbotron>
 
     );
     // if (this.user) {
