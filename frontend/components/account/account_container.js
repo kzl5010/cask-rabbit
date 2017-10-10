@@ -11,6 +11,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   update: user => dispatch(update(user))
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountForm);
