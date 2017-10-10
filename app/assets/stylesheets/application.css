@@ -126,8 +126,8 @@ h3 {
 
 .jumbo-greeting {
     height: 94vh;
-    background-image: url(https://res.cloudinary.com/dsaxhw9ii/image/upload/v1495416822/christopher-burns-2003211_pikrdl.jpg);
-    background-size: cover;
+    /*background-image: url(https://res.cloudinary.com/dsaxhw9ii/image/upload/v1495416822/christopher-burns-2003211_pikrdl.jpg);*/
+    /*background-size: cover;*/
     padding-top: 0px;
     margin-bottom: 0px;
     min-height: 480px;
