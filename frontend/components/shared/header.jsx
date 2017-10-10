@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link } from 'react-router';
 import LoginModalContainer from './login_modal_container';
-// import SignupModalContainer from './signup_modal_container';
-import { Button, Col, Row } from 'react-bootstrap';
 
 class Header extends React.Component {
   constructor(props){
@@ -32,12 +30,7 @@ class Header extends React.Component {
           </button>
           <button className="header-button"><Link to="/account">Account</Link>
           </button>
-
           <button className="header-button" onClick={this.handleClick}>Log Out</button>
-        {//    <button className="header-button" onClick={logout}>Log Out</button>
-//        <li className="header-list-item"><Link to="/taskers">Taskers</Link></li>
-        }
-
         </ul>
       );
     }else {
@@ -59,11 +52,6 @@ class Header extends React.Component {
             <Link to="/">
               <img src="https://res.cloudinary.com/dsaxhw9ii/image/upload/v1486359739/Logomakr_15Wz0G_z63cem.png" alt="logo" className="logo-img"/>
             </Link>
-{/*
-              <Link to="/">
-              <h3 className="logo-h3">Home</h3>
-            </Link>
-            */ }
           {Nav}
           </section>
         </nav>

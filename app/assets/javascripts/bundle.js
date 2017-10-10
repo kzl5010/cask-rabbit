@@ -75,9 +75,6 @@
 	  window.store = store;
 	  _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), document.getElementById("root"));
 	});
-	
-	//use react-carousel?
-	//session_api_util for user profile or whole new thing?
 
 /***/ }),
 /* 1 */
@@ -22326,7 +22323,7 @@
 	    )
 	  );
 	};
-	
+	// TODO, change this code to use lifecycle method component did mount, this is bad style
 	exports.default = Root;
 
 /***/ }),
@@ -30250,12 +30247,6 @@
 			value: function componentDidUpdate() {
 				this.redirectIfLoggedIn();
 			}
-	
-			// componentDidMount() {
-			// 	const container = document.getElementById("container");
-			// 	$(container).addClass("login-page");
-			// }
-	
 		}, {
 			key: 'redirectIfLoggedIn',
 			value: function redirectIfLoggedIn() {
@@ -30483,10 +30474,6 @@
 	
 	var _moment2 = _interopRequireDefault(_moment);
 	
-	var _tasker_index_container = __webpack_require__(409);
-	
-	var _tasker_index_container2 = _interopRequireDefault(_tasker_index_container);
-	
 	var _greeting_container = __webpack_require__(413);
 	
 	var _greeting_container2 = _interopRequireDefault(_greeting_container);
@@ -30514,10 +30501,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
-	
-	// import DatePicker from 'react-datepicker';
-	
 	
 	var TaskRequestForm = function (_React$Component) {
 	  _inherits(TaskRequestForm, _React$Component);
@@ -30529,8 +30512,6 @@
 	
 	    _this.state = {
 	      stage: 1,
-	      // task_id: this.props.params.taskId,
-	      // address: "",
 	      form: {
 	        details: null,
 	        task_id: _this.props.params.taskId,
@@ -30541,7 +30522,6 @@
 	        date: (0, _moment2.default)(),
 	        hours: 1
 	      },
-	      // details: "",
 	      errors: null
 	    };
 	
@@ -30609,7 +30589,6 @@
 	        $('#2').addClass('stage-complete');
 	        $('#3').addClass('stage-active');
 	      } else if (this.state.stage === 3) {
-	        // this.handleSubmit();
 	        var taskRequest = this.state;
 	        taskRequest.date = this.state.form2.date.toDate();
 	        taskRequest.tasker_id = this.state.form2.tasker_id;
@@ -30619,8 +30598,6 @@
 	        taskRequest.address = this.state.form.address;
 	        taskRequest.user_id = this.props.currentUser.id;
 	        taskRequest.form2 = null;
-	        // console.log(taskRequest);
-	        // taskRequest.task_id = this.props.params.taskId;
 	        this.props.createTaskRequest(taskRequest);
 	        _reactRouter.hashHistory.push("/");
 	      }
@@ -30668,7 +30645,6 @@
 	  }, {
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
-	      // e.preventDefault();
 	      var taskRequest = this.state;
 	      taskRequest.date = taskRequest.form2.date.toDate();
 	      taskRequest.tasker_id = this.state.form2.tasker_id;
@@ -30677,15 +30653,7 @@
 	      taskRequest.task_id = this.state.form.task_id;
 	      taskRequest.address = this.state.form.address;
 	      taskRequest.user_id = this.props.currentUser.id;
-	      // taskRequest.task_id = this.props.params.taskId;
 	      this.props.createTaskRequest(taskRequest);
-	      // this.setState({
-	      //   address: "",
-	      //   tasker_id: "",
-	      //   date: moment(),
-	      //   details: "",
-	      //   hours: 1
-	      // });
 	    }
 	  }, {
 	    key: 'renderErrors',
@@ -30801,59 +30769,6 @@
 	          stage
 	        )
 	      );
-	      // return (
-	      //     <section className="taskRequest-container">
-	      //       <form className="taskRequest-form" onSubmit={this.handleSubmit}>
-	      //         <br/>
-	      //         <br/>
-	      //         <h4>Task Request</h4>
-	      //         <div id="alert">{  this.renderErrors()   } </div>
-	      //         <ul className="taskRequest-entries">
-	      //           <li>Select Task:  &nbsp; &nbsp;
-	      //             <select value={this.state.task_id} onChange={this.handleChange("task_id")}>
-	      //             { taskOptions
-	      //             }
-	      //             </select>
-	      //           </li>
-	      //           <br/>
-	      //           <li> Select Date :
-	      //             <DatePicker selected={this.state.date} onChange={this.changeDate} className="none"/>
-	      //           </li>
-	      //           <br/>
-	      //           <br/>
-	      //           <li>
-	      //             <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
-	      //           </li>
-	      //         <br/>
-	      //         <li>
-	      //           <label>Details for Tasker
-	      //           <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
-	      //           onChange={this.handleChange("details")} className="taskRequest-form-text" />
-	      //           </label>
-	      //         </li>
-	      //         <br/>
-	      //           <li>
-	      //             <label>Hours of work for Tasker &nbsp;&nbsp;
-	      //             <input type="number" value={this.state.hours} placeholder="1"
-	      //             onChange={this.handleChange("hours")} className="taskRequest-form-number"
-	      //             min="1.0" max="10" step="0.5"/>
-	      //             </label>
-	      //           </li>
-	      //         <br/>
-	      //           <li> Tasker :  &nbsp;
-	      //             <select value={this.state.tasker_id} onChange={this.handleChange("tasker_id")}>
-	      //             {taskerOptions
-	      //             }
-	      //             </select>
-	      //           </li>
-	      //         </ul>
-	      //         <TaskerIndexContainer updateTasker={this.updateTasker} hours={this.state.hours}/>
-	      //         <button className="taskRequest-button" type="submit"> <div>Confirm Request?</div>
-	      //         </button>
-	      //       </form>
-	      //     </section>
-	      //
-	      // );
 	    }
 	  }]);
 	
@@ -46764,29 +46679,13 @@
 	  return TaskerIndex;
 	}(_react2.default.Component);
 	
-	;
-	//
-	// const TaskerIndex = ({ taskers }) => {
-	//   if (taskers) {
-	//     return (
-	//           <section className="taskers-index">
-	//             <ul className="tasker-index-list">
-	//               {taskers.map(tasker => (
-	//                 <TaskerItem key={tasker.id} tasker={tasker}/>
-	//               ))}
-	//             </ul>
-	//           </section>
-	//         )
-	//   }
-	// }
-	
 	exports.default = TaskerIndex;
 
 /***/ }),
 /* 411 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -46798,8 +46697,6 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(225);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -46808,7 +46705,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	//
 	var TaskerItem = function (_React$Component) {
 	  _inherits(TaskerItem, _React$Component);
 	
@@ -46822,87 +46718,87 @@
 	  }
 	
 	  _createClass(TaskerItem, [{
-	    key: 'handleClick',
+	    key: "handleClick",
 	    value: function handleClick(e) {
 	      e.preventDefault();
 	      this.props.updateTasker(this.props.tasker.id, e);
 	    }
 	  }, {
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      console.log(this.props.updateTasker);
 	      if (this.props.updateTasker === undefined) {
 	        return _react2.default.createElement(
-	          'li',
-	          { className: 'tasker-item', key: this.props.tasker.id },
+	          "li",
+	          { className: "tasker-item", key: this.props.tasker.id },
 	          _react2.default.createElement(
-	            'div',
-	            { className: 'tasker-profile' },
+	            "div",
+	            { className: "tasker-profile" },
 	            _react2.default.createElement(
-	              'p',
-	              { className: 'tasker-detail' },
+	              "p",
+	              { className: "tasker-detail" },
 	              this.props.tasker.name
 	            ),
 	            _react2.default.createElement(
-	              'p',
-	              { className: 'tasker-detail' },
+	              "p",
+	              { className: "tasker-detail" },
 	              this.props.tasker.email
 	            ),
 	            _react2.default.createElement(
-	              'p',
-	              { className: 'tasker-detail' },
+	              "p",
+	              { className: "tasker-detail" },
 	              this.props.tasker.zip_code
 	            ),
 	            _react2.default.createElement(
-	              'p',
-	              { className: 'tasker-detail' },
+	              "p",
+	              { className: "tasker-detail" },
 	              this.props.tasker.price
 	            )
 	          )
 	        );
 	      }
 	      return _react2.default.createElement(
-	        'li',
-	        { className: 'tasker-item', key: this.props.tasker.id },
+	        "li",
+	        { className: "tasker-item", key: this.props.tasker.id },
 	        _react2.default.createElement(
-	          'div',
-	          { className: 'tasker-profile' },
-	          _react2.default.createElement('img', { src: this.props.tasker.imageurl, alt: 'Tasker Image', className: 'tasker-image' }),
-	          _react2.default.createElement('br', null),
+	          "div",
+	          { className: "tasker-profile" },
+	          _react2.default.createElement("img", { src: this.props.tasker.imageurl, alt: "Tasker Image", className: "tasker-image" }),
+	          _react2.default.createElement("br", null),
 	          _react2.default.createElement(
-	            'p',
-	            { className: 'tasker-detail-1' },
-	            'Name: ',
+	            "p",
+	            { className: "tasker-detail-1" },
+	            "Name: ",
 	            this.props.tasker.name
 	          ),
 	          _react2.default.createElement(
-	            'p',
-	            { className: 'tasker-detail' },
-	            'E-mail: ',
+	            "p",
+	            { className: "tasker-detail" },
+	            "E-mail: ",
 	            this.props.tasker.email
 	          ),
 	          _react2.default.createElement(
-	            'p',
-	            { className: 'tasker-detail' },
-	            'Hourly Rate: $',
+	            "p",
+	            { className: "tasker-detail" },
+	            "Hourly Rate: $",
 	            this.props.tasker.price
 	          ),
 	          _react2.default.createElement(
-	            'p',
-	            { className: 'tasker-detail' },
-	            'Cost: $',
+	            "p",
+	            { className: "tasker-detail" },
+	            "Cost: $",
 	            this.props.hours * this.props.tasker.price
 	          ),
 	          _react2.default.createElement(
-	            'p',
-	            { className: 'tasker-detail' },
-	            'Zip Code: ',
+	            "p",
+	            { className: "tasker-detail" },
+	            "Zip Code: ",
 	            this.props.tasker.zip_code
 	          ),
 	          _react2.default.createElement(
-	            'button',
-	            { className: 'tasker-button', onClick: this.handleClick },
-	            'Select Tasker'
+	            "button",
+	            { className: "tasker-button", onClick: this.handleClick },
+	            "Select Tasker"
 	          )
 	        )
 	      );
@@ -46911,26 +46807,6 @@
 	
 	  return TaskerItem;
 	}(_react2.default.Component);
-	
-	// const TaskerItem = ({tasker}) => {
-	//   if (tasker) {
-	//     return (
-	//       <li className="tasker-item" key={tasker.id}>
-	//       {// photo here
-	//       }
-	//         <div className="tasker-profile">
-	//           {tasker.name}
-	//           <br/>
-	//           {tasker.email}
-	//           <br/>
-	//           {tasker.zip_code}
-	//           <br/>
-	//         </div>
-	//       </li>
-	//     )
-	//   }
-	//
-	// }
 	
 	exports.default = TaskerItem;
 
@@ -64126,11 +64002,6 @@
 	      e.preventDefault();
 	      var guest = { email: "fakeaccount@gmail.com", password: "password" };
 	      this.props.login({ user: guest });
-	      // this.props.login({guest});
-	      // this.props.login(guest);
-	      // this.setState({user: guest});
-	      // debugger;
-	      // console.log({guest});
 	    }
 	  }, {
 	    key: 'render',
@@ -64389,10 +64260,6 @@
 	
 	var _task_item2 = _interopRequireDefault(_task_item);
 	
-	var _greeting_container = __webpack_require__(413);
-	
-	var _greeting_container2 = _interopRequireDefault(_greeting_container);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64445,19 +64312,6 @@
 	
 	;
 	
-	// const TaskIndex = ({ tasks }) => {
-	//   if (tasks) {
-	//     return (
-	//         <section className="tasks-index">
-	//           <ul className="task-index-list">
-	//             {tasks.map(task => (
-	//               <TaskItem key={task.id} task={task}/>
-	//             ))}
-	//           </ul>
-	//         </section>
-	//     )
-	//   }
-	// }
 	exports.default = TaskIndex;
 
 /***/ }),
@@ -64527,28 +64381,6 @@
 	
 	  return TaskItem;
 	}(_react2.default.Component);
-	//
-	// const TaskItem = ({ task }) => {
-	//   if (task) {
-	//     return (
-	//         <li className="task-item" key={task.id}>
-	//         {// photo here
-	//         }
-	//           <div className="task-profile">
-	//             {task.title}
-	//             <br/>
-	//             {task.description}
-	//             <br/>
-	//             <Link to={`/tasks/${task.id}/task_requests`}>
-	//               <button className="task-request-button">
-	//                 <span>Request Task</span>
-	//               </button>
-	//             </Link>
-	//           </div>
-	//         </li>
-	//     )
-	//   }
-	// }
 	
 	exports.default = TaskItem;
 
@@ -64660,20 +64492,6 @@
 	}(_react2.default.Component);
 	
 	;
-	//
-	// const TaskerIndex = ({ taskers }) => {
-	//   if (taskers) {
-	//     return (
-	//           <section className="taskers-index">
-	//             <ul className="tasker-index-list">
-	//               {taskers.map(tasker => (
-	//                 <TaskerItem key={tasker.id} tasker={tasker}/>
-	//               ))}
-	//             </ul>
-	//           </section>
-	//         )
-	//   }
-	// }
 	
 	exports.default = TaskRequestIndex;
 
@@ -64681,7 +64499,7 @@
 /* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -64693,8 +64511,6 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(225);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64703,7 +64519,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	//
 	var TaskRequestItem = function (_React$Component) {
 	  _inherits(TaskRequestItem, _React$Component);
 	
@@ -64717,67 +64532,67 @@
 	  }
 	
 	  _createClass(TaskRequestItem, [{
-	    key: 'handleClick',
+	    key: "handleClick",
 	    value: function handleClick(e) {
 	      e.preventDefault();
 	      this.props.deleteTaskRequest(this.props.taskRequest.id);
 	    }
 	  }, {
-	    key: 'render',
+	    key: "render",
 	    value: function render() {
 	      return _react2.default.createElement(
-	        'div',
-	        { className: 'taskRequest-profile' },
-	        _react2.default.createElement('img', { className: 'tasker-thumb', src: this.props.taskRequest.tasker_imageurl, alt: 'Tasker Image' }),
+	        "div",
+	        { className: "taskRequest-profile" },
+	        _react2.default.createElement("img", { className: "tasker-thumb", src: this.props.taskRequest.tasker_imageurl, alt: "Tasker Image" }),
 	        _react2.default.createElement(
-	          'ul',
-	          { className: 'taskRequest-details' },
+	          "ul",
+	          { className: "taskRequest-details" },
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
 	            _react2.default.createElement(
-	              'h4',
-	              { className: 'tr-tasker-name' },
+	              "h4",
+	              { className: "tr-tasker-name" },
 	              this.props.taskRequest.tasker,
-	              ' '
+	              " "
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Email : ',
+	            "Email : ",
 	            this.props.taskRequest.tasker_email
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Task : ',
+	            "Task : ",
 	            this.props.taskRequest.task
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Date : ',
+	            "Date : ",
 	            this.props.taskRequest.day
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Price : $ ',
+	            "Price : $ ",
 	            this.props.taskRequest.rate * this.props.taskRequest.hours
 	          ),
 	          _react2.default.createElement(
-	            'li',
+	            "li",
 	            null,
-	            'Hours : ',
+	            "Hours : ",
 	            this.props.taskRequest.hours
 	          ),
-	          _react2.default.createElement('li', null)
+	          _react2.default.createElement("li", null)
 	        ),
 	        _react2.default.createElement(
-	          'button',
-	          { className: 'task-request-button', onClick: this.handleClick },
-	          'Cancel Task'
+	          "button",
+	          { className: "task-request-button", onClick: this.handleClick },
+	          "Cancel Task"
 	        )
 	      );
 	    }
@@ -84914,12 +84729,6 @@
 	  }
 	
 	  _createClass(FirstForm, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      // this.props.fetchTasks();
-	      // this.props.fetchTaskers();
-	    }
-	  }, {
 	    key: 'handleChange',
 	    value: function handleChange(field) {
 	      var _this2 = this;
@@ -84972,11 +84781,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      // if (!this.props.currentUser) {
-	      //   return (
-	      //     <GreetingContainer/>
-	      //   );
-	      // }
 	
 	      var AutocompleteItem = function AutocompleteItem(_ref) {
 	        var suggestion = _ref.suggestion;
@@ -84999,11 +84803,6 @@
 	          );
 	        });
 	      }
-	      // if (this.props.taskers.taskers) {
-	      //   taskerOptions = this.props.taskers.taskers.map((tasker, i)=>(
-	      //     <option key={i} value={tasker.id}>{tasker.name}</option>
-	      //   ));
-	      // }
 	      return _react2.default.createElement(
 	        'form',
 	        { className: 'first-form', onSubmit: this.handleSubmit },
@@ -89501,10 +89300,6 @@
 	
 	var _tasker_index_container2 = _interopRequireDefault(_tasker_index_container);
 	
-	var _greeting_container = __webpack_require__(413);
-	
-	var _greeting_container2 = _interopRequireDefault(_greeting_container);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -89529,7 +89324,6 @@
 	      tasker_id: "1",
 	      date: (0, _moment2.default)(),
 	      hours: 1
-	      // errors: null
 	    };
 	
 	    _this.onChange = function (address) {
@@ -89542,12 +89336,6 @@
 	  }
 	
 	  _createClass(SecondForm, [{
-	    key: 'componentDidMount',
-	    value: function componentDidMount() {
-	      // this.props.fetchTasks();
-	      // this.props.fetchTaskers();
-	    }
-	  }, {
 	    key: 'handleChange',
 	    value: function handleChange(field) {
 	      var _this2 = this;
@@ -89569,10 +89357,7 @@
 	      var that = this;
 	      this.setState({ tasker_id: tasker_id }, function () {
 	        that.handleSubmit(e);
-	        // that.props.updateForm(that.state);
 	      });
-	
-	      // setTimeout(this.props.nextStage, 1000, e);
 	    }
 	  }, {
 	    key: 'nextForm',
@@ -89587,42 +89372,12 @@
 	      this.props.updateForm(this.state);
 	      this.props.nextStage(e);
 	    }
-	
-	    // renderErrors() {
-	    //   console.log(this.missingFields);
-	    //   if (this.props.errors === undefined) {
-	    //     return null;
-	    //   }
-	    //   return(
-	    //     <ul className="errors">
-	    //       {this.props.errors.map((error, i) => (
-	    //         <li key={`error-${i}`}>
-	    //           {error}
-	    //         </li>
-	    //       ))}
-	    //       {this.missingFields
-	    //       }
-	    //     </ul>
-	    //   );
-	    // }
-	
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      // if (!this.props.currentUser) {
-	      //   return (
-	      //     <GreetingContainer/>
-	      //   );
-	      // }
-	
 	
 	      var taskOptions = null,
 	          taskerOptions = null;
-	      // if (this.props.tasks.tasks) {
-	      //   taskOptions = this.props.tasks.tasks.map((task, i) => (
-	      //     <option key={i} value={task.id}>{task.title}</option>
-	      //   ));
-	      // }
 	      if (this.props.taskers) {
 	        taskerOptions = this.props.taskers.map(function (tasker, i) {
 	          return _react2.default.createElement(
@@ -89714,10 +89469,6 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _moment = __webpack_require__(292);
-	
-	var _moment2 = _interopRequireDefault(_moment);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -89751,7 +89502,6 @@
 	    key: 'handleSubmit',
 	    value: function handleSubmit(e) {
 	      e.preventDefault();
-	      // this.props.updateForm(this.state);
 	      this.props.nextStage(e);
 	    }
 	  }, {
@@ -89912,7 +89662,6 @@
 	    };
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
 	    _this.handleChange = _this.handleChange.bind(_this);
-	    //set imageurl to user.imageurl || ""?
 	    return _this;
 	  }
 	
@@ -89933,7 +89682,6 @@
 	      this.props.update(user);
 	      this.state.edited = "Edit submitted";
 	      _reactRouter.hashHistory.push("/");
-	      // location.href = '/'
 	    }
 	
 	    // renderErrors() {
@@ -90176,8 +89924,6 @@
 	
 	var _login_modal_container2 = _interopRequireDefault(_login_modal_container);
 	
-	var _reactBootstrap = __webpack_require__(421);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -90185,8 +89931,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	// import SignupModalContainer from './signup_modal_container';
-	
 	
 	var Header = function (_React$Component) {
 	  _inherits(Header, _React$Component);
@@ -90523,7 +90267,7 @@
 /* 718 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -90533,47 +90277,45 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _reactRouter = __webpack_require__(225);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var Footer = function Footer() {
 	  return _react2.default.createElement(
-	    'footer',
+	    "footer",
 	    null,
 	    _react2.default.createElement(
-	      'nav',
-	      { className: 'footer-nav' },
+	      "nav",
+	      { className: "footer-nav" },
 	      _react2.default.createElement(
-	        'section',
-	        { className: 'footer-link' },
+	        "section",
+	        { className: "footer-link" },
 	        _react2.default.createElement(
-	          'h3',
-	          { className: 'footer-text' },
-	          ' Designed and built by Ken Lee '
+	          "h3",
+	          { className: "footer-text" },
+	          " Designed and built by Ken Lee "
 	        ),
 	        _react2.default.createElement(
-	          'ul',
-	          { className: 'footer-links-list' },
+	          "ul",
+	          { className: "footer-links-list" },
 	          _react2.default.createElement(
-	            'li',
-	            { className: 'footer-link-list-item' },
+	            "li",
+	            { className: "footer-link-list-item" },
 	            _react2.default.createElement(
-	              'a',
-	              { href: 'https://github.com/kzl5010/cask-rabbit' },
-	              _react2.default.createElement('img', { className: 'footer-img', src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: 'Github' })
+	              "a",
+	              { href: "https://github.com/kzl5010/cask-rabbit" },
+	              _react2.default.createElement("img", { className: "footer-img", src: "https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png", alt: "Github" })
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'li',
-	            { className: 'footer-link-list-item' },
+	            "li",
+	            { className: "footer-link-list-item" },
 	            _react2.default.createElement(
-	              'a',
-	              { href: 'https://linkedin.com/in/ken-lee-1ab289133' },
-	              _react2.default.createElement('img', { className: 'footer-img', src: 'https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/linkedin-512.png', alt: 'LinkedIn' })
+	              "a",
+	              { href: "https://linkedin.com/in/ken-lee-1ab289133" },
+	              _react2.default.createElement("img", { className: "footer-img", src: "https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/linkedin-512.png", alt: "LinkedIn" })
 	            )
 	          ),
-	          _react2.default.createElement('li', { className: 'footer-link-list-item' })
+	          _react2.default.createElement("li", { className: "footer-link-list-item" })
 	        )
 	      )
 	    )
@@ -93401,7 +93143,6 @@
 	          newState.task_requests.splice(i, 1);
 	        }
 	      }
-	      // delete newState.task_requests[j];
 	      return newState;
 	    case _task_request_actions.RECEIVE_TASK_REQUEST_ERRORS:
 	      var errors = action.errors;
@@ -93442,15 +93183,6 @@
 	      return (0, _lodash.merge)({}, state, _defineProperty({}, tasker.id, tasker));
 	    case _tasker_actions.RECEIVE_TASKERS:
 	      return action.taskers;
-	    // case REMOVE_TASKER:
-	    //   let newState = merge({}, state);
-	    //   delete newState[action.taskRequest.id];
-	    //   return newState;
-	    // case RECEIVE_TASKER_ERRORS:
-	    //   const errors = action.errors;
-	    //   return merge({}, state, {
-	    //     errors
-	    //   });
 	    default:
 	      return state;
 	  }
@@ -93485,15 +93217,6 @@
 	      return (0, _lodash.merge)({}, state, _defineProperty({}, task.id, task));
 	    case _task_actions.RECEIVE_TASKS:
 	      return action.tasks;
-	    // case REMOVE_TASKER:
-	    //   let newState = merge({}, state);
-	    //   delete newState[action.taskRequest.id];
-	    //   return newState;
-	    // case RECEIVE_TASKER_ERRORS:
-	    //   const errors = action.errors;
-	    //   return merge({}, state, {
-	    //     errors
-	    //   });
 	    default:
 	      return state;
 	  }

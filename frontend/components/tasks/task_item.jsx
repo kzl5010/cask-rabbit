@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Link, hashHistory, withRouter } from 'react-router';
+import { Link } from 'react-router';
 
 class TaskItem extends React.Component {
   constructor(props){
@@ -14,49 +14,16 @@ class TaskItem extends React.Component {
   render() {
     return (
       <Link to={`/tasks/${this.props.task.id}/task_requests`} className="task-item" key={this.props.task.id}>
-      {// photo here
-      }
         <div className="task-profile" style={this.style}>
-          { //<img src={this.props.task.imageurl} alt="Task Image" className="task-image"/>
-        }
           <h3 className="task-title">{this.props.task.title}</h3>
           <p className="task-description">
           {this.props.task.description}
           </p>
-{/*          <Link to={ // `/tasks/${this.props.task.id}/task_requests`
-}>
-            <button className="task-request-button">
-              <span>Request Task</span>
-            </button>
-          </Link>
-        */ }
         </div>
       </Link>
 
     );
   }
 }
-//
-// const TaskItem = ({ task }) => {
-//   if (task) {
-//     return (
-//         <li className="task-item" key={task.id}>
-//         {// photo here
-//         }
-//           <div className="task-profile">
-//             {task.title}
-//             <br/>
-//             {task.description}
-//             <br/>
-//             <Link to={`/tasks/${task.id}/task_requests`}>
-//               <button className="task-request-button">
-//                 <span>Request Task</span>
-//               </button>
-//             </Link>
-//           </div>
-//         </li>
-//     )
-//   }
-// }
 
 export default TaskItem;

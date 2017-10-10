@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Link, hashHistory, withRouter } from 'react-router';
-//
 class TaskerItem extends React.Component {
   constructor(props){
     super(props);
@@ -50,24 +48,5 @@ class TaskerItem extends React.Component {
   }
 }
 
-// const TaskerItem = ({tasker}) => {
-//   if (tasker) {
-//     return (
-//       <li className="tasker-item" key={tasker.id}>
-//       {// photo here
-//       }
-//         <div className="tasker-profile">
-//           {tasker.name}
-//           <br/>
-//           {tasker.email}
-//           <br/>
-//           {tasker.zip_code}
-//           <br/>
-//         </div>
-//       </li>
-//     )
-//   }
-//
-// }
 
 export default TaskerItem;

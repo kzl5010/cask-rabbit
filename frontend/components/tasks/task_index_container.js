@@ -11,6 +11,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTasks: () => dispatch(fetchTasks())
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskIndex);

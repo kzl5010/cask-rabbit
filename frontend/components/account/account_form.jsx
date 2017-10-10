@@ -18,7 +18,6 @@ class AccountForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    //set imageurl to user.imageurl || ""?
   }
 
   handleChange(field) {
@@ -31,7 +30,6 @@ class AccountForm extends React.Component {
     this.props.update(user);
     this.state.edited = "Edit submitted";
     hashHistory.push("/")
-    // location.href = '/'
   }
 
   // renderErrors() {

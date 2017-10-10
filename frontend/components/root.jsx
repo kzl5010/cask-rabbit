@@ -29,7 +29,7 @@ const Root = ({ store }) => {
     if (currentUser) {
       replace('/account');
     }
-  }
+  };
 
   const fetchTaskersOnEnter = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
@@ -38,7 +38,7 @@ const Root = ({ store }) => {
     } else {
       store.dispatch(fetchTaskers());
     }
-  }
+  };
 
   const fetchTaskRequestsOnEnter = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
@@ -77,5 +77,5 @@ const Root = ({ store }) => {
     </Provider>
   );
 };
-
+// TODO, change this code to use lifecycle method component did mount, this is bad style
 export default Root;

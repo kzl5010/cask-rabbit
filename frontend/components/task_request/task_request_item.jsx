@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Link, hashHistory, withRouter } from 'react-router';
-//
 class TaskRequestItem extends React.Component {
   constructor(props){
     super(props);
@@ -28,24 +26,12 @@ class TaskRequestItem extends React.Component {
           <li>
           Date : {this.props.taskRequest.day}
           </li>
-          { /*
-          <li>
-          Address : {//this.props.taskRequest.address
-        }
-          </li>
-        */ }
           <li>
           Price : $ {this.props.taskRequest.rate*this.props.taskRequest.hours }
           </li>
           <li>
           Hours : {this.props.taskRequest.hours}
           </li>
-          {/*
-          <li>
-          Hourly Rate : $ {//this.props.taskRequest.rate
-        }
-          </li>
-        */}
           <li>
           </li>
           </ul>

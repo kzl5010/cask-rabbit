@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Tooltip, Col, FormGroup, FormControl, Clearfix, Row, InputGroup } from 'react-bootstrap';
+import { Modal, Button, Tooltip, Col, FormControl, InputGroup } from 'react-bootstrap';
 //TODO ADD VERIFICATION WITHIN THE MODAL USING BOOTSTRAP
 class SignupModal extends React.Component {
   constructor(props){

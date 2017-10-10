@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
   errors: state.taskRequests.errors,
   taskers: state.taskers,
   tasks: state.tasks
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   createTaskRequest: taskRequest => dispatch(createTaskRequest(taskRequest)),

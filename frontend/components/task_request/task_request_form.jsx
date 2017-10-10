@@ -1,8 +1,5 @@
 import React from 'react';
-// import PlacesAutocomplete, { geocodeByAddress } from 'react-places-autocomplete';
 import moment from 'moment';
-// import DatePicker from 'react-datepicker';
-import TaskerIndexContainer from '../tasker/tasker_index_container';
 import GreetingContainer from '../home_page/greeting_container';
 import FirstForm from './first_form';
 import SecondForm from './second_form';
@@ -14,8 +11,6 @@ class TaskRequestForm extends React.Component {
     super(props);
     this.state = {
       stage: 1,
-      // task_id: this.props.params.taskId,
-      // address: "",
       form: {
         details: null,
         task_id: this.props.params.taskId,
@@ -26,7 +21,6 @@ class TaskRequestForm extends React.Component {
         date: moment(),
         hours: 1
       },
-      // details: "",
       errors: null
     };
 
@@ -87,7 +81,6 @@ class TaskRequestForm extends React.Component {
       $('#2').addClass('stage-complete');
       $('#3').addClass('stage-active');
     } else if (this.state.stage === 3){
-      // this.handleSubmit();
       let taskRequest = this.state;
       taskRequest.date = this.state.form2.date.toDate();
       taskRequest.tasker_id = this.state.form2.tasker_id;
@@ -97,8 +90,6 @@ class TaskRequestForm extends React.Component {
       taskRequest.address = this.state.form.address;
       taskRequest.user_id = this.props.currentUser.id;
       taskRequest.form2 = null;
-      // console.log(taskRequest);
-      // taskRequest.task_id = this.props.params.taskId;
       this.props.createTaskRequest(taskRequest);
       hashHistory.push("/")
     }
@@ -134,7 +125,6 @@ class TaskRequestForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // e.preventDefault();
     let taskRequest = this.state;
     taskRequest.date = taskRequest.form2.date.toDate();
     taskRequest.tasker_id = this.state.form2.tasker_id;
@@ -143,15 +133,7 @@ class TaskRequestForm extends React.Component {
     taskRequest.task_id = this.state.form.task_id;
     taskRequest.address = this.state.form.address;
     taskRequest.user_id = this.props.currentUser.id;
-    // taskRequest.task_id = this.props.params.taskId;
     this.props.createTaskRequest(taskRequest);
-    // this.setState({
-    //   address: "",
-    //   tasker_id: "",
-    //   date: moment(),
-    //   details: "",
-    //   hours: 1
-    // });
   }
 
   renderErrors() {
@@ -222,59 +204,7 @@ class TaskRequestForm extends React.Component {
         </div>
       </section>
     )
-    // return (
-    //     <section className="taskRequest-container">
-    //       <form className="taskRequest-form" onSubmit={this.handleSubmit}>
-    //         <br/>
-    //         <br/>
-    //         <h4>Task Request</h4>
-    //         <div id="alert">{  this.renderErrors()   } </div>
-    //         <ul className="taskRequest-entries">
-    //           <li>Select Task:  &nbsp; &nbsp;
-    //             <select value={this.state.task_id} onChange={this.handleChange("task_id")}>
-    //             { taskOptions
-    //             }
-    //             </select>
-    //           </li>
-    //           <br/>
-    //           <li> Select Date :
-    //             <DatePicker selected={this.state.date} onChange={this.changeDate} className="none"/>
-    //           </li>
-    //           <br/>
-    //           <br/>
-    //           <li>
-    //             <PlacesAutocomplete value={this.state.address} onChange={this.onChange} />
-    //           </li>
-    //         <br/>
-    //         <li>
-    //           <label>Details for Tasker
-    //           <textarea value={this.state.details} placeholder="Describe the task for the Tasker"
-    //           onChange={this.handleChange("details")} className="taskRequest-form-text" />
-    //           </label>
-    //         </li>
-    //         <br/>
-    //           <li>
-    //             <label>Hours of work for Tasker &nbsp;&nbsp;
-    //             <input type="number" value={this.state.hours} placeholder="1"
-    //             onChange={this.handleChange("hours")} className="taskRequest-form-number"
-    //             min="1.0" max="10" step="0.5"/>
-    //             </label>
-    //           </li>
-    //         <br/>
-    //           <li> Tasker :  &nbsp;
-    //             <select value={this.state.tasker_id} onChange={this.handleChange("tasker_id")}>
-    //             {taskerOptions
-    //             }
-    //             </select>
-    //           </li>
-    //         </ul>
-    //         <TaskerIndexContainer updateTasker={this.updateTasker} hours={this.state.hours}/>
-    //         <button className="taskRequest-button" type="submit"> <div>Confirm Request?</div>
-    //         </button>
-    //       </form>
-    //     </section>
-    //
-    // );
+
   }
 }
 

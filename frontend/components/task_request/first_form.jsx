@@ -18,11 +18,6 @@ class FirstForm extends React.Component {
     this.updateTasker = this.updateTasker.bind(this);
   }
 
-  componentDidMount() {
-    // this.props.fetchTasks();
-    // this.props.fetchTaskers();
-  }
-
   handleChange(field) {
     return e => {
       this.setState({[field]: e.target.value});
@@ -65,11 +60,6 @@ class FirstForm extends React.Component {
   }
 
   render() {
-    // if (!this.props.currentUser) {
-    //   return (
-    //     <GreetingContainer/>
-    //   );
-    // }
 
     const AutocompleteItem = ({ suggestion }) => (<div><i className="fa fa-map-marker"/>{suggestion}</div>)
 
@@ -79,11 +69,6 @@ class FirstForm extends React.Component {
         <option key={i} value={task.id}>{task.title}</option>
       ));
     }
-    // if (this.props.taskers.taskers) {
-    //   taskerOptions = this.props.taskers.taskers.map((tasker, i)=>(
-    //     <option key={i} value={tasker.id}>{tasker.name}</option>
-    //   ));
-    // }
     return (
       <form className="first-form" onSubmit={this.handleSubmit}>
           <h4>Task Request</h4>

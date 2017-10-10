@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 
 class ThirdForm extends React.Component {
   constructor(props) {
@@ -19,7 +18,6 @@ class ThirdForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.updateForm(this.state);
     this.props.nextStage(e);
   }
 

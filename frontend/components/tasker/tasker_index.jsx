@@ -21,20 +21,6 @@ class TaskerIndex extends React.Component {
       </section>
     )
   }
-};
-//
-// const TaskerIndex = ({ taskers }) => {
-//   if (taskers) {
-//     return (
-//           <section className="taskers-index">
-//             <ul className="tasker-index-list">
-//               {taskers.map(tasker => (
-//                 <TaskerItem key={tasker.id} tasker={tasker}/>
-//               ))}
-//             </ul>
-//           </section>
-//         )
-//   }
-// }
+}
 
 export default TaskerIndex;

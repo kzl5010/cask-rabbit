@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = dispatch => ({
   fetchTasker: (taskerId) => dispatch(fetchTasker(taskerId))
-})
+});
 
 //Filter out to only within users zip code?
 

@@ -22,7 +22,6 @@ const TaskRequestsReducer = (state = { errors: [] }, action) => {
           newState.task_requests.splice(i, 1);
         }
       }
-      // delete newState.task_requests[j];
       return newState;
     case RECEIVE_TASK_REQUEST_ERRORS:
       const errors = action.errors;

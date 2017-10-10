@@ -13,11 +13,6 @@ class SessionForm extends React.Component {
 		this.redirectIfLoggedIn();
 	}
 
-	// componentDidMount() {
-	// 	const container = document.getElementById("container");
-	// 	$(container).addClass("login-page");
-	// }
-
 	redirectIfLoggedIn() {
 		if (this.props.loggedIn) {
 			this.props.router.push("/");
@@ -61,12 +56,6 @@ class SessionForm extends React.Component {
 			return (
 				<div className="login-form-container">
 					<form onSubmit={this.handleSubmit} className="login-form-box">
-						{ // <div className="welcome-text">
-					}
-			{ /* <br/>
-						<br/>
-						</div>
-					*/}
 				<h1 className="welcome-screen-text">	Get Help Fast  </h1>
 						<div className="login-form">
 							<p>

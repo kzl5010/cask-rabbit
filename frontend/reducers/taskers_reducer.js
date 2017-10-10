@@ -13,15 +13,6 @@ const TaskersReducer = (state = { errors: [] }, action) => {
       return merge({}, state, {[tasker.id]: tasker});
     case RECEIVE_TASKERS:
       return action.taskers;
-    // case REMOVE_TASKER:
-    //   let newState = merge({}, state);
-    //   delete newState[action.taskRequest.id];
-    //   return newState;
-    // case RECEIVE_TASKER_ERRORS:
-    //   const errors = action.errors;
-    //   return merge({}, state, {
-    //     errors
-    //   });
     default:
       return state;
     }

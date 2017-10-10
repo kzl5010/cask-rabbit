@@ -14,7 +14,7 @@ class Greeting extends React.Component {
   }
 
   redirectToTaskRequest(e) {
-    e.preventDefault()
+    e.preventDefault();
     this.props.router.push("/task_request");
   }
 
@@ -22,11 +22,6 @@ class Greeting extends React.Component {
     e.preventDefault();
     const guest = {email: "fakeaccount@gmail.com", password :"password"}
     this.props.login({user: guest});
-    // this.props.login({guest});
-    // this.props.login(guest);
-    // this.setState({user: guest});
-    // debugger;
-    // console.log({guest});
   }
 
   render() {

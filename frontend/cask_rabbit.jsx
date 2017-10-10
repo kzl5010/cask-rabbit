@@ -15,5 +15,3 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(<Root store={store}/>, document.getElementById("root"));
 });
 
-//use react-carousel?
-//session_api_util for user profile or whole new thing? 
