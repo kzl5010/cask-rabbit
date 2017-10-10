@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router';
+import { Link } from 'react-router';
 import TaskIndexContainer from '../tasks/task_index_container';
 import TaskRequestIndexContainer from '../task_request/task_request_index_container';
-import { Modal, Button, Grid, Tooltip, Col, FormGroup, FormControl, Clearfix, Row,
-  InputGroup, ButtonGroup, Jumbotron, PageHeader, Image } from 'react-bootstrap';
+import { Jumbotron } from 'react-bootstrap';
 
 class Greeting extends React.Component {
   constructor(props){
@@ -27,7 +26,7 @@ class Greeting extends React.Component {
     // this.props.login(guest);
     // this.setState({user: guest});
     // debugger;
-    console.log({guest});
+    // console.log({guest});
   }
 
   render() {
@@ -119,9 +118,6 @@ class Greeting extends React.Component {
     </Jumbotron>
 
     );
-    // if (this.user) {
-    //   return personalGreeting;
-    // }
 
     return unloggedGreeting;
   }

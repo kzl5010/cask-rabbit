@@ -64130,7 +64130,7 @@
 	      // this.props.login(guest);
 	      // this.setState({user: guest});
 	      // debugger;
-	      console.log({ guest: guest });
+	      // console.log({guest});
 	    }
 	  }, {
 	    key: 'render',
@@ -64310,9 +64310,6 @@
 	          )
 	        )
 	      );
-	      // if (this.user) {
-	      //   return personalGreeting;
-	      // }
 	
 	      return unloggedGreeting;
 	    }
@@ -90440,7 +90437,7 @@
 	          _reactBootstrap.Button,
 	          { className: 'pull-right',
 	            bsStyle: 'link',
-	            bsSize: 'medium',
+	            bsSize: 'sm',
 	            onClick: this.open
 	          },
 	          ' Login'
@@ -90448,22 +90445,14 @@
 	        _react2.default.createElement(
 	          _reactBootstrap.Modal,
 	          { show: this.state.showModal, onHide: this.close },
-	          _react2.default.createElement(
-	            _reactBootstrap.Modal.Header,
-	            { closeButton: true },
-	            _react2.default.createElement(
-	              _reactBootstrap.Col,
-	              { md: 12 },
-	              _react2.default.createElement(_reactBootstrap.Image, { src: 'https://res.cloudinary.com/dsaxhw9ii/image/upload/v1495010116/Logomakr_0lSyvU_j6ldwz.png', alt: 'logo', className: 'logo-img' })
-	            )
-	          ),
+	          _react2.default.createElement(_reactBootstrap.Modal.Header, { closeButton: true }),
 	          _react2.default.createElement(
 	            _reactBootstrap.Modal.Body,
 	            null,
 	            _react2.default.createElement(
 	              'h1',
 	              { className: 'welcome-screen-text text-center' },
-	              ' Get your racquet fast  '
+	              ' Get Learning!  '
 	            ),
 	            _react2.default.createElement(
 	              'form',
